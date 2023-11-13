@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Carousel extends Component {
     state = {  } 
     render() { 
-        return <div id="carouselExampleIndicators" className="carousel slide">
+        return <div id="carouselExampleIndicators" className="carousel slide" style={{ overflow: 'hidden', maxWidth: '100%' }}>
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -12,13 +12,13 @@ class Carousel extends Component {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015643_1280.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015653_1280.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_fs.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015664_1280.jpg" className="d-block w-100" alt="..."/>
+            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_h.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

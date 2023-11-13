@@ -13,8 +13,8 @@ class App extends Component {
         return <React.Fragment>
             <Navabr/>
             <Carousel/>
-            <Pricing/>
             <Album/>
+            <Pricing/>
             <Footer/>
             </React.Fragment>;
     }
