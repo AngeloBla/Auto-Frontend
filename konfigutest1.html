@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!-- meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+
+    <!--font-family-->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet"> -->
+
+    <!-- title of site -->
+    <title>konfigurator</title>
+
+    <!-- For favicon png -->
+    <link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+
+    <!--font-awesome.min.css-->
+    <!-- <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+
+    <!--linear icon css-->
+    <link rel="stylesheet" href="assets/css/linearicons.css">
+
+    <!--flaticon.css-->
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+
+    <!--animate.css-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!--owl.carousel.css-->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- bootsnav -->
+    <link rel="stylesheet" href="assets/css/bootsnav.css">
+    
+    <!--style.css-->
+    <link rel="stylesheet" href="style.css">
+    
+    <!--responsive.css-->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- [if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"> -->
+
+</head>
+<body>
+    <section id="home" class="welcome-hero">
+
+        <!-- top-area Start -->
+        <div class="top-area">
+            <div class="header-area">
+                <!-- Start Navigation -->
+                <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+                    <div class="container">
+
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="index.html">carvilla<span></span></a>
+
+                        </div><!--/.navbar-header-->
+                        
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                <li class=" scroll active"><a href="#home">home</a></li>
+                                <li class="scroll"><a href="#service">service</a></li>
+                                <li class="scroll"><a href="#featured-cars">featured cars</a></li>
+                                <li class="scroll"><a href="#new-cars">new cars</a></li>
+                                <li class="scroll"><a href="#brand">brands</a></li>
+                                <li class="scroll"><a href="#contact">contact</a></li>
+                                <li class="button"><a href="kunden_login.html">login</a></li>
+                                <li class="button"><a href="Registrierung.html">registrieren</a></li>
+                            </ul><!--/.nav -->
+                        </div><!-- /.navbar-collapse -->
+                    </div><!--/.container-->
+                </nav><!--/nav-->
+                <!-- End Navigation -->
+            </div><!--/.header-area-->
+            <div class="clearfix"></div>
+
+        </div><!-- /.top-area-->
+        <!-- top-area End -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="model-search-content">
+                        <div class="row"></div>
+                            <div class="col-md-offset-1 col-md-2 col-sm-12">
+                                <div class="left-panel">
+                                    <h2>Auswahl</h2>
+                                    <p id="selectedOption">Bitte eine Auswahl treffen</p>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Zahlungsart</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control" id="zahlungsart">
+                                            <option value="leasing">Leasing</option>
+                                            <option value="1xZahlung">1x Zahlung</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Laufzeit -->
+                                <div class="single-model-search" id="laufzeit-container">
+                                    <h2>Laufzeit (Monate)</h2>
+                                    <div class="model-select-icon">
+                                        <input type="number" class="form-control" id="laufzeit" min="12" max="60" required>
+                                    </div>
+                                </div>
+
+                                <!-- Laufleistung in km/Jahr -->
+                                <div class="single-model-search" id="laufleistung-container">
+                                    <h2>Laufleistung in km/Jahr</h2>
+                                    <div class="model-select-icon">
+                                        <input type="number" class="form-control" id="laufleistung" min="10000" max="30000" step="1000" required>
+                                    </div>
+                                </div>
+
+                                <!-- Anzahlung -->
+                                <div class="single-model-search">
+                                    <h2>Anzahlung (Euro)</h2>
+                                    <div class="model-select-icon" id="model-select-icon">
+                                        <input type="number" class="form-control" id="anzahlung" min="0" step="1000">
+                                    </div>
+                                </div>
+
+                                <!-- ################################# -->
+
+                                <!-- ServiceProdukte Auswahl -->
+                                <div class="single-model-search">
+                                    <h2>ServiceProdukte</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="wartung_verschleiss">Wartung & Verschleiß</option>
+                                            <option value="ueberfuehrung">Überführungskosten</option>
+                                            <option value="kfz_versicherung">KFZ-Versicherung</option>
+                                            <option value="zulassungsservice">Zulassungsservice</option>
+                                            <option value="mobilitaetsgarantie">Mobilitätsgarantie Plus</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Motor</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="2.0-EcoBlue-XL">2.0 EcoBlue (Diesel Euro6) 125kW Extrakab. 4x4 XL
+                                                170 PS, 4x4-Antrieb
+                                                8,4 l/100km | CO² komb.: 221 g/km</option>
+                                            <option value="4.0-MagaTurbo-XL">4.0 S/C Spezial (Benzin) 257kW 4x4 XL
+                                                350 PS, 4x4-Antrieb
+                                                16,5 l/100km | CO² komb.: xxl g/km</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Getriebe</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="automatic">automatik Schaltung 6 Gang</option>
+                                            <option value="manual">manuelle Schaltung 6 Gang</option>
+                                            <option value="automatic-diff">automatik Schaltung 6 Gang mit differential Getriebe und Sperre</option>
+                                            <option value="manual-diff">manuelle Schaltung 6 Gang mit differential Getriebe und Sperre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2 id="aussenfarbe">Aussenfarbe</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control" id="aussenfarbeSelect">
+                                            <option value="green">olive grün</option>
+                                            <option value="red">Rot</option>
+                                            <option value="yellow">Gelb</option>
+                                            <option value="black">Schwarz</option>
+                                            <option value="white">Weiß</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Motorhaube Farbe</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="standard-hood">standard Weiß</option>
+                                            <option value="greeen-hood">olive Grün</option>
+                                            <option value="red-hood">Rot</option>
+                                            <option value="yellow-hood">Gelb</option>
+                                            <option value="black-hood">Schwarz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Dachfarbe</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="standard-roof">standard Weiß</option>
+                                            <option value="greeen-roof">olive Grün</option>
+                                            <option value="red-roof">Rot</option>
+                                            <option value="yellow-roof">Gelb</option>
+                                            <option value="black-roof">Schwarz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Dachträger</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="roof-rack0">kein Dachträger</option>
+                                            <option value="roof-rack1">standard Schwarz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Innenausstattung wählen</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="stoff-ebony">Stoff Ebony
+                                                Sitzbezüge: Stoff Farbe Schwarz</option>
+                                            <option value="leather">Leder
+                                                Sitzbezüge: Leder Farbe Schwarz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Pakete</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="flotten-paket-1">Flotten-Paket 1 mit: Bodenbelag Plastik/Gummi, Verstärktes Fahrwerk</option>
+                                            <option value="komfort-paket-2">Komfort-Paket 2 mit: Spannungskonverter 400 Watt, Schaltersatz - 6 Schalter</option>
+                                            <option value="outdoor-paket-2">Outdoor-Paket 3 mit: Unterbodenschutzvorrichtung an Kraftstofftank und Motor</option>
+                                            <option value="winter-paket-1">Winter-Paket 1 mit: Lenkrad beheizt, Fahrersitz und Beifahrersitz Vordersitze mit Sitzheizung, Beheizbare Windschutzscheibe, Klimaanlage, manuell</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Innenausstattung</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="rubber-floor-mat">Gummifussmatte</option>
+                                            <option value="fabric-floor-mat">Stofffussmatte</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Karosserie</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control"><option value="hitch">Anhängevorrichtung, 13 polig</option>
+                                            <option value="underbody-protection">Unterbodenschutz auf Wachsbasis</option>
+                                            <option value="mudguard">Spritzschutz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Scheiben getönt</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="getoentescheiben0">keine getönte Scheiben</option>
+                                            <option value="getoentescheiben20">getönte Scheiben 20%</option>
+                                            <option value="getoentescheiben40">getönte Scheiben 40%</option>
+                                            <option value="getoentescheiben80">getönte Scheiben 80%</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Reifen</h2>
+                                    <div class="model-select-icon">
+                                        <label>
+                                            <input type="checkbox" class="form-control" value="sommer"checked> Sommer Reifen
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="form-control" value="winter"> Winter Reifen
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" class="form-control" value="all-season-tire"> Ganzjahresreifen
+                                        </label>
+                                    </div>
+                                    <button type="button" id="resetButton">Reifen Option Reset</button>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Schlösser</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="diebstahl-alarmanlage">Diebstahl-Alarmanlage</option>
+                                            <option value="Zentralverriegelung">Zentralverriegelung</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Audio</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="audiosystem-44">Audiosystem 44</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="single-model-search">
+                                    <h2>Abhohlort auswählen</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control">
+                                            <option value="muenchen">München</option>
+                                            <option value="stuttgart">Stuttgart</option>
+                                            <option value="berlin">Berlin</option>
+                                            <option value="potsdam">Potsdam</option>
+                                            <option value="bremen">Bremen</option>
+                                            <option value="hamburg">Hamburg</option>
+                                            <option value="wiesbaden">Wiesbaden</option>
+                                            <option value="schwerin">Schwerin</option>
+                                            <option value="hannover">Hannover</option>
+                                            <option value="duesseldorf">Düsseldorf</option>
+                                            <option value="mainz">Mainz</option>
+                                            <option value="saarbruecken">Saarbrücken</option>
+                                            <option value="dresden">Dresden</option>
+                                            <option value="dresden" style="font-weight: bold;">Lieferung bis zur Haustür</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="fixed-image-panel">
+        <img id="selectedImage" src="" alt="Ausgewähltes Bild">
+    </div>
+
+    <div class="fixed-bar" id="fixed-bar">
+        <div class="price-panel">
+            <h2>Preise</h2>
+            <div id="price-display">Gesamtpreis: 0 €</div>
+        </div>
+    </div>
+    <!-- </section> -->
+
+<!--  ################## Funktionen ################## -->
+
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js">
+
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+
+</script>
+
+    <script>
+// ############### Zahlungsart ####################
+
+        $(document).ready(function () {
+    // Setze Sommerreifen als Standard ausgewählt
+    $('input[type="checkbox"][value="sommer"]').prop('checked', true);
+
+    // Hinzufügen des Event Listeners für die Änderung der Zahlungsart
+    const zahlungsartSelect = document.getElementById("zahlungsart");
+    const laufzeitContainer = document.getElementById("laufzeit-container");
+    const laufleistungContainer = document.getElementById("laufleistung-container");
+
+    zahlungsartSelect.addEventListener("change", function () {
+        if (zahlungsartSelect.value === "leasing") {
+            laufzeitContainer.style.display = "block";
+            laufleistungContainer.style.display = "block";
+        } else {
+            laufzeitContainer.style.display = "none";
+            laufleistungContainer.style.display = "none";
+        }
+    });
+// ############ Reifen ############
+    $(document).ready(function () {
+    var ganzjahresCheckbox = $('input[type="checkbox"][value="all-season-tire"]');
+    var sommerCheckbox = $('input[type="checkbox"][value="sommer"]');
+    var winterCheckbox = $('input[type="checkbox"][value="winter"]');
+
+    // Setze Sommerreifen als Standard ausgewählt
+    sommerCheckbox.prop('checked', true);
+
+    // Hinzufügen des Event Listeners für die Änderung der Checkboxen
+    $('input[type="checkbox"]').change(function () {
+        updateOptions($(this));
+    });
+
+    // Hinzufügen des Event Listeners für den Reset-Button
+    $('#resetButton').click(function () {
+        // Setze alle Checkboxen auf aktiviert
+        $('input[type="checkbox"]').prop('checked', false).prop('disabled', false);
+        sommerCheckbox.prop('checked', true);
+    });
+
+    // Hinzufügen des Event Listeners für die Änderung der Ganzjahresreifen-Checkbox
+    ganzjahresCheckbox.change(function () {
+        updateGanzjahresCheckbox();
+    });
+
+    // Funktion zum Aktualisieren der Checkboxen
+    function updateOptions(clickedCheckbox) {
+        var selectedValue = clickedCheckbox.val();
+
+        if (selectedValue === 'all-season-tire') {
+            // Wenn Ganzjahresreifen ausgewählt ist, deaktiviere Sommer- und Winterreifen
+            sommerCheckbox.prop('checked', false).prop('disabled', true);
+            winterCheckbox.prop('checked', false).prop('disabled', true);
+        } else {
+            // Wenn Ganzjahresreifen nicht ausgewählt ist, aktiviere Sommer- und Winterreifen
+            // sommerCheckbox.prop('disabled', !sommerCheckbox.is(':checked') && !ganzjahresCheckbox.is(':checked'));
+            // winterCheckbox.prop('disabled', !winterCheckbox.is(':checked') && !ganzjahresCheckbox.is(':checked'));
+        }
+
+        // Wenn Sommerreifen oder Winterreifen ausgewählt sind, deaktiviere Ganzjahresreifen
+        if ((sommerCheckbox.is(':checked') || winterCheckbox.is(':checked')) && ganzjahresCheckbox.is(':checked')) {
+            ganzjahresCheckbox.prop('checked', false);
+            updateGanzjahresCheckbox();
+        }
+    }
+
+    // Funktion zum Aktualisieren der Ganzjahresreifen-Checkbox
+    function updateGanzjahresCheckbox() {
+        // Wenn Ganzjahresreifen abgewählt wird, aktiviere Sommer- und Winterreifen
+        if (!ganzjahresCheckbox.is(':checked')) {
+            sommerCheckbox.prop('disabled', false);
+            winterCheckbox.prop('disabled', false);
+        }
+    }
+});
+    // Javascript für Reifen Ende
+
+// #########################################
+
+    // Funktion zum Laden des Bildes basierend auf der Auswahl
+    // 
+
+    // Funktion zum Berechnen des Preises
+    // function calculatePrice() {
+    //     // ...
+    // }
+
+    // // Funktion zum Aktualisieren der festen Leiste
+    // function updateFixedBar() {
+    //     // ...
+    // }
+
+    // // Initialisieren der Anzeige
+    // initializeDisplay();
+
+    // // Funktion zum Initialisieren der Anzeige
+   style // function initializeDisplay() {
+    //     updateLaufzeitAndLaufleistungDisplay();
+    //     updateFixedBar();
+    //     calculateAndDisplayPrice();
+    //    loadCarImage("https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg"); }
+
+    // Funktion zum Überprüfen und Aktualisieren der Anzeige
+    function updateLaufzeitAndLaufleistungDisplay() {
+        if (zahlungsartSelect.value === "leasing") {
+            laufzeitContainer.style.display = "block";
+            laufleistungContainer.style.display = "block";
+        } else {
+            laufzeitContainer.style.display = "none";
+            laufleistungContainer.style.display = "none";
+        }
+    }
+
+    // Funktion zum Aktualisieren der Optionen
+    function updateOptions(clickedCheckbox) {
+        // ...
+    }
+
+    // Weitere Funktionen hier...
+});
+
+
+        // test ende
+
+        // Funktion zum Laden des Bildes basierend auf der Auswahl
+
+
+
+            // Aktualisiere die Bildquelle
+            document.getElementById('selectedImage').src = imagePath;
+        }
+
+    // Fügen Sie weitere Fälle für andere Auswahlmöglichkeiten hinzu
+
+
+        // Hinzufügen eines Event Listeners zu den Dropdown-Elementen
+        document.getElementById('aussenfarbeSelect').addEventListener('change', function () {
+            var selectedOption = this.value;
+            document.getElementById('aussenfarbe').textContent = 'Auswahl: ' + selectedOption;
+            loadCarImage(selectedOption);
+        });
+
+        // Funktion zum Initialisieren der Anzeige
+        function initializeDisplay() {
+    // Holen Sie die ausgewählte Außenfarbe
+    var selectedOption = document.getElementById('aussenfarbeSelect').value;
+
+    // Überprüfen, ob eine Außenfarbe ausgewählt wurde
+    if (selectedOption) {
+        // Setze das Bild basierend auf der ausgewählten Außenfarbe
+        loadCarImage(selectedOption);
+    } else {
+        // Setze das Standardbild, wenn keine Auswahl getroffen wurde
+        document.getElementById('selectedImage').src = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg';
+    }
+}
+            // Initialisieren der Anzeige, wenn die Seite geladen ist
+            window.onload = initializeDisplay;
+                // Fügen Sie weitere Event Listener für andere Dropdowns hinzu
+            // Rufe die initializeDisplay-Funktion auch direkt auf, falls das Fenster bereits geladen wurde
+        if (document.readyState === 'complete') {
+            initializeDisplay();
+        }
+       
+
+    
+    // Preisberechnung
+// Preisberechnungsfunktion
+// function calculatePrice() {
+//     // Holen Sie die ausgewählten Optionen
+//     var zahlungsart = document.getElementById('zahlungsart').value;
+//     var motor = document.getElementById('motor').value;
+//     // Fügen Sie weitere ausgewählte Optionen hinzu
+
+//     // Beispiel-Preise für jede Auswahlmöglichkeit
+//     var motorPrice = {
+//         '2.0-EcoBlue-XL': 10000,
+//         '4.0-MagaTurbo-XL': 15000,
+//         // Weitere Optionen hinzufügen
+//     };
+
+//     // Beispiel-Preis für ServiceProdukte
+//     var servicePrice = {
+//         'wartung_verschleiss': 500,
+//         'ueberfuehrung': 1000,
+//         'kfz_versicherung': 800,
+//         'zulassungsservice': 200,
+//         'mobilitaetsgarantie': 300,
+//     };
+
+//     // Berechnen Sie den Gesamtpreis basierend auf den ausgewählten Optionen
+//     var total = motorPrice[motor] || 0;  // Motorpreis
+//     // Fügen Sie weitere Preise für ausgewählte Optionen hinzu
+
+//     // Berechnen Sie den ServiceProdukte-Preis
+//     var selectedService = document.querySelector('.single-model-search:nth-child(8) select').value;
+//     total += servicePrice[selectedService] || 0;
+
+//     // Aktualisieren Sie die Anzeige
+//     document.getElementById('price-display').textContent =
+//         (zahlungsart === 'leasing' ? 'Monatsbetrag: ' : 'Gesamtpreis: ') + total + ' €';
+// }
+
+// // Hinzufügen von Event Listeners für Änderungen in den Dropdown-Elementen
+// document.getElementById('motor').addEventListener('change', calculatePrice);
+// // Fügen Sie Event Listener für andere Dropdowns hinzu
+
+// // Innerhalb der calculatePrice-Funktion
+// document.getElementById('total-price').textContent = total + ' €';
+
+// // Funktion zum Aktualisieren der festen Leiste
+// function updateFixedBar() {
+//         var fixedBar = document.getElementById('fixed-bar');
+//         var zahlungsart = document.getElementById('zahlungsart').value;
+
+//         Entscheiden Sie, ob die feste Leiste angezeigt oder ausgeblendet werden soll
+//         if (zahlungsart === 'leasing') {
+//             fixedBar.style.display = 'block';
+//         } else {
+//             fixedBar.style.display = 'none';
+//         }
+//     }
+
+//     // Fügen Sie Event Listener für Zahlungsart hinzu
+//     zahlungsartSelect.addEventListener('change', function () {
+//         updateFixedBar();
+//         calculateAndDisplayPrice(); // Aktualisieren Sie auch den Preis bei Änderungen der Zahlungsart
+//     });
+
+//     // Funktion zum Initialisieren der Anzeige
+//     function initializeDisplay() {
+//         updateFixedBar();
+//         calculateAndDisplayPrice();
+//     }
+
+//     // Initialisieren Sie die Anzeige, wenn die Seite geladen ist
+    // window.onload = initializeDisplay;
+//     
+
+//     // Das Bild aktualisieren
+//     document.getElementById('selectedImage').src = imagePath;
+// }
+    
+
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+    if (imageUrl) {
+        document.getElementById('imageDisplay').src = imageUrl;
+    }
+
+</script>
+<div><label for="motorhaubeFarbeSelect">Motorhaubenfarbe: </label><select id="motorhaubeFarbeSelect" onchange="loadMotorhaubefarbeImage(this.value)"><option value="">Wählen Sie eine Option</option></select></div>
+<div><label for="dachFarbeSelect">Dachfarbe: </label><select id="dachFarbeSelect" onchange="loadDachfarbeImage(this.value)"><option value="">Wählen Sie eine Option</option></select></div>
+<div><label for="dachtraegerSelect">Dachträger: </label><select id="dachtraegerSelect" onchange="loadDachtraegerImage(this.value)"><option value="">Wählen Sie eine Option</option></select></div>
+<div><label for="scheibenGetoentSelect">Scheiben getönt: </label><select id="scheibenGetoentSelect" onchange="loadScheibengetoentImage(this.value)"><option value="">Wählen Sie eine Option</option></select></div>
+<div><img id="imageDisplay" src="" alt="Selected Option Image" style="max-width: 100%; height: auto;"></div>
+function loadMotorhaubefarbeImage(selectedValue) {
+    var imageUrl = "";
+    switch (selectedValue) {
+        
+        case "option1": imageUrl = "https://example.com/image1.jpg"; break;
+        case "option2": imageUrl = "https://example.com/image2.jpg"; break;
+    }
+function loadDachfarbeImage(selectedValue) {
+    var imageUrl = "";
+    switch (selectedValue) {
+        case "option1": imageUrl = "https://example.com/image1.jpg"; break;
+        case "option2": imageUrl = "https://example.com/image2.jpg"; break;
+    }
+function loadDachtraegerImage(selectedValue) {
+    var imageUrl = "";
+    switch (selectedValue) {
+        
+        case "option1": imageUrl = "https://example.com/image1.jpg"; break;
+        case "option2": imageUrl = "https://example.com/image2.jpg"; break;
+    }
+function loadScheibengetoentImage(selectedValue) {
+    var imageUrl = "";
+    switch (selectedValue) {
+        
+        case "option1": imageUrl = "https://example.com/image1.jpg"; break;
+        case "option2": imageUrl = "https://example.com/image2.jpg"; break;
+    }
+function loadCarImage(selection) {
+    //     // ...
+    // }
+function loadCarImage(selection) {
+            var imagePath;
+
+            switch (selection) {
+            case 'green':
+                imagePath = '1.jpg';
+                break;
+            case 'red':
+                imagePath = 'https://dein-s3-bucket-url/rot.jpg';
+                break;
+            case 'yellow':
+                imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg';
+                break;
+            case 'black':
+                imagePath = '';
+                break;
+            case 'white':
+                imagePath = 'https://dein-s3-bucket-url/weiss.jpg';
+                break;
+            default:
+                imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg'; // Standard-Bildpfad
+        }
+function loadCarImage(selection) {
+//     var imagePath;
+
+
+</body>
+</html>
+
+<script>
+  // Placeholder for prices (normally this would be fetched from a database)
+  const prices = {
+    "motorhaube-gruen": 100,
+    "motorhaube-rot": 120,
+    // Add more options as required
+  };
+
+  // Function to update the price based on selection
+  function updatePrice() {
+    // Get the selected part and payment method
+    var selectedPart = document.getElementById('part-selection').value;
+    var paymentMethod = document.getElementById('payment-method').value;
+
+    // Calculate the price
+    var partPrice = prices[selectedPart];
+    var totalPrice = partPrice; // In a real scenario, this would be a sum of all selected parts
+
+    // Update price display
+    document.getElementById('selected-part-price').textContent = 'Preis: ' + partPrice + '€';
+    if (paymentMethod === 'leasing') {
+      // Assuming a fixed number of monthly rates for demonstration
+      var monthlyRates = 12;
+      var monthlyRatePrice = totalPrice / monthlyRates;
+      document.getElementById('total-price').textContent = 'Gesamtmonatsrate: ' + monthlyRatePrice.toFixed(2) + '€';
+    } else {
+      document.getElementById('total-price').textContent = 'Gesamtpreis: ' + totalPrice + '€';
+    }
+  }
+</script>
