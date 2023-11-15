@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import Text1 from './albumtext';
+// import Text2 from './albumtext';
+// import Text3 from './albumtext';
+// import Text4 from './albumtext';
+// import Text5 from './albumtext';
+// import Text6 from './albumtext';
+// import Text7 from './albumtext';
 
 
 class Album extends Component {
