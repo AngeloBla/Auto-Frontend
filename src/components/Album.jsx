@@ -6,7 +6,7 @@ import Text1 from './albumtext';
 // import Text5 from './albumtext';
 // import Text6 from './albumtext';
 // import Text7 from './albumtext';
-
+// import { Text1, Text2, Text3 } from text.js
 
 class Album extends Component {
     state = {  } 
