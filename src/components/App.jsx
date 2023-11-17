@@ -4,6 +4,7 @@ import Carousel from './carousel';
 import Album from './Album';
 import Pricing from './Pricing';
 import Footer from './footer';
+import Galarie from './galarie';
 
 
 
@@ -13,6 +14,7 @@ class App extends Component {
         return <React.Fragment>
             <Navabr/>
             <Carousel/>
+            <Galarie/>
             <Album/>
             <Pricing/>
             <Footer/>

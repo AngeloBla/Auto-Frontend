@@ -30,14 +30,14 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               {/* Verwende Link für interne Links */}
-              <Link className="nav-link" to="/features">
-                Features
+              <Link className="nav-link" to="/konfig">
+                Konfigurator
               </Link>
             </li>
             <li className="nav-item">
               {/* Verwende Link für interne Links */}
-              <Link className="nav-link" to="/pricing">
-                Pricing
+              <Link className="nav-link" to="/signup">
+                Registrierung
               </Link>
             </li>
             <li className="nav-item">

@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import Text1 from './albumtext';
-// import Text2 from './albumtext';
-// import Text3 from './albumtext';
-// import Text4 from './albumtext';
-// import Text5 from './albumtext';
-// import Text6 from './albumtext';
-// import Text7 from './albumtext';
-// import { Text1, Text2, Text3 } from text.js
+import { Text1, Text2, Text3, Text4, Text5, Text6, Text7 } from './albumtext';
+
 
 class Album extends Component {
     state = {  } 
@@ -64,10 +58,6 @@ class Album extends Component {
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Album example</h1>
             <p className="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-            <p>
-              <a href="/" className="btn btn-primary my-2">Main call to action</a>
-              <a href="/" className="btn btn-secondary my-2">Secondary action</a>
-            </p>
           </div>
         </div>
       </section>
@@ -99,7 +89,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dach.jpg" width="100%" height="100%" />
               </svg>                
               <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text2}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
@@ -116,7 +106,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text3}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
@@ -134,7 +124,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text4}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
@@ -151,7 +141,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text5}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
@@ -168,7 +158,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text6}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
@@ -186,7 +176,7 @@ class Album extends Component {
                   <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spritzschutz.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
-                  <p className="card-text">{}</p>
+                  <p className="card-text">{Text7}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
                       <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
