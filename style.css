@@ -1,27 +1,190 @@
-
-
-.fixed-image-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 400px; /* Passe die Breite nach Bedarf an */
-    height: 100%;
-    background-color: #f0f0f0; /* Setze eine Hintergrundfarbe nach Wunsch */
-    overflow-y: auto; /* Aktiviere das Scrollen, wenn der Inhalt die Höhe überschreitet */
+body {
+    background-color:ivory ;
+  }
+input {
+    width: 50%;
+    margin-inline: 2%;
+    margin-bottom: 1%;
+}
+#zahlungsart {
+    width: 50%;
+}
+/* ################ toggle funktion ############## */
+.collapsible-content {
+    display: none; /* Versteckt die Elemente initial */
 }
 
+.toggle-button {
+    background-color: #007bff; /* Blaue Hintergrundfarbe */
+    color: white; /* Weiße Textfarbe */
+    padding: 10px 15px; /* Innenabstand */
+    border: none; /* Kein Rand */
+    border-radius: 5px; /* Abgerundete Ecken */
+    text-align: center; /* Zentrierter Text */
+    cursor: pointer; /* Cursor-Stil ändern */
+    transition: background-color 0.3s; /* Übergangseffekt für den Hintergrund */
+    font-size: 16px; /* Schriftgröße */
+    display: inline-block; /* Block-ähnliches Verhalten */
+    margin: 10px 0; /* Außenabstand */
+}
+.toggle-button:hover {
+    background-color: #0056b3; /* Dunklere Hintergrundfarbe beim Hover */
+}
+/* ################################################# */
+.container{
+    position: relative; /* Fügt relative Positionierung hinzu */
+    border: 5px solid blue;
+    width: 33%; /* Ein Drittel der Bildschirmbreite */
+    box-sizing: border-box; /* Stellt sicher, dass die Breite des Rahmens in die Gesamtbreite einbezogen wird */
+    overflow-wrap: break-word; /* Bevorzugte Methode, um Wörter umzubrechen */
+    font-size: 16px;
+    font-size: calc(0.5vw + 10px); /* Kombination aus relativer und fester Größe */
+}
+/* Überschreibt die overflow-wrap Einstellung speziell für #reifen */
+#reifen {
+    overflow-wrap: normal;
+}
+/* Auswahlfelder */
+.container select {
+    width: 50%;
+    margin-inline: 2%;
+    margin-bottom: 1%;
+}
+/* Auswahlfelder Anpassungen für Tablets */
+@media (max-width: 768px) {
+    .container select {
+        width: 90%; /* Etwas breiter für Tablet-Bildschirme */
+        margin-inline: 5%; /* Größerer Rand, um ein besseres Layout zu gewährleisten */
+    }
+}
+
+/* Auswahlfelder Anpassungen für Handys */
+@media (max-width: 480px) {
+    .container select {
+        width: 100%; /* Maximale Breite für Handy-Bildschirme */
+        margin-inline: 0; /* Kein Rand, um den verfügbaren Platz optimal zu nutzen */
+    }
+}
+@media (max-width: 768px) { /* Für Tablets */
+    .container {
+        width: 33.33%; /* Ein Drittel der Bildschirmbreite für Tablets */
+        top: 5%; /* Passen Sie diesen Wert an, wenn nötig */
+        font-size: 14px;
+    }
+}
+/* AutoBild Handy */
+@media (max-width: 480px) { /* Für Handys */
+    .container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0; /* Sorgt dafür, dass das Panel die volle Breite einnimmt */
+        width: 100%; /* Die volle Breite für sehr kleine Bildschirme */
+        height: auto; /* Passen Sie die Höhe an, um den Inhalt richtig anzuzeigen */
+        font-size: 12px;
+    }
+
+}
+/* Container AutoBild der auswahl */
+.fixed-image-panel {
+    border: 2px solid dimgray; /* Beispiel für Rahmen */
+    position: fixed; /* absolute = mitwanderndes bild */
+    top: 5px;
+    right: 0;
+    width: 66%; Ein Drittel der Bildschirmbreite
+    height: auto;
+    max-height: 100vh; /* Maximalhöhe, angepasst an den sichtbaren Bereich */   background-color: lightsteelblue; Setze eine Hintergrundfarbe nach Wunsch
+    overflow-y: auto; /* Aktiviere das Scrollen, wenn der Inhalt die Höhe überschreitet */
+}
+/* AutoBild */
 .fixed-image-panel img {
+    border: 2px solid yellowgreen; /* Beispiel für Rahmen */
     width: 100%;
     height: auto;
+    max-height: 100vh; /* Maximalhöhe, angepasst an den sichtbaren Bereich */   background-color: lightsteelblue; Setze eine Hintergrundfarbe nach Wunsch
     display: block;
     margin: 0 auto;
 }
+/* AutoBild Tabl */
+@media (max-width: 768px) { /* Für Tablets */
+    .fixed-image-panel {
+        width: 65%; /* Ein Drittel der Bildschirmbreite für Tablets */
+        top: 5%; /* Passen Sie diesen Wert an, wenn nötig */
+    }
+}
+/* AutoBild Handy */
+@media (max-width: 480px) { /* Für Handys */
+    .fixed-image-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0; /* Sorgt dafür, dass das Panel die volle Breite einnimmt */
+        width: 100%; /* Die volle Breite für sehr kleine Bildschirme */
+        height: auto; /* Passen Sie die Höhe an, um den Inhalt richtig anzuzeigen */
+    }
+
+}
+/* Preisbalken */
 .fixed-bar {
-    position: fixed;
+    position: static;
     bottom: 0;
     left: 0;
-    width: 100%;
-    background-color: #2610ec;
-    padding: 10px;
-    text-align: center;
+    width: 88%;
+    height: auto; 
+    margin:1.5%;
+    background-color:rgb(212, 210, 210);
+    border-radius:  5px;
+    padding: 0.5%;
+    font-size: 1vw;
+    font-size: min(max(12px, 1vw), 16px); /*Setzt eine Mindest- und Höchstgröße*/
+}
+/* Gesamtpreise */
+.price-panel {
+    padding-top: 0;
+    text-align:right;
+    padding-right: 5%;
+}
+/* Preisbalken Tab: */
+@media (max-width: 768px) { /* Für Tablets */
+    .fixed-bar {
+        padding: 8px; /* Etwas größerer Abstand für bessere Lesbarkeit */
+    }
+    /* Hier können Sie weitere Anpassungen für Tablets vornehmen */
+}
+/* Preisbalken Handy */
+@media (max-width: 480px) { /* Für Handys */
+    .fixed-bar {
+        padding: 10px; /* Größerer Abstand für Handys */
+    }
+    /* Hier können Sie weitere Anpassungen für Handys vornehmen */
+}
+/* Container Zahlungsmethode: */
+.zahlungsmethode {
+    border: 2px solid rgb(192, 25, 25); /* Beispiel für Rahmen */
+    box-sizing: border-box; /* Stellt sicher, dass die Breite des Rahmens in die Gesamtbreite einbezogen wird */
+}
+/* Container Zahlungsmethode Tab: */
+@media (max-width: 768px) { /* Für Tablets */
+    .zahlungsmethode {
+        /* width: 50%; Größere Breite für kleinere Bildschirme */
+        font-size: 90%; /* Etwas kleinere Schriftgröße */
+    }
+}
+/* Container Zahlungsmethode Handy: */
+@media (max-width: 480px) { /* Für Handys */
+    .zahlungsmethode {
+        /* width: 100%; Die volle Breite für sehr kleine Bildschirme */
+        font-size: 80%; /* Noch kleinere Schriftgröße */
+    }
+}
+/* Auswahl Reifen untereinander */
+#reifen label {
+    display: block;
+    margin-bottom: 10px; /* optionaler Abstand zwischen den Labels */
+}
+/* ########################################### */
+/* ausgeblendetet codteil zum testen */
+#test {
+    border: solid 2px violet;
+    display: none;
 }
