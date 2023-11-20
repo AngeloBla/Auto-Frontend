@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/sign-in.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './components/App';
 import Login from './components/login';
+import Konfig from './components/konfig';
+
 
 const root = document.getElementById('root');
 const rootElement = createRoot(root);
@@ -15,8 +17,8 @@ rootElement.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/" element={< />} />
-      <Route path="/" element={< />} /> */}
+      <Route path="/konfig" element={<Konfig />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   </Router>
 );
