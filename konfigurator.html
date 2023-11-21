@@ -13,12 +13,16 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container2">
         <!-- ########### Bild aus auswahl ########## -->
         <div class="fixed-image-panel">
             <img alt="Auto Bild" id="selectedImage" src="./testbilder/scheiben40getoent.png" onerror="this.onerror=null;this.src='error.jpg';">
         </div>
         <!-- ########### Bild ENDE ########## -->
+    </div>
+    <div class="container">
+    <p align="center" style="color:red; font-weight:bold">!-!-! Work in Progress !-!-!</p>
+
         <div class="zahlungsmethode">
             <div class="left-panel">
                 <h2>
@@ -105,6 +109,9 @@
             </div>
 
         </div>
+
+        <hr>
+
         <!-- ########## Auswahl Getriebe ########## -->
         <div class="single-model-search">
             <h3>
@@ -131,68 +138,43 @@
                 Getriebe Preis: 0 €
             </div>
         </div>
-        <!-- ####### Auswahl Autofarbe ######### -->
+
+        <hr>
+
+        <!-- ####### Auswahl Karosseriefarbe ######### -->
         <div class="single-model-search">
             <h3>
-                Wähle die Aussenfarbe des Autos
+                Wähle die Karosseriefarbe
             </h3>
-            <select class="form-select" id="carColor" onchange="loadCarImage()">
+            <select class="form-select" id="bodyColor" onchange="loadCarImage()">
                 <option value="red">Rot</option>
-                <option value="blue">
+                <option value="body-blue">
                     Blau
                 </option>
-                <option value="yellow">
+                <option value="body-yellow">
                     Gelb
                 </option>
-                <option value="red">
+                <option value="body-red">
                     Rot
                 </option>
-                <option value="green">
+                <option value="body-green">
                     olivegrün
                 </option>
-                <option value="black">
+                <option value="body-black">
                     Schwarz
                 </option>
-                <option value="white">
+                <option value="body-white">
                     Weiß
                 </option>
             </select>
         </div>
         <!-- Anzeigefenster für den Preis -->
-        <div class="price-display" id="carColorPrice">
+        <div class="price-display" id="bodyColorPrice">
             Außenfarbe Preis: 0 €
         </div>
-<!-- ####### Auswahl Karosseriefarbe ######### -->
-<div class="single-model-search">
-    <h3>
-        Wähle die Karosseriefarbe
-    </h3>
-    <select class="form-select" id="bodyColor" onchange="loadCarImage()">
-        <option value="red">Rot</option>
-        <option value="body-blue">
-            Blau
-        </option>
-        <option value="body-yellow">
-            Gelb
-        </option>
-        <option value="body-red">
-            Rot
-        </option>
-        <option value="body-green">
-            olivegrün
-        </option>
-        <option value="body-black">
-            Schwarz
-        </option>
-        <option value="body-white">
-            Weiß
-        </option>
-    </select>
-</div>
-<!-- Anzeigefenster für den Preis -->
-<div class="price-display" id="carColorPrice">
-    Außenfarbe Preis: 0 €
-</div>
+
+        <hr>
+
         <!-- ####### Auswahl Motorhaubenfarbe ######## -->
         <div class="single-model-search">
             <h3>
@@ -225,6 +207,9 @@
                 Motorhaube Farbe Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ####### Auswahl Dachfarbe ######### -->
         <div class="single-model-search">
             <h3>
@@ -257,6 +242,9 @@
                 Dachfarbe Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ####### Auswahl Dachträger ######### -->
         <div class="single-model-search">
             <h3>
@@ -277,6 +265,9 @@
                 Dachträger Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ######## Auswahl getönte Scheiben ######### -->
         <div class="single-model-search">
             <h3>
@@ -303,6 +294,9 @@
                 Getönte Scheiben Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ########## Auswahl Innenausstattung1 ########## -->
         <div class="single-model-search">
             <h3>
@@ -326,6 +320,9 @@
             </div>
 
         </div>
+
+        <hr>
+
         <!-- ########### Auswahl Innenausstattung2 ########## -->
         <div class="single-model-search">
             <h3>
@@ -346,6 +343,9 @@
                 Innenausstattung 2 Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ######## Auswahl Service Produkte ######### -->
         <div class="single-model-search">
             <h3>
@@ -375,13 +375,16 @@
                 Serviceprodukte Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ########### Zusatzoptionen ########### -->
         <div class="single-model-search">
             <h3>
                 Zusatzoptionen
             </h3>
             <div class="model-select-icon">
-                <select class="form-control" id="zusatz">
+                <select class="form-control" id="zusatz" onchange="loadzusatzImage()">
                     <option value="hitch">
                         Anhängevorrichtung, 13 polig
                     </option>
@@ -399,6 +402,9 @@
             </div>
 
         </div>
+
+        <hr>
+
         <!-- ########### Auswahl Reifen ########### -->
         <div class="single-model-search">
             <h3>Reifen</h3>
@@ -420,6 +426,9 @@
                 Pakete Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ########### Pakete ########### -->
         <div class="single-model-search">
             <h3>
@@ -447,6 +456,9 @@
                 Pakete Preis: 0 €
             </div>
         </div>
+
+        <hr>
+
         <!-- ########### Abhohlort ########### -->
         <div class="single-model-search">
             <h3>
@@ -476,6 +488,7 @@
             </div>
 
         </div>
+
         <!-- ########## Gesamtpreis Box ########## -->
         <div class="fixed-bar" id="fixed-bar">
             <div class="price-panel">
