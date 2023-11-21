@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './components/App';
 import Login from './components/login';
 import Konfig from './components/konfig';
+import './components/script.js';
 
 
 const root = document.getElementById('root');
