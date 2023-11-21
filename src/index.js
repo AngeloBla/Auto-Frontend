@@ -18,7 +18,6 @@ rootElement.render(
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/konfig" element={<Konfig />} />
-      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   </Router>
 );
