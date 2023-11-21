@@ -144,6 +144,9 @@
                 <option value="yellow">
                     Gelb
                 </option>
+                <option value="red">
+                    Rot
+                </option>
                 <option value="green">
                     olivegrün
                 </option>
@@ -159,7 +162,37 @@
         <div class="price-display" id="carColorPrice">
             Außenfarbe Preis: 0 €
         </div>
-
+<!-- ####### Auswahl Karosseriefarbe ######### -->
+<div class="single-model-search">
+    <h3>
+        Wähle die Karosseriefarbe
+    </h3>
+    <select class="form-select" id="bodyColor" onchange="loadCarImage()">
+        <option value="red">Rot</option>
+        <option value="body-blue">
+            Blau
+        </option>
+        <option value="body-yellow">
+            Gelb
+        </option>
+        <option value="body-red">
+            Rot
+        </option>
+        <option value="body-green">
+            olivegrün
+        </option>
+        <option value="body-black">
+            Schwarz
+        </option>
+        <option value="body-white">
+            Weiß
+        </option>
+    </select>
+</div>
+<!-- Anzeigefenster für den Preis -->
+<div class="price-display" id="carColorPrice">
+    Außenfarbe Preis: 0 €
+</div>
         <!-- ####### Auswahl Motorhaubenfarbe ######## -->
         <div class="single-model-search">
             <h3>
@@ -167,8 +200,8 @@
             </h3>
             <div class="model-select-icon">
                 <select class="form-select" id="hoodColor" onchange="loadHoodImage()">
-                    <option value="standard-hood">
-                        standard Weiß
+                    <option value="white-hood">
+                        Weiß
                     </option>
                     <option value="blue-hood">
                         Blau
@@ -342,13 +375,13 @@
                 Serviceprodukte Preis: 0 €
             </div>
         </div>
-        <!-- ########### Karosserie ########### -->
+        <!-- ########### Zusatzoptionen ########### -->
         <div class="single-model-search">
             <h3>
-                Karosserie
+                Zusatzoptionen
             </h3>
             <div class="model-select-icon">
-                <select class="form-control" id="karosserie">
+                <select class="form-control" id="zusatz">
                     <option value="hitch">
                         Anhängevorrichtung, 13 polig
                     </option>
