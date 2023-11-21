@@ -83,12 +83,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                         document.getElementById('selectedImage').src = imagePath;
                 }
+                // ########### Funktion Auswahl karosserie verlinkung Bilder ###########
+                function loadCarImage() {
+                    var bodyColor = document.getElementById('bodyColor').value;
+                    var imagePath;
+                    switch (bodyColor) {
+                        case 'body-red':
+                            imagePath = './testbilder/aussenfarberot.png';
+                            break;
+                        case 'body-blue':
+                            imagePath = './testbilder/aussenfarbeblau.png';
+                            break;
+                        case 'body-yellow':
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg';
+                            break;
+                        case 'body-green':
+                            imagePath = './testbilder/aussenfarbegruen.png';
+                            break;
+                        case 'body-black':
+                            imagePath = './testbilder/aussenfarbeschwarz.png';
+                            break;
+                        case 'body-white':
+                            imagePath = './testbilder/aussenfarbeweiss.png';
+                            break;
+                        default:
+                            imagePath = './testbilder/error.png';
+                    }
+                        document.getElementById('selectedImage').src = imagePath;
+                }
                 //  ################ funktion Auswahl Motorhaubefarbe mit Bild verlinken ################
                 function loadHoodImage() {
                     var hoodColor = document.getElementById('hoodColor').value;
                     var imagePath;
                     switch (hoodColor) {
-                        case 'standard-hood':
+                        case 'white-hood':
                             imagePath = './testbilder/motorhaubeweiss.png';
                             break;
                         case 'blue-hood':
@@ -101,7 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             imagePath = './testbilder/motorhauberot.png';
                             break;
                         case 'yellow-hood':
-                            imagePath = './testbilder/motorhaubegelb.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg';
                             break;
                         case 'black-hood':
                             imagePath = './testbilder/motorhaubeschwarz.png';
@@ -119,22 +147,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     var imagePath;
                     switch (roofColor) {
                         case 'standard-roof':
-                            imagePath = './testbilder/dachweiss.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dach.jpg';
                             break;
                         case 'blue-roof':
-                            imagePath = './testbilder/dachblau.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_blau.jpg';
                             break;
                         case 'green-roof':
-                            imagePath = './testbilder/dachgruen.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_gruen.jpg';
                             break;
                         case 'red-roof':
-                            imagePath = './testbilder/dachrot.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_rot.jpg';
                             break;
                         case 'yellow-roof':
-                            imagePath = './testbilder/dachgelb.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_gelb.jpg';
                             break;
                         case 'black-roof':
-                            imagePath = './testbilder/dachschwarz.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_schwarz.jpg';
                             break;
                         default:
                             imagePath = 'error.png';
@@ -152,7 +180,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             imagePath = './testbilder/dachtraegerkein.png';
                             break;
                         case 'roof-rack1':
-                            imagePath = './testbilder/dachträgerstandard.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg';
                             break;
                         default:
                             imagePath = 'error.png';
@@ -185,54 +213,73 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }
 
                 // ############ Reifen ############
-                            $(document).ready(function () {
-                var ganzjahresCheckbox = $('input[type="checkbox"][value="all-season-tire"]');
-                var sommerCheckbox = $('input[type="checkbox"][value="sommer"]');
-                var winterCheckbox = $('input[type="checkbox"][value="winter"]');
-
-                // Setze Sommerreifen als Standard ausgewählt
-                sommerCheckbox.prop('checked', true);
-
-                // Hinzufügen des Event Listeners für die Änderung der Checkboxen
-                $('input[type="checkbox"]').change(function () {
-                    updateOptions($(this));
-                });
-
-                // Hinzufügen des Event Listeners für die Änderung der Ganzjahresreifen-Checkbox
-                ganzjahresCheckbox.change(function () {
-                    updateGanzjahresCheckbox();
-                });
-
-                // Funktion zum Aktualisieren der Checkboxen
-                function updateOptions(clickedCheckbox) {
-                    var selectedValue = clickedCheckbox.val();
-
-                    if (selectedValue === 'all-season-tire') {
-                        // Wenn Ganzjahresreifen ausgewählt ist, deaktiviere Sommer- und Winterreifen
-                        sommerCheckbox.prop('checked', false).prop('disabled', true);
-                        winterCheckbox.prop('checked', false).prop('disabled', true);
-                    } else {
-                        // Wenn Ganzjahresreifen nicht ausgewählt ist, aktiviere Sommer- und Winterreifen
-                        // sommerCheckbox.prop('disabled', !sommerCheckbox.is(':checked') && !ganzjahresCheckbox.is(':checked'));
-                        // winterCheckbox.prop('disabled', !winterCheckbox.is(':checked') && !ganzjahresCheckbox.is(':checked'));
-                    }
-
-                    // Wenn Sommerreifen oder Winterreifen ausgewählt sind, deaktiviere Ganzjahresreifen
-                    if ((sommerCheckbox.is(':checked') || winterCheckbox.is(':checked')) && ganzjahresCheckbox.is(':checked')) {
-                        ganzjahresCheckbox.prop('checked', false);
+                // ############ Reifen ############
+                $(document).ready(function () {
+                    var ganzjahresCheckbox = $('input[type="checkbox"][value="all-season-tire"]');
+                    var sommerCheckbox = $('input[type="checkbox"][value="sommer"]');
+                    var winterCheckbox = $('input[type="checkbox"][value="winter"]');
+                
+                    // Setze Sommerreifen als Standard ausgewählt
+                    sommerCheckbox.prop('checked', true);
+                
+                    // Hinzufügen des Event Listeners für die Änderung der Checkboxen
+                    $('input[type="checkbox"]').change(function () {
+                        updateOptions($(this));
+                        updateReifenImage(true); // true signalisiert, dass die Funktion aufgrund einer Benutzeraktion aufgerufen wurde
+                    });
+                
+                    // Hinzufügen des Event Listeners für die Änderung der Ganzjahresreifen-Checkbox
+                    ganzjahresCheckbox.change(function () {
                         updateGanzjahresCheckbox();
+                    });
+                
+                    // Funktion zum Aktualisieren der Checkboxen
+                    function updateOptions(clickedCheckbox) {
+                        var selectedValue = clickedCheckbox.val();
+                
+                        if (selectedValue === 'all-season-tire') {
+                            sommerCheckbox.prop('checked', false).prop('disabled', true);
+                            winterCheckbox.prop('checked', false).prop('disabled', true);
+                        } else {
+                            if ((sommerCheckbox.is(':checked') || winterCheckbox.is(':checked')) && ganzjahresCheckbox.is(':checked')) {
+                                ganzjahresCheckbox.prop('checked', false);
+                                updateGanzjahresCheckbox();
+                            }
+                        }
                     }
-                }
-
-                // Funktion zum Aktualisieren der Ganzjahresreifen-Checkbox
-                function updateGanzjahresCheckbox() {
-                    // Wenn Ganzjahresreifen abgewählt wird, aktiviere Sommer- und Winterreifen
-                    if (!ganzjahresCheckbox.is(':checked')) {
-                        sommerCheckbox.prop('disabled', false);
-                        winterCheckbox.prop('disabled', false);
+                
+                    // Funktion zum Aktualisieren der Ganzjahresreifen-Checkbox
+                    function updateGanzjahresCheckbox() {
+                        if (!ganzjahresCheckbox.is(':checked')) {
+                            sommerCheckbox.prop('disabled', false);
+                            winterCheckbox.prop('disabled', false);
+                        }
                     }
-                }
-            });
+                
+                    // Funktion zur Aktualisierung des Reifenbildes
+                    function updateReifenImage(userAction = false) {
+                        if (!userAction) return; // Beendet die Funktion, wenn sie nicht durch Benutzeraktion aufgerufen wurde
+                
+                        var imagePath;
+                    if (ganzjahresCheckbox.is(':checked')) {
+                        imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg';
+                    } else if (sommerCheckbox.is(':checked') && winterCheckbox.is(':checked')) {
+                        imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg';
+                    } else if (sommerCheckbox.is(':checked')) {
+                        imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg';
+                    } else if (winterCheckbox.is(':checked')) {
+                        imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg';
+                    } else {
+                        imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg'; // Standardbild
+                    }
+                
+                    var imageElement = document.getElementById('selectedImage');
+                    imageElement.src = imagePath;
+                    imageElement.onerror = function() {
+                        this.src = 'error.png'; // Fallback-Bild
+                    };
+                    }
+});
             // ########## Javascript Reifen Ende ##########
             // ########## Javascript Preis abrufen ##########
             // In Ihrer script.js oder innerhalb des <script>-Tags
