@@ -1,190 +1,187 @@
 body {
-    background-color:ivory ;
-  }
-input {
-    width: 50%;
-    margin-inline: 2%;
-    margin-bottom: 1%;
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
 }
+
+input, select {
+    width: 50%;
+    margin: 1% 2% 1% 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 #zahlungsart {
     width: 50%;
 }
-/* ################ toggle funktion ############## */
+
+/* Toggle Function */
 .collapsible-content {
-    display: none; /* Versteckt die Elemente initial */
+    display: none;
 }
 
 .toggle-button {
-    background-color: #007bff; /* Blaue Hintergrundfarbe */
-    color: white; /* Weiße Textfarbe */
-    padding: 10px 15px; /* Innenabstand */
-    border: none; /* Kein Rand */
-    border-radius: 5px; /* Abgerundete Ecken */
-    text-align: center; /* Zentrierter Text */
-    cursor: pointer; /* Cursor-Stil ändern */
-    transition: background-color 0.3s; /* Übergangseffekt für den Hintergrund */
-    font-size: 16px; /* Schriftgröße */
-    display: inline-block; /* Block-ähnliches Verhalten */
-    margin: 10px 0; /* Außenabstand */
-}
-.toggle-button:hover {
-    background-color: #0056b3; /* Dunklere Hintergrundfarbe beim Hover */
-}
-/* ################################################# */
-.container{
-    position: relative; /* Fügt relative Positionierung hinzu */
-    border: 5px solid blue;
-    width: 33%; /* Ein Drittel der Bildschirmbreite */
-    box-sizing: border-box; /* Stellt sicher, dass die Breite des Rahmens in die Gesamtbreite einbezogen wird */
-    overflow-wrap: break-word; /* Bevorzugte Methode, um Wörter umzubrechen */
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
     font-size: 16px;
-    font-size: calc(0.5vw + 10px); /* Kombination aus relativer und fester Größe */
-}
-/* Überschreibt die overflow-wrap Einstellung speziell für #reifen */
-#reifen {
-    overflow-wrap: normal;
-}
-/* Auswahlfelder */
-.container select {
-    width: 50%;
-    margin-inline: 2%;
-    margin-bottom: 1%;
-}
-/* Auswahlfelder Anpassungen für Tablets */
-@media (max-width: 768px) {
-    .container select {
-        width: 90%; /* Etwas breiter für Tablet-Bildschirme */
-        margin-inline: 5%; /* Größerer Rand, um ein besseres Layout zu gewährleisten */
-    }
+    display: inline-block;
+    margin: 10px 0;
 }
 
-/* Auswahlfelder Anpassungen für Handys */
-@media (max-width: 480px) {
-    .container select {
-        width: 100%; /* Maximale Breite für Handy-Bildschirme */
-        margin-inline: 0; /* Kein Rand, um den verfügbaren Platz optimal zu nutzen */
-    }
+.toggle-button:hover {
+    background-color: #2980b9;
 }
-@media (max-width: 768px) { /* Für Tablets */
+
+/* Container */
+.container {
+    position: relative;
+     
+    background-color: #ffffff;
+    width: 39%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-size: calc(0.5vw + 10px);
+}
+
+#reifen {
+    overflow-wrap: normal;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    input, select {
+        width: 90%;
+        margin: 5%;
+    }
+
     .container {
-        width: 33.33%; /* Ein Drittel der Bildschirmbreite für Tablets */
-        top: 5%; /* Passen Sie diesen Wert an, wenn nötig */
+        width: 90%;
+        top: 5%;
         font-size: 14px;
     }
 }
-/* AutoBild Handy */
-@media (max-width: 480px) { /* Für Handys */
+
+@media (max-width: 480px) {
+    input, select {
+        width: 100%;
+        margin: 5% 0;
+    }
+
     .container {
         position: absolute;
         top: 0;
         right: 0;
-        left: 0; /* Sorgt dafür, dass das Panel die volle Breite einnimmt */
-        width: 100%; /* Die volle Breite für sehr kleine Bildschirme */
-        height: auto; /* Passen Sie die Höhe an, um den Inhalt richtig anzuzeigen */
+        left: 0;
+        width: 100%;
+        height: auto;
         font-size: 12px;
     }
-
 }
-/* Container AutoBild der auswahl */
+
+/* Fixed Image Panel */
 .fixed-image-panel {
-    border: 2px solid dimgray; /* Beispiel für Rahmen */
-    position: fixed; /* absolute = mitwanderndes bild */
+    position: fixed;
     top: 5px;
     right: 0;
-    width: 66%; Ein Drittel der Bildschirmbreite
+    width: 60%; /* Adjusted width to make it smaller */
     height: auto;
-    max-height: 100vh; /* Maximalhöhe, angepasst an den sichtbaren Bereich */   background-color: lightsteelblue; Setze eine Hintergrundfarbe nach Wunsch
-    overflow-y: auto; /* Aktiviere das Scrollen, wenn der Inhalt die Höhe überschreitet */
+    max-height: 100vh;
+    background-color: #000000;
+    overflow-y: auto;
 }
-/* AutoBild */
+
 .fixed-image-panel img {
-    border: 2px solid yellowgreen; /* Beispiel für Rahmen */
     width: 100%;
     height: auto;
-    max-height: 100vh; /* Maximalhöhe, angepasst an den sichtbaren Bereich */   background-color: lightsteelblue; Setze eine Hintergrundfarbe nach Wunsch
+    max-height: 100vh;
+    background-color: #000000;
     display: block;
     margin: 0 auto;
 }
-/* AutoBild Tabl */
-@media (max-width: 768px) { /* Für Tablets */
+
+@media (max-width: 768px) {
     .fixed-image-panel {
-        width: 65%; /* Ein Drittel der Bildschirmbreite für Tablets */
-        top: 5%; /* Passen Sie diesen Wert an, wenn nötig */
+        width: 90%;
+        top: 5%;
     }
 }
-/* AutoBild Handy */
-@media (max-width: 480px) { /* Für Handys */
+
+@media (max-width: 480px) {
     .fixed-image-panel {
         position: fixed;
         top: 0;
         right: 0;
-        left: 0; /* Sorgt dafür, dass das Panel die volle Breite einnimmt */
-        width: 100%; /* Die volle Breite für sehr kleine Bildschirme */
-        height: auto; /* Passen Sie die Höhe an, um den Inhalt richtig anzuzeigen */
+        left: 0;
+        width: 100%;
+        height: auto;
     }
-
 }
-/* Preisbalken */
+
+/* Fixed Bar */
 .fixed-bar {
     position: static;
     bottom: 0;
     left: 0;
     width: 88%;
-    height: auto; 
-    margin:1.5%;
-    background-color:rgb(212, 210, 210);
-    border-radius:  5px;
+    height: auto;
+    margin: 1.5%;
+    background-color: #d4d2d2;
+    border-radius: 5px;
     padding: 0.5%;
-    font-size: 1vw;
-    font-size: min(max(12px, 1vw), 16px); /*Setzt eine Mindest- und Höchstgröße*/
+    font-size: min(max(12px, 1vw), 16px);
 }
-/* Gesamtpreise */
+
+/* Price Panel */
 .price-panel {
     padding-top: 0;
-    text-align:right;
+    text-align: right;
     padding-right: 5%;
 }
-/* Preisbalken Tab: */
-@media (max-width: 768px) { /* Für Tablets */
+
+@media (max-width: 768px) {
     .fixed-bar {
-        padding: 8px; /* Etwas größerer Abstand für bessere Lesbarkeit */
+        padding: 8px;
     }
-    /* Hier können Sie weitere Anpassungen für Tablets vornehmen */
 }
-/* Preisbalken Handy */
-@media (max-width: 480px) { /* Für Handys */
+
+@media (max-width: 480px) {
     .fixed-bar {
-        padding: 10px; /* Größerer Abstand für Handys */
+        padding: 10px;
     }
-    /* Hier können Sie weitere Anpassungen für Handys vornehmen */
 }
-/* Container Zahlungsmethode: */
+
+/* Payment Method Container */
 .zahlungsmethode {
-    border: 2px solid rgb(192, 25, 25); /* Beispiel für Rahmen */
-    box-sizing: border-box; /* Stellt sicher, dass die Breite des Rahmens in die Gesamtbreite einbezogen wird */
+    box-sizing: border-box;
 }
-/* Container Zahlungsmethode Tab: */
-@media (max-width: 768px) { /* Für Tablets */
+
+@media (max-width: 768px) {
     .zahlungsmethode {
-        /* width: 50%; Größere Breite für kleinere Bildschirme */
-        font-size: 90%; /* Etwas kleinere Schriftgröße */
+        font-size: 90%;
     }
 }
-/* Container Zahlungsmethode Handy: */
-@media (max-width: 480px) { /* Für Handys */
+
+@media (max-width: 480px) {
     .zahlungsmethode {
-        /* width: 100%; Die volle Breite für sehr kleine Bildschirme */
-        font-size: 80%; /* Noch kleinere Schriftgröße */
+        font-size: 80%;
     }
 }
-/* Auswahl Reifen untereinander */
+
+/* Select Reifen */
 #reifen label {
     display: block;
-    margin-bottom: 10px; /* optionaler Abstand zwischen den Labels */
+    margin-bottom: 10px;
 }
-/* ########################################### */
-/* ausgeblendetet codteil zum testen */
+
+/* Hidden Test Section */
 #test {
-    border: solid 2px violet;
+    border: solid 2px #ee82ee;
     display: none;
 }
