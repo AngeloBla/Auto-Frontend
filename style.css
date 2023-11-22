@@ -59,6 +59,15 @@ input, select {
     text-align: center; /* Text zentriert */
     padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
 }
+.container2 {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 60%; /* Erhöhte Breite für bessere Sichtbarkeit */
+    margin-left: 40%; /* Verschieben des Containers nach rechts */
+    top: 0;
+    text-align: center;
+    padding-right: 10px;
+}
 #reifen {
     border: crimson, solid 4px;
     overflow-wrap: normal;
@@ -102,21 +111,14 @@ input, select {
 
 /* Fixed Image Panel */
 .fixed-image-panel {
-    position: absolute; /* statt 'absolute' */
-    top: 5vh; /* Verwenden von 'vh' für eine proportionale Positionierung */
-    right: 5vw; /* Verwenden von 'vw' */
-    width: 60vw; /* Verwenden von 'vw' */
-    max-height: 100vh;
-    background-color: #000000;
-    overflow-y: auto;
+    width: 100%;
+    height: auto;
 }
 
 
 .fixed-image-panel img {
     width: 100%;
     height: auto;
-    max-height: 100vh;
-    background-color: #000000;
     display: block;
     margin: 0 auto;
 }
