@@ -353,23 +353,24 @@
                 ServiceProdukte
             </h3>
             <div class="model-select-icon">
-                <select class="form-control" id="service">
-                    <option value="wartung_verschleiss">
+                <div class="form-control" id="service">
+                    <label>
+                        <input type="checkbox" class="from-control" id="wartung_verschleiss" value="wartung_verschleiss">
                         Wartung & Verschleiß
-                    </option>
-                    <option value="ueberfuehrung">
+                    </label>
+                        <input type="checkbox" class="from-control" id="ueberfuehrung" value="ueberfuehrung">
                         Überführungskosten
-                    </option>
-                    <option value="kfz_versicherung">
+                    </label>
+                        <input type="checkbox" class="from-control" id="kfz_versicherung" value="kfz_versicherung">
                         KFZ-Versicherung
-                    </option>
-                    <option value="zulassungsservice">
+                    </label>
+                        <input type="checkbox" class="from-control" id="zulassungsservice" value="zulassungsservice">
                         Zulassungsservice
-                    </option>
-                    <option value="mobilitaetsgarantie">
+                    </label>
+                        <input type="checkbox" class="from-control" id="mobilitaetsgarantie" value="mobilitaetsgarantie">
                         Mobilitätsgarantie Plus
-                    </option>
-                </select>
+                    </label>
+                </div>
             </div>
             <!-- Anzeigefenster für den Preis -->
             <div class="price-display" id="servicePrice">
@@ -381,27 +382,27 @@
 
         <!-- ########### Zusatzoptionen ########### -->
         <div class="single-model-search">
-            <h3>
-                Zusatzoptionen
-            </h3>
+            <h3>Zusatzoptionen</h3>
             <div class="model-select-icon">
-                <select class="form-control" id="zusatz" onchange="loadzusatzImage()">
-                    <option value="hitch">
-                        Anhängevorrichtung, 13 polig
-                    </option>
-                    <option value="underbody-protection">
-                        Unterbodenschutz auf Wachsbasis
-                    </option>
-                    <option value="mudguard">
-                        Spritzschutz
-                    </option>
-                </select>
+                <div class="zusatz" class="form-control">
+                <label>
+                    <input type="checkbox" class="form-control zusatz-option" id="hitch" value="hitch"> 
+                    Anhängevorrichtung, 13 polig
+                </label>
+                <label>
+                    <input type="checkbox" class="form-control zusatz-option" id="underbody-protection" value="underbody-protection"> 
+                    Unterbodenschutz auf Wachsbasis
+                </label>
+                <label>
+                    <input type="checkbox" class="form-control zusatz-option" id="mudguard" value="mudguard"> 
+                    Spritzschutz
+                </label>
+                </div>
             </div>
             <!-- Anzeigefenster für den Preis -->
             <div class="price-display" id="karosseriePrice">
                 Karosserie Preis: 0 €
             </div>
-
         </div>
 
         <hr>
