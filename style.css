@@ -215,3 +215,16 @@ input, select {
     display: none;
 }
 
+#service label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#service input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#service label input[type="checkbox"] + span {
+  margin-left: 10px;
+}
