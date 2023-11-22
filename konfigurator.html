@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+    <!-- ########### Container Bild ########## -->
     <div class="container-img">
         <!-- ########### Bild aus auswahl ########## -->
         <div class="fixed-image-panel">
@@ -20,23 +22,29 @@
         </div>
         <!-- ########### Bild ENDE ########## -->
     </div>
+    <!-- ########### Container Bild ENDE ########## -->
+
+
+    <!-- ########## Container Konfigurator ########## -->
     <div class="container">
-        <div class="zahlungsmethode">
-            <div class="left-panel">
-                <h2>
-                    Stelle dir dein Traum LandRover zusammen:
-                </h2>
-                <p>
-                    Bitte triff eine Auswahl
-                </p>
-            </div>
+        <p align="center" style="color:red; font-weight:bold">!-!-! Work in Progress !-!-!</p>
+    
+            <div class="zahlungsmethode">
+                <div class="left-panel">
+                    <h2>
+                        Stelle dir dein Traum LandRover zusammen:
+                    </h2>
+                    <p>
+                        Bitte triff eine Auswahl
+                    </p>
+                </div>
+
+            <!-- ######################################## -->
             <!-- ########## Auswahl Zahlungart ########## -->
             <div class="single-model-search">
                 <div class="toggle-button" onclick="toggleElements()">
                     ▼ Zahlungsoptionen
                 </div>
-                <hr>
-
                 <div class="collapsible-content">
                     <h3>
                         Zahlungsart
@@ -79,11 +87,14 @@
                             <input class="form-control" id="anzahlung" min="0" step="1000" type="number" />
                         </div>
                     </div>
+                    <hr>
                 </div>
             </div>
         </div>
         <!-- ########## Zahlungsart ENDE ########## -->
-        <!-- ################################################## -->
+        <!-- ######################################## -->
+
+
         <!-- ########## Auswahl Motor ########## -->
         <div class="single-model-search">
             <h3>
@@ -111,7 +122,9 @@
         </div>
 
         <hr>
-        
+        <!-- ########### Motor ENDE ########## -->
+
+
         <!-- ########## Auswahl Getriebe ########## -->
         <div class="single-model-search">
             <h3>
@@ -140,36 +153,44 @@
         </div>
 
         <hr>
-        <!-- ####### Auswahl Autofarbe ######### -->
+        <!-- ########### Getriebe ENDE ########## -->
+
+
+        <!-- ####### Auswahl Karosseriefarbe ######### -->
         <div class="single-model-search">
             <h3>
-                Wähle die Aussenfarbe des Autos
+                Wähle die Karosseriefarbe
             </h3>
-            <select class="form-select" id="carColor" onchange="loadCarImage()">
+            <select class="form-select" id="bodyColor" onchange="loadCarImage()">
                 <option value="red">Rot</option>
-                <option value="blue">
+                <option value="body-blue">
                     Blau
                 </option>
-                <option value="yellow">
+                <option value="body-yellow">
                     Gelb
                 </option>
-                <option value="green">
+                <option value="body-red">
+                    Rot
+                </option>
+                <option value="body-green">
                     olivegrün
                 </option>
-                <option value="black">
+                <option value="body-black">
                     Schwarz
                 </option>
-                <option value="white">
+                <option value="body-white">
                     Weiß
                 </option>
             </select>
         </div>
-
         <!-- Anzeigefenster für den Preis -->
-        <div class="price-display" id="carColorPrice">
+        <div class="price-display" id="bodyColorPrice">
             Außenfarbe Preis: 0 €
         </div>
+
         <hr>
+        <!-- ########### Karosseriefarbe ENDE ######## -->
+
 
         <!-- ####### Auswahl Motorhaubenfarbe ######## -->
         <div class="single-model-search">
@@ -178,8 +199,8 @@
             </h3>
             <div class="model-select-icon">
                 <select class="form-select" id="hoodColor" onchange="loadHoodImage()">
-                    <option value="standard-hood">
-                        standard Weiß
+                    <option value="white-hood">
+                        Weiß
                     </option>
                     <option value="blue-hood">
                         Blau
@@ -203,7 +224,10 @@
                 Motorhaube Farbe Preis: 0 €
             </div>
         </div>
+
         <hr>
+        <!-- ########### Motorhaubenfarbe ENDE ########## -->
+
 
         <!-- ####### Auswahl Dachfarbe ######### -->
         <div class="single-model-search">
@@ -237,8 +261,11 @@
                 Dachfarbe Preis: 0 €
             </div>
         </div>
+
         <hr>
-        
+        <!-- ########### Dachfarbe ENDE ########## -->
+
+
         <!-- ####### Auswahl Dachträger ######### -->
         <div class="single-model-search">
             <h3>
@@ -259,7 +286,10 @@
                 Dachträger Preis: 0 €
             </div>
         </div>
+
         <hr>
+        <!-- ########### Dachträger ENDE ########## -->
+
 
         <!-- ######## Auswahl getönte Scheiben ######### -->
         <div class="single-model-search">
@@ -287,7 +317,10 @@
                 Getönte Scheiben Preis: 0 €
             </div>
         </div>
+
         <hr>
+        <!-- ########### Getönte Scheiben ENDE ########## -->
+
 
         <!-- ########## Auswahl Innenausstattung1 ########## -->
         <div class="single-model-search">
@@ -310,9 +343,13 @@
             <div class="price-display" id="innenausstattung1Price">
                 Innenausstattung 1 Preis: 0 €
             </div>
-            <hr>
 
         </div>
+
+        <hr>
+        <!-- ########### Innenausstattung 1 ENDE ########## -->
+
+
         <!-- ########### Auswahl Innenausstattung2 ########## -->
         <div class="single-model-search">
             <h3>
@@ -333,7 +370,10 @@
                 Innenausstattung 2 Preis: 0 €
             </div>
         </div>
+
         <hr>
+        <!-- ########### Innenausstattung 2 ENDE ########## -->
+
 
         <!-- ######## Auswahl Service Produkte ######### -->
         <div class="single-model-search">
@@ -341,69 +381,77 @@
                 ServiceProdukte
             </h3>
             <div class="model-select-icon">
-                <select class="form-control" id="service">
-                    <option value="wartung_verschleiss">
+                <div class="form-control" id="service">
+                    <label>
+                        <input type="checkbox" class="from-control" id="wartung_verschleiss" value="wartung_verschleiss">
                         Wartung & Verschleiß
-                    </option>
-                    <option value="ueberfuehrung">
+                    </label>
+                        <input type="checkbox" class="from-control" id="ueberfuehrung" value="ueberfuehrung">
                         Überführungskosten
-                    </option>
-                    <option value="kfz_versicherung">
+                    </label>
+                        <input type="checkbox" class="from-control" id="kfz_versicherung" value="kfz_versicherung">
                         KFZ-Versicherung
-                    </option>
-                    <option value="zulassungsservice">
+                    </label>
+                        <input type="checkbox" class="from-control" id="zulassungsservice" value="zulassungsservice">
                         Zulassungsservice
-                    </option>
-                    <option value="mobilitaetsgarantie">
+                    </label>
+                        <input type="checkbox" class="from-control" id="mobilitaetsgarantie" value="mobilitaetsgarantie">
                         Mobilitätsgarantie Plus
-                    </option>
-                </select>
+                    </label>
+                </div>
             </div>
             <!-- Anzeigefenster für den Preis -->
             <div class="price-display" id="servicePrice">
                 Serviceprodukte Preis: 0 €
             </div>
-            <hr>
-
         </div>
-        <!-- ########### Karosserie ########### -->
+
+        <hr>
+        <!-- ########### Service Produkte ENDE ########## -->
+
+
+        <!-- ########### Zusatzoptionen ########### -->
         <div class="single-model-search">
-            <h3>
-                Karosserie
-            </h3>
+            <h3>Zusatzoptionen</h3>
             <div class="model-select-icon">
-                <select class="form-control" id="karosserie">
-                    <option value="hitch">
+                <div id="zusatz" class="form-control">
+                    <label>
+                        <input type="checkbox" class="form-control zusatz-option" id="hitch" value="hitch"> 
                         Anhängevorrichtung, 13 polig
-                    </option>
-                    <option value="underbody-protection">
+                    </label>
+                    <label>
+                        <input type="checkbox" class="form-control zusatz-option" id="underbody-protection" value="underbody-protection"> 
                         Unterbodenschutz auf Wachsbasis
-                    </option>
-                    <option value="mudguard">
+                    </label>
+                    <label>
+                        <input type="checkbox" class="form-control zusatz-option" id="mudguard" value="mudguard"> 
                         Spritzschutz
-                    </option>
-                </select>
+                    </label>
+                </div>
             </div>
             <!-- Anzeigefenster für den Preis -->
             <div class="price-display" id="karosseriePrice">
                 Karosserie Preis: 0 €
             </div>
-            <hr>
-
         </div>
+
+        <hr>
+        <!-- ########### Zusatzoptionen ENDE ########## -->
+
+
         <!-- ########### Auswahl Reifen ########### -->
         <div class="single-model-search">
             <h3>Reifen</h3>
             <div class="model-select-icon">
                 <div id="reifen" class="form-control">
                     <label>
-                        <input type="checkbox" class="form-control" value="sommer"checked> Sommerreifenset
+                        <input type="checkbox" class="form-control" value="sommer"checked>Sommerreifenset
                     </label>
                     <label>
-                        <input type="checkbox" class="form-control" value="winter"> Winterreifenset
+                        <input type="checkbox" class="form-control" value="winter">Winterreifenset
                     </label>
                     <label>
-                        <input type="checkbox" class="form-control" value="all-season-tire"> Ganzjahresreifenset
+                        <input type="checkbox" class="form-control" value="all-season-tire">Ganzjahresreifenset
                     </label>
                 </div>
             </div>
@@ -411,9 +459,12 @@
             <div class="price-display" id="paketePrice">
                 Pakete Preis: 0 €
             </div>
-            <hr>
-
         </div>
+
+        <hr>
+        <!-- ########### Reifen ENDE ########## -->
+
+
         <!-- ########### Pakete ########### -->
         <div class="single-model-search">
             <h3>
@@ -440,9 +491,12 @@
             <div class="price-display" id="paketePrice">
                 Pakete Preis: 0 €
             </div>
-            <hr>
-            
         </div>
+
+        <hr>
+        <!-- ########### Pakete ENDE ########## -->
+
+
         <!-- ########### Abhohlort ########### -->
         <div class="single-model-search">
             <h3>
@@ -472,6 +526,11 @@
             </div>
 
         </div>
+
+        <hr>
+        <!-- ########### Abhohlort ENDE ########## -->
+
+
         <!-- ########## Gesamtpreis Box ########## -->
         <div class="fixed-bar" id="fixed-bar">
             <div class="price-panel">
@@ -490,6 +549,8 @@
         </div>
         <!-- ########## Gesmatpreis Box ENDE ########## -->
     </div>
+    <!-- ########### Container Konfigurator ENDE ########## -->
+    
 
     <!-- ########### Body ENDE ########## -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

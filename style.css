@@ -46,7 +46,6 @@ input, select {
     background-color: #2980b9;
 }
 
-
 /* Container */
 .container {
     position: relative;
@@ -58,7 +57,23 @@ input, select {
     margin-right: 5%;
     text-align: center; /* Text zentriert */
     padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
+    float: left; /* Add this line */
 }
+
+/* Container bild */
+.container-img {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 39%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-size: calc(0.5vw + 10px);
+    margin-right: 5%;
+    text-align: center; /* Text zentriert */
+    padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
+    float: left; /* Add this line */
+}
+
 #reifen {
     overflow-wrap: normal;
     text-align: left;
@@ -106,6 +121,7 @@ input, select {
     max-height: 100vh;
     background-color: #000000;
     overflow-y: auto;
+    float: right; /* Add this line */
 }
 
 .fixed-image-panel img {
@@ -185,11 +201,12 @@ input, select {
     .zahlungsmethode {
         font-size: 80%;
     }
+}
 
 /* Select Reifen */
 #reifen label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* Hidden Test Section */
@@ -197,3 +214,4 @@ input, select {
     border: solid 2px #ee82ee;
     display: none;
 }
+
