@@ -228,3 +228,17 @@ input, select {
 #service label input[type="checkbox"] + span {
   margin-left: 10px;
 }
+
+#zusatz label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  #zusatz input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  #zusatz label input[type="checkbox"] + span {
+    margin-left: 10px;
+  }
