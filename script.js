@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 laufzeitContainer.style.display = "none";
                 laufleistungContainer.style.display = "none";
             }
-                // ########### Funktion Zahlung ENDE ##########
+        // ########### Funktion Zahlung ENDE ##########
 
                 // ########### Funktion Auswahl karosserie verlinkung Bilder ###########
                 function loadCarImage() {
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     var imagePath;
                     switch (roofrack) {
                         case 'roof-rack0':
-                            imagePath = './testbilder/dachtraegerkein.png';
+                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg';
                             break;
                         case 'roof-rack1':
                             imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg';
@@ -180,46 +180,65 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                     document.getElementById('selectedImage').src = imagePath;
                 }
-                //  ################ funktion Auswahl getönte Scheiben mit Bilder ##########
+                //  ################ funktion Auswahl zusatz mit Bilder ##########
 
                 function loadzusatzImage() {
-                    var zusatz = document.getElementById('zusatz').value;
-                    var imagePath;
-                    switch (zusatz) {
-                        case 'mudguard':
-                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spritzschutz.jpg';
-                            break;
-                        default:
-                            imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png';
+                    var checkboxes = document.querySelectorAll('.zusatz-option');
+                    var imageElement = document.getElementById('selectedImage');
+                    var neuesBild;
+                
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox.checked) {
+                            switch (checkbox.value) {
+                                case 'hitch':
+                                    // Logik für 'Anhängevorrichtung'
+                                    break;
+                                case 'underbody-protection':
+                                    // Logik für 'Unterbodenschutz'
+                                    break;
+                                case 'mudguard':
+                                    neuesBild = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spritzschutz.jpg';
+                                    break;
+                                default:
+                                    neuesBild = 'standardbild.jpg'; // Ein Standardbild, falls kein Fall zutrifft
+                            }
+                        }
+                    });
+                
+                    // Setze das neue Bild nur, wenn neuesBild definiert wurde
+                    if (neuesBild) {
+                        imageElement.src = neuesBild;
                     }
-                    document.getElementById('selectedImage').src = imagePath;
                 }
+                
+                document.querySelectorAll('.zusatz-option').forEach(function(checkbox) {
+                    checkbox.addEventListener('change', loadzusatzImage);
+                });
 
-                // ############ Reifen ############
                 // ############ Reifen ############
                 $(document).ready(function () {
                     var ganzjahresCheckbox = $('input[type="checkbox"][value="all-season-tire"]');
                     var sommerCheckbox = $('input[type="checkbox"][value="sommer"]');
                     var winterCheckbox = $('input[type="checkbox"][value="winter"]');
-                
+
                     // Setze Sommerreifen als Standard ausgewählt
                     sommerCheckbox.prop('checked', true);
-                
+
                     // Hinzufügen des Event Listeners für die Änderung der Checkboxen
-                    $('input[type="checkbox"]').change(function () {
+                    $('#reifen input[type="checkbox"]').change(function () {
                         updateOptions($(this));
                         updateReifenImage(true); // true signalisiert, dass die Funktion aufgrund einer Benutzeraktion aufgerufen wurde
                     });
-                
+
                     // Hinzufügen des Event Listeners für die Änderung der Ganzjahresreifen-Checkbox
                     ganzjahresCheckbox.change(function () {
                         updateGanzjahresCheckbox();
                     });
-                
+
                     // Funktion zum Aktualisieren der Checkboxen
                     function updateOptions(clickedCheckbox) {
                         var selectedValue = clickedCheckbox.val();
-                
+
                         if (selectedValue === 'all-season-tire') {
                             sommerCheckbox.prop('checked', false).prop('disabled', true);
                             winterCheckbox.prop('checked', false).prop('disabled', true);
@@ -230,7 +249,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             }
                         }
                     }
-                
+
                     // Funktion zum Aktualisieren der Ganzjahresreifen-Checkbox
                     function updateGanzjahresCheckbox() {
                         if (!ganzjahresCheckbox.is(':checked')) {
@@ -238,11 +257,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             winterCheckbox.prop('disabled', false);
                         }
                     }
-                
+
                     // Funktion zur Aktualisierung des Reifenbildes
                     function updateReifenImage(userAction = false) {
                         if (!userAction) return; // Beendet die Funktion, wenn sie nicht durch Benutzeraktion aufgerufen wurde
-                
+
                         var imagePath;
                     if (ganzjahresCheckbox.is(':checked')) {
                         imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg';
@@ -255,7 +274,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     } else {
                         imagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg'; // Standardbild
                     }
-                
+
                     var imageElement = document.getElementById('selectedImage');
                     imageElement.src = imagePath;
                     imageElement.onerror = function() {
@@ -283,4 +302,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
             // ########## Javascript Preis abrufen ENDE ##########
-        
+
+// Event Listener für zusätzliche Optionen
+$('.zusatz-option').change(function () {
+    // Ihre Logik für zusätzliche Optionen
+});
+
+// Event Listener für zusätzliche Optionen
+$('.service-option').change(function () {
+    // Ihre Logik für zusätzliche Optionen
+});
+
+// Event Listener für Service-Checkboxen
+$('#service input[type="checkbox"]').change(function () {
+    // Ihre Logik für Service-Optionen
+    // Zum Beispiel: Aktualisieren eines Preisanzeigefelds oder anderer Elemente basierend auf der Auswahl
+});
