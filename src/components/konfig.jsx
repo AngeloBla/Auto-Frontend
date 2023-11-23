@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Navabr from "./navbar";
 // import ReactDOM from "react-dom";
 
@@ -13,12 +13,17 @@ class Konfig extends React.Component {
         this.state = {
             selectedImage: "",
             lastFunctionCalled: null,
+            zahlungsart: "leasing",
         };
     }
     // stellt sicher, dass beim Laden der Komponenten ein Bild geladen wird.
     componentDidMount() {
         this.loadCarImage();
     }
+    handleZahlungsartChange = (event) => {
+        this.setState({ zahlungsart: event.target.value });
+    };
+    // ########### Funktion AuswahlKarroseriefarbe verlinkung Bilder ###########
     loadCarImage = () => {
         var bodyColor = this.bodyColorRef.current.value;
         var imagePath;
@@ -56,6 +61,7 @@ class Konfig extends React.Component {
             lastFunctionCalled: "loadCarImage",
         });
     };
+    // ########### funktion Auswahl Motorhaubefarbe mit Bild verlinken ###########
     loadHoodImage = () => {
         var hoodColor = this.hoodColorRef.current.value;
         var imagePath;
@@ -93,7 +99,7 @@ class Konfig extends React.Component {
             lastFunctionCalled: "loadHoodImage",
         });
     };
-
+    // ########## funktion Auswahl Dachfarbe mit Bild verlinken #########
     loadRoofColorImage = () => {
         var roofColor = this.roofColorRef.current.value;
         var imagePath;
@@ -131,7 +137,7 @@ class Konfig extends React.Component {
             lastFunctionCalled: "loadRoofColorImage",
         });
     };
-
+    // ########## funktion Auswahl Dachträger mit Bild verlinken ##########
     loadroofrackImage = () => {
         // var roofrack = document.getElementById("roofrack").value;
         var roofrack = this.roofrackRef.current.value;
@@ -154,6 +160,7 @@ class Konfig extends React.Component {
             lastFunctionCalled: "loadroofrackImage",
         });
     };
+
 
     render() {
         return (
@@ -207,6 +214,9 @@ class Konfig extends React.Component {
                                         <select
                                             class="form-control"
                                             id="zahlungsart"
+                                            onChange={
+                                                this.handleZahlungsartChange
+                                            }
                                         >
                                             <option value="leasing">
                                                 Leasing
@@ -216,57 +226,62 @@ class Konfig extends React.Component {
                                             </option>
                                         </select>
                                     </div>
-                                    {/* <!-- Laufzeit --> */}
-                                    <div
-                                        class="single-model-search"
-                                        id="laufzeit-container"
-                                    >
-                                        <h4>Laufzeit (Monate)</h4>
-                                        <div class="model-select-icon">
-                                            <input
-                                                class="form-control"
-                                                id="laufzeit"
-                                                max="60"
-                                                min="12"
-                                                required=""
-                                                type="number"
-                                            />
+                                    {this.state.zahlungsart === "leasing" && (
+                                        <div>
+                                            {/* <!-- Laufzeit --> */}
+                                            <div
+                                                class="single-model-search"
+                                                id="laufzeit-container"
+                                            >
+                                                <h4>Laufzeit (Monate)</h4>
+                                                <div class="model-select-icon">
+                                                    <input
+                                                        class="form-control"
+                                                        id="laufzeit"
+                                                        max="60"
+                                                        min="12"
+                                                        required=""
+                                                        type="number"
+                                                    />
+                                                </div>
+                                            </div>
+                                            {/* <!-- Laufleistung in km/Jahr --> */}
+                                            <div
+                                                class="single-model-search"
+                                                id="laufleistung-container"
+                                            >
+                                                <h4>Laufleistung in km/Jahr</h4>
+                                                <div class="model-select-icon">
+                                                    <input
+                                                        class="form-control"
+                                                        id="laufleistung"
+                                                        max="30000"
+                                                        min="10000"
+                                                        required=""
+                                                        step="1000"
+                                                        type="number"
+                                                    />
+                                                </div>
+                                            </div>
+                                            {/* <!-- Anzahlung --> */}
+                                            <div class="single-model-search">
+                                                <h4>Anzahlung (Euro)</h4>
+                                                <div
+                                                    class="model-select-icon"
+                                                    id="model-select-icon"
+                                                >
+                                                    <input
+                                                        class="form-control"
+                                                        id="anzahlung"
+                                                        min="0"
+                                                        step="1000"
+                                                        type="number"
+                                                    />
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    {/* <!-- Laufleistung in km/Jahr --> */}
-                                    <div
-                                        class="single-model-search"
-                                        id="laufleistung-container"
-                                    >
-                                        <h4>Laufleistung in km/Jahr</h4>
-                                        <div class="model-select-icon">
-                                            <input
-                                                class="form-control"
-                                                id="laufleistung"
-                                                max="30000"
-                                                min="10000"
-                                                required=""
-                                                step="1000"
-                                                type="number"
-                                            />
-                                        </div>
-                                    </div>
-                                    {/* <!-- Anzahlung --> */}
-                                    <div class="single-model-search">
-                                        <h4>Anzahlung (Euro)</h4>
-                                        <div
-                                            class="model-select-icon"
-                                            id="model-select-icon"
-                                        >
-                                            <input
-                                                class="form-control"
-                                                id="anzahlung"
-                                                min="0"
-                                                step="1000"
-                                                type="number"
-                                            />
-                                        </div>
-                                    </div>
+                                    )}
+
                                     <hr />
                                 </div>
                             </div>
