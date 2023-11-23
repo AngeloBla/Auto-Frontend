@@ -186,6 +186,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     var checkboxes = document.querySelectorAll('.zusatz-option');
                     var imageElement = document.getElementById('selectedImage');
                     var neuesBild;
+                
                     checkboxes.forEach(function(checkbox) {
                         if (checkbox.checked) {
                             switch (checkbox.value) {
