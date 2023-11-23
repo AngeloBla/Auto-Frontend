@@ -524,7 +524,7 @@ class Konfig extends React.Component {
                         <div class="single-model-search">
                             <h3>ServiceProdukte</h3>
                             <div class="model-select-icon">
-                                <div class="form-control" id="service">
+                                <div id="service">
                                     <label>
                                         <input
                                             type="checkbox"
@@ -534,6 +534,7 @@ class Konfig extends React.Component {
                                         />
                                         Wartungsservice
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
@@ -543,6 +544,7 @@ class Konfig extends React.Component {
                                         />
                                         Überführungsdienst
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
@@ -552,6 +554,7 @@ class Konfig extends React.Component {
                                         />
                                         KFZ-Versicherung
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
@@ -561,6 +564,7 @@ class Konfig extends React.Component {
                                         />
                                         Zulassungsservice
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
@@ -568,6 +572,7 @@ class Konfig extends React.Component {
                                             id="mobilitaetsgarantie"
                                             value="mobilitaetsgarantie"
                                         />
+                                        Mobilitätsgarantie
                                     </label>
                                 </div>
                             </div>
@@ -583,40 +588,38 @@ class Konfig extends React.Component {
                         <div class="single-model-search">
                             <h3>Zusatzoptionen</h3>
                             <div class="model-select-icon">
-                                <div
-                                    id="zusatz"
-                                    class="form-control"
-                                    onChange="loadzusatzImage()"
-                                >
+                                <div  id="zusatz" onChange="loadzusatzImage()">
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="form-control zusatz-option"
                                             id="hitch"
                                             value="hitch"
                                         />
+                                        Anhängevorrichtung, 13 polig
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="form-control zusatz-option"
                                             id="underbody-protection"
                                             value="underbody-protection"
                                         />
+                                        Unterbodenschutz auf Wachsbasis
                                     </label>
+                                    <br/>
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="form-control zusatz-option"
                                             id="mudguard"
                                             value="mudguard"
                                         />
+                                        Spritzschutz
                                     </label>
                                 </div>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="karosseriePrice">
-                                Karosserie Preis: 0 €
+                            <div class="price-display" id="zusatzPrice">
+                                Zusatzoption Preis: 0 €
                             </div>
                         </div>
 
@@ -625,39 +628,42 @@ class Konfig extends React.Component {
                         {/* <!-- ########### Auswahl Reifen ########### --> */}
                         <div class="single-model-search">
                             <h3>Reifen</h3>
-                            <div class="model-select-icon">
-                                <div
-                                    id="reifen"
-                                    class="form-control"
-                                    onChange="loadreifenImage()"
-                                >
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            class="form-control"
-                                            value="sommer"
-                                            checked
-                                        />{" "}
-                                        Sommerreifen
-                                    </label>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            class="form-control"
-                                            value="winter"
-                                        />{" "}
-                                        Winterreifen
-                                    </label>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            class="form-control"
-                                            value="all-season-tire"
-                                        />{" "}
-                                        Ganzjahresreifen
-                                    </label>
-                                </div>
+                            <div id="reifen">
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="all-season-tire"
+                                        // checked={ganzjahresChecked}
+                                        // onChange={handleCheckboxChange}
+                                        // disabled={sommerChecked || winterChecked}
+                                    />
+                                    Ganzjahresreifenset
+                                </label>
+                                <br/>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="sommer"
+                                        // checked={sommerChecked}
+                                        // onChange={handleCheckboxChange}
+                                        // disabled={ganzjahresChecked}
+                                    />
+                                    Sommerreifenset
+                                </label>
+                                <br/>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="winter"
+                                        // checked={winterChecked}
+                                        // onChange={handleCheckboxChange}
+                                        // disabled={ganzjahresChecked}
+                                    />
+                                    Winterreifenset
+                                </label>
+                                {/*<img id="selectedImage" src={imagePath} alt="Reifen" onError={() => setImagePath('https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png')} /> */}
                             </div>
+
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div class="price-display" id="paketePrice">
                                 Pakete Preis: 0 €
