@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navabr from "./navbar";
+import styles from "./style.module.css";
 // import ReactDOM from "react-dom";
 
 class Konfig extends React.Component {
@@ -165,23 +166,10 @@ class Konfig extends React.Component {
     render() {
         return (
             <div>
-                <head>
-                    <meta charset="utf-8" />
-                    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-                    <meta
-                        content="width=device-width, initial-scale=1.0"
-                        name="viewport"
-                    />
-                    <title>Konfigurator</title>
-                    {/* <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> */}
-                    <link href="style.css" rel="stylesheet" />
-                </head>
-
-                <body>
                     <Navabr />
-                    <div class="container2">
+                    <div className={styles.container2}>
                         {/* <!-- ########### Bild aus auswahl ########## --> */}
-                        <div class="fixed-image-panel">
+                        <div className="fixed-image-panel">
                             <img
                                 alt="Auto Bild"
                                 id="selectedImage"
@@ -190,30 +178,29 @@ class Konfig extends React.Component {
                         </div>
                         {/* <!-- ########### Bild ENDE ########## --> */}
                     </div>
-                    <div class="container">
+                    <div className={styles.container}>
                         <p align="center">!-!-! Work in Progress !-!-!</p>
 
-                        <div class="zahlungsmethode">
-                            <div class="left-panel">
+                        <div className={styles.zahlungsmethode}>
+                            <div className="left-panel">
                                 <h2>
                                     Stelle dir dein Traum LandRover zusammen:
                                 </h2>
                                 <p>Bitte triff eine Auswahl</p>
                             </div>
                             {/* <!-- ########## Auswahl Zahlungart ########## --> */}
-                            <div class="single-model-search">
+                            <div className="single-model-search">
                                 <div
-                                    class="toggle-button"
+                                    className={styles.togglebutton}
                                     onclick="toggleElements()"
                                 >
                                     ▼ Zahlungsoptionen
                                 </div>
-                                <div class="collapsible-content">
+                                <div className={styles.collapsiblecontent}>
                                     <h3>Zahlungsart</h3>
-                                    <div class="model-select-icon">
+                                    <div className="model-select-icon">
                                         <select
-                                            class="form-control"
-                                            id="zahlungsart"
+                                            className="form-control zahlungsart"
                                             onChange={
                                                 this.handleZahlungsartChange
                                             }
@@ -230,13 +217,13 @@ class Konfig extends React.Component {
                                         <div>
                                             {/* <!-- Laufzeit --> */}
                                             <div
-                                                class="single-model-search"
+                                                className="single-model-search"
                                                 id="laufzeit-container"
                                             >
                                                 <h4>Laufzeit (Monate)</h4>
-                                                <div class="model-select-icon">
+                                                <div className="model-select-icon">
                                                     <input
-                                                        class="form-control"
+                                                        className="form-control"
                                                         id="laufzeit"
                                                         max="60"
                                                         min="12"
@@ -247,13 +234,13 @@ class Konfig extends React.Component {
                                             </div>
                                             {/* <!-- Laufleistung in km/Jahr --> */}
                                             <div
-                                                class="single-model-search"
+                                                className="single-model-search"
                                                 id="laufleistung-container"
                                             >
                                                 <h4>Laufleistung in km/Jahr</h4>
-                                                <div class="model-select-icon">
+                                                <div className="model-select-icon">
                                                     <input
-                                                        class="form-control"
+                                                        className="form-control"
                                                         id="laufleistung"
                                                         max="30000"
                                                         min="10000"
@@ -264,14 +251,14 @@ class Konfig extends React.Component {
                                                 </div>
                                             </div>
                                             {/* <!-- Anzahlung --> */}
-                                            <div class="single-model-search">
+                                            <div className="single-model-search">
                                                 <h4>Anzahlung (Euro)</h4>
                                                 <div
-                                                    class="model-select-icon"
+                                                    className="model-select-icon"
                                                     id="model-select-icon"
                                                 >
                                                     <input
-                                                        class="form-control"
+                                                        className="form-control"
                                                         id="anzahlung"
                                                         min="0"
                                                         step="1000"
@@ -289,10 +276,10 @@ class Konfig extends React.Component {
                         {/* <!-- ########## Zahlungsart ENDE ########## --> */}
                         {/* <!-- ################################################## --> */}
                         {/* <!-- ########## Auswahl Motor ########## --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Motor</h3>
-                            <div class="model-select-icon">
-                                <select class="form-control" id="motor">
+                            <div className="model-select-icon">
+                                <select className="form-control" id="motor">
                                     <option value="2.0-EcoBlue-XL">
                                         2.0 EcoBlue (Diesel Euro6) 125kW
                                         Extrakab. 4x4 XL 170 PS, 4x4-Antrieb 8,4
@@ -306,7 +293,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="motorPrice">
+                            <div className="price-display" id="motorPrice">
                                 Motor Preis: 0 €
                             </div>
                         </div>
@@ -314,10 +301,10 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########## Auswahl Getriebe ########## --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Getriebe</h3>
-                            <div class="model-select-icon">
-                                <select class="form-control" id="getriebe">
+                            <div className="model-select-icon">
+                                <select className="form-control" id="getriebe">
                                     <option value="automatic">
                                         Automatikschaltung 6 Gang
                                     </option>
@@ -335,7 +322,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="getriebePrice">
+                            <div className="price-display" id="getriebePrice">
                                 Getriebe Preis: 0 €
                             </div>
                         </div>
@@ -343,10 +330,10 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ####### Auswahl Karosseriefarbe ######### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Wähle die Karosseriefarbe</h3>
                             <select
-                                class="form-select"
+                                className="form-select"
                                 id="bodyColor"
                                 ref={this.bodyColorRef}
                                 onChange={this.loadCarImage}
@@ -361,18 +348,18 @@ class Konfig extends React.Component {
                             </select>
                         </div>
                         {/* <!-- Anzeigefenster für den Preis --> */}
-                        <div class="price-display" id="bodyColorPrice">
+                        <div className="price-display" id="bodyColorPrice">
                             Außenfarbe Preis: 0 €
                         </div>
 
                         <hr />
 
                         {/* <!-- ####### Auswahl Motorhaubenfarbe ######## --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Motorhaube Farbe</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-select"
+                                    className="form-select"
                                     id="hoodColor"
                                     ref={this.hoodColorRef}
                                     onChange={this.loadHoodImage}
@@ -388,7 +375,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="hoodColorPrice">
+                            <div className="price-display" id="hoodColorPrice">
                                 Motorhaube Farbe Preis: 0 €
                             </div>
                         </div>
@@ -396,11 +383,11 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ####### Auswahl Dachfarbe ######### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Dachfarbe</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-select"
+                                    className="form-select"
                                     id="roofColor"
                                     ref={this.roofColorRef}
                                     onChange={this.loadRoofColorImage}
@@ -418,7 +405,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="roofColorPrice">
+                            <div className="price-display" id="roofColorPrice">
                                 Dachfarbe Preis: 0 €
                             </div>
                         </div>
@@ -426,11 +413,11 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ####### Auswahl Dachträger ######### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Dachträger</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-select"
+                                    className="form-select"
                                     id="roofrack"
                                     ref={this.roofrackRef}
                                     onChange={this.loadroofrackImage}
@@ -444,7 +431,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="roofrackPrice">
+                            <div className="price-display" id="roofrackPrice">
                                 Dachträger Preis: 0 €
                             </div>
                         </div>
@@ -452,11 +439,11 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ######## Auswahl getönte Scheiben ######### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Getönte Scheiben</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-select"
+                                    className="form-select"
                                     id="windowcolor"
                                     onChange="loadwindowcolorImage()"
                                 >
@@ -473,7 +460,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="windowcolorPrice">
+                            <div className="price-display" id="windowcolorPrice">
                                 Getönte Scheiben Preis: 0 €
                             </div>
                         </div>
@@ -481,11 +468,11 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########## Auswahl Innenausstattung1 ########## --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Innenausstattung wählen</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-control"
+                                    className="form-control"
                                     id="innenausstattung1"
                                 >
                                     <option value="stoff-ebony">
@@ -499,7 +486,7 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div
-                                class="price-display"
+                                className="price-display"
                                 id="innenausstattung1Price"
                             >
                                 Innenausstattung 1 Preis: 0 €
@@ -509,11 +496,11 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########### Auswahl Innenausstattung2 ########## --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Innenausstattung</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <select
-                                    class="form-control"
+                                    className="form-control"
                                     id="innenausstattung2"
                                 >
                                     <option value="rubber-floor-mat">
@@ -526,7 +513,7 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div
-                                class="price-display"
+                                className="price-display"
                                 id="innenausstattung2Price"
                             >
                                 Innenausstattung 2 Preis: 0 €
@@ -536,14 +523,14 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ######## Auswahl Service Produkte ######### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>ServiceProdukte</h3>
-                            <div class="model-select-icon">
+                            <div className="model-select-icon">
                                 <div id="service">
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="from-control"
+                                            className="from-control"
                                             id="wartung_verschleiss"
                                             value="wartung_verschleiss"
                                         />
@@ -553,7 +540,7 @@ class Konfig extends React.Component {
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="from-control"
+                                            className="from-control"
                                             id="ueberfuehrung"
                                             value="ueberfuehrung"
                                         />
@@ -563,7 +550,7 @@ class Konfig extends React.Component {
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="from-control"
+                                            className="from-control"
                                             id="kfz_versicherung"
                                             value="kfz_versicherung"
                                         />
@@ -573,7 +560,7 @@ class Konfig extends React.Component {
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="from-control"
+                                            className="from-control"
                                             id="zulassungsservice"
                                             value="zulassungsservice"
                                         />
@@ -583,7 +570,7 @@ class Konfig extends React.Component {
                                     <label>
                                         <input
                                             type="checkbox"
-                                            class="from-control"
+                                            className="from-control"
                                             id="mobilitaetsgarantie"
                                             value="mobilitaetsgarantie"
                                         />
@@ -592,7 +579,7 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="servicePrice">
+                            <div className="price-display" id="servicePrice">
                                 Serviceprodukte Preis: 0 €
                             </div>
                         </div>
@@ -600,10 +587,10 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########### Zusatzoptionen ########### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Zusatzoptionen</h3>
-                            <div class="model-select-icon">
-                                <div  id="zusatz" onChange="loadzusatzImage()">
+                            <div className="model-select-icon">
+                                <div  className={styles.zusatz} onChange="loadzusatzImage()">
                                     <label>
                                         <input
                                             type="checkbox"
@@ -633,7 +620,7 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="zusatzPrice">
+                            <div className="price-display" id="zusatzPrice">
                                 Zusatzoption Preis: 0 €
                             </div>
                         </div>
@@ -641,9 +628,9 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########### Auswahl Reifen ########### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Reifen</h3>
-                            <div id="reifen">
+                            <div className={styles.reifen}>
                                 <label>
                                     <input
                                         type="checkbox"
@@ -680,7 +667,7 @@ class Konfig extends React.Component {
                             </div>
 
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="paketePrice">
+                            <div className="price-display" id="paketePrice">
                                 Pakete Preis: 0 €
                             </div>
                         </div>
@@ -688,10 +675,10 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########### Pakete ########### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Pakete</h3>
-                            <div class="model-select-icon">
-                                <select class="form-control" id="pakete">
+                            <div className="model-select-icon">
+                                <select className="form-control" id="pakete">
                                     <option value="flotten-paket-1">
                                         Flotten-Paket 1 mit: Bodenbelag
                                         Plastik/Gummi, Verstärktes Fahrwerk
@@ -714,7 +701,7 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="paketePrice">
+                            <div className="price-display" id="paketePrice">
                                 Pakete Preis: 0 €
                             </div>
                         </div>
@@ -722,10 +709,10 @@ class Konfig extends React.Component {
                         <hr />
 
                         {/* <!-- ########### Abhohlort ########### --> */}
-                        <div class="single-model-search">
+                        <div className="single-model-search">
                             <h3>Abhohlort auswählen</h3>
-                            <div class="model-select-icon">
-                                <select class="form-control">
+                            <div className="model-select-icon">
+                                <select className="form-control">
                                     <option value="muenchen">München</option>
                                     <option value="stuttgart">Stuttgart</option>
                                     <option value="berlin">Berlin</option>
@@ -749,14 +736,14 @@ class Konfig extends React.Component {
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
-                            <div class="price-display" id="abholortPrice">
+                            <div className="price-display" id="abholortPrice">
                                 Abholort Preis: 0 €
                             </div>
                         </div>
 
                         {/* <!-- ########## Gesamtpreis Box ########## --> */}
-                        <div class="fixed-bar" id="fixed-bar">
-                            <div class="price-panel">
+                        <div className={styles.fixedbar} id="fixed-bar">
+                            <div className={styles.pricepanel}>
                                 <div id="totalPrice">
                                     <h2>Gesamtpreis: 0 €</h2>
                                 </div>
@@ -768,8 +755,6 @@ class Konfig extends React.Component {
                         </div>
                         {/* <!-- ########## Gesmatpreis Box ENDE ########## --> */}
                     </div>
-                    {/* <!-- ########### Body ENDE ########## --> */}
-                </body>
             </div>
         );
     }
