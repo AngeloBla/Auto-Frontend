@@ -1,3 +1,4 @@
+
 // Preisbalken groesse automatisch anpassen
 function adjustFontSize() {
     var fixedBar = document.querySelector('.fixed-bar');
