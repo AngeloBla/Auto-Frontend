@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navabr from "./navbar";
 import './style.css';
-import styles from "./style.module1.css";
+import styles from "./style.module.css";
 // import ReactDOM from "react-dom";
 
 class Konfig extends React.Component {
