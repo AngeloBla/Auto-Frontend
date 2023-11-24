@@ -46,27 +46,28 @@ select {
 }
 
 /* Container */
+.parentContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* This will make the parent container take up the full height of the viewport */
+    overflow: auto; /* This will hide the content that overflows */
+}
 .container {
-    position: relative;
+    flex: 2;
+    flex-direction: column;
+    overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.8);
-    width: 39%;
     box-sizing: border-box;
     overflow-wrap: break-word;
     font-size: calc(0.5vw + 10px);
-    margin-right: 5%;
     text-align: center; /* Text zentriert */
     padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
 }
 .container2 {
-    position: sticky; /* oder 'fixed', je nach Bedarf */
-    background-color: #00ff00;
-    border: solid 1px #00ff00;
-    top: 0; /* oder einen anderen Wert, um die Position zu justieren */
+    flex: 1;
+    /* background-color: #00ff00; */
+    /* border: solid 1px #00ff00; */
     background-color: rgba(255, 255, 255, 0.8);
-    width: 60%;
-    margin-left: 40%;
-    text-align: center;
-    padding-right: 10px;
 }
 .container3 {
     position: sticky;
@@ -135,14 +136,12 @@ select {
 /* Fixed Image Panel */
 .fixed-image-panel {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
-
 .fixed-image-panel img {
     width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    height: 100%;
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {
