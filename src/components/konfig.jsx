@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navabr from "./navbar";
-import styles from "./style.module.css";
+import './style.css';
+import styles from "./style.module1.css";
 // import ReactDOM from "react-dom";
 
 class Konfig extends React.Component {
@@ -165,7 +166,7 @@ class Konfig extends React.Component {
 
     render() {
         return (
-            <div>
+            <body>
                     <Navabr />
                     <div className={styles.container2}>
                         {/* <!-- ########### Bild aus auswahl ########## --> */}
@@ -755,7 +756,7 @@ class Konfig extends React.Component {
                         </div>
                         {/* <!-- ########## Gesmatpreis Box ENDE ########## --> */}
                     </div>
-            </div>
+            </body>
         );
     }
 }
