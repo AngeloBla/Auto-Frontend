@@ -16,7 +16,6 @@ class App extends Component {
             <Carousel/>
             <Galarie/>
             <Album/>
-            <Pricing/>
             <Footer/>
             </React.Fragment>;
     }

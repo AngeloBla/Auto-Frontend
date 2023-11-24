@@ -12,13 +12,13 @@ class Carousel extends Component {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg" className="d-block w-100 img-fluid" alt="..."/>
+            <img src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_fs.jpg" className="d-block w-100 img-fluid" alt="..."/>
+            <img src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_h.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
           <div className="carousel-item">
-            <img src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_h.jpg" className="d-block w-100 img-fluid" alt="..."/>
+            <img src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_hbs.jpg" className="d-block w-100 img-fluid" alt="..."/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
