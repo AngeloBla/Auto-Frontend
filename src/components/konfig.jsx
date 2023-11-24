@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navabr from "./navbar";
 import './style.css';
-import styles from "./style.module.css";
-// import ReactDOM from "react-dom";
+import styles from "./style.module.css";// import ReactDOM from "react-dom";
 
 class Konfig extends React.Component {
     state = {};
@@ -30,34 +29,27 @@ class Konfig extends React.Component {
         var bodyColor = this.bodyColorRef.current.value;
         var imagePath;
         switch (bodyColor) {
-            case "body-red":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg";
+            case 'body-red':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg';
                 break;
-            case "body-blue":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_blau.jpg";
+            case 'body-blue':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_blau.jpg';
                 break;
-            case "body-yellow":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg";
+            case 'body-yellow':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg';
                 break;
-            case "body-green":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_gruen.jpg";
+            case 'body-green':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_gruen.jpg';
                 break;
-            case "body-black":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_schwarz.jpg";
+            case 'body-black':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_schwarz.jpg';
                 break;
-            case "body-white":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_wei%C3%9F.jpg";
+            case 'body-white':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_wei%C3%9F.jpg';
                 break;
             default:
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
-        }
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png';
+                    }
         this.setState({
             selectedImage: imagePath,
             lastFunctionCalled: "loadCarImage",
@@ -68,33 +60,26 @@ class Konfig extends React.Component {
         var hoodColor = this.hoodColorRef.current.value;
         var imagePath;
         switch (hoodColor) {
-            case "white-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_wei%C3%9F.jpg";
+            case 'white-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_wei%C3%9F.jpg';
                 break;
-            case "blue-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_blau.jpg";
+            case 'blue-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_blau.jpg';
                 break;
-            case "green-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_gruen.jpg";
+            case 'green-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_gruen.jpg';
                 break;
-            case "red-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_rot.jpg";
+            case 'red-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_rot.jpg';
                 break;
-            case "yellow-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg";
+            case 'yellow-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg';
                 break;
-            case "black-hood":
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_schwarz.jpg";
+            case 'black-hood':
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_schwarz.jpg';
                 break;
             default:
-                imagePath =
-                    "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
+                imagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png';
         }
         this.setState({
             selectedImage: imagePath,
@@ -167,6 +152,7 @@ class Konfig extends React.Component {
     render() {
         return (
             <body>
+                <div>
                     <Navabr />
                     <div className={styles.container2}>
                         {/* <!-- ########### Bild aus auswahl ########## --> */}
@@ -191,20 +177,18 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- ########## Auswahl Zahlungart ########## --> */}
                             <div className="single-model-search">
-                                <div
+                                {/* <div
                                     className={styles.togglebutton}
-                                    onclick="toggleElements()"
+                                    onClick="toggleElements()"
                                 >
                                     ▼ Zahlungsoptionen
-                                </div>
+                                </div> */}
                                 <div className={styles.collapsiblecontent}>
                                     <h3>Zahlungsart</h3>
                                     <div className="model-select-icon">
                                         <select
                                             className="form-control zahlungsart"
-                                            onChange={
-                                                this.handleZahlungsartChange
-                                            }
+                                            onChange={this.handleZahlungsartChange}
                                         >
                                             <option value="leasing">
                                                 Leasing
@@ -342,7 +326,6 @@ class Konfig extends React.Component {
                                 <option value="body-red">Rot</option>
                                 <option value="body-blue">Blau</option>
                                 <option value="body-yellow">Gelb</option>
-                                <option value="body-red">Rot</option>
                                 <option value="body-green">olivegrün</option>
                                 <option value="body-black">Schwarz</option>
                                 <option value="body-white">Weiß</option>
@@ -446,7 +429,7 @@ class Konfig extends React.Component {
                                 <select
                                     className="form-select"
                                     id="windowcolor"
-                                    onChange="loadwindowcolorImage()"
+                                    // onChange={loadwindowcolorImage}
                                 >
                                     <option value="window0">keine</option>
                                     <option value="window20">
@@ -591,7 +574,7 @@ class Konfig extends React.Component {
                         <div className="single-model-search">
                             <h3>Zusatzoptionen</h3>
                             <div className="model-select-icon">
-                                <div  className={styles.zusatz} onChange="loadzusatzImage()">
+                                {/* <div  className={styles.zusatz} onChange={loadzusatzImage}> */}
                                     <label>
                                         <input
                                             type="checkbox"
@@ -756,6 +739,7 @@ class Konfig extends React.Component {
                         </div>
                         {/* <!-- ########## Gesmatpreis Box ENDE ########## --> */}
                     </div>
+                
             </body>
         );
     }
