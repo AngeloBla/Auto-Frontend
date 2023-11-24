@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="container-fluid">
         {/* Verwende Link anstelle von 'a' für interne Links */}
         <Link className="navbar-brand" to="/">
-          Navbar
+          Astley Motors
         </Link>
         <button
           className="navbar-toggler"
