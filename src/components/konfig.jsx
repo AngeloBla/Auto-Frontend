@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navabr from "./navbar";
 import "./style.css";
 import styles from "./style.module.css"; // import ReactDOM from "react-dom";
@@ -12,18 +12,37 @@ class Konfig extends React.Component {
         this.hoodColorRef = React.createRef();
         this.roofColorRef = React.createRef();
         this.state = {
-            selectedImage: "",
+            selectedImage:
+                "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg",
             lastFunctionCalled: null,
             zahlungsart: "leasing",
+            motorPreis: 10000,
+            getriebePreis: 6000,
+            karosserieFarbePreis: 20000,
+            motorhaubeFarbePreis: 0,
+            dachFarbePreis: 0,
+            dachtraegerPreis: 0,
+            getoenteScheibenPreis: 0,
+            innenausstattung1Preis: 0,
+            innenausstattung2Preis: 0,
+            serviceProduktePreis: 0,
+            zusatzoptionenPreis: 0,
+            reifenPreis: 0,
+            paketePreis: 0,
+            abholortPreis: 0,
+            totalPreis: 0,
             toggleZahlungsart: false,
             ganzjahresChecked: false,
             sommerChecked: false,
             winterChecked: false,
         };
+        this.handleMotorChange = this.handleMotorChange.bind(this);
+        this.handleGetriebeChange = this.handleGetriebeChange.bind(this);
+        this.calculateTotal = this.calculateTotal.bind(this);
     }
     // stellt sicher, dass beim Laden der Komponenten ein Bild geladen wird.
     componentDidMount() {
-        this.loadCarImage();
+        // this.loadCarImage();
     }
     toggleZahlungsart = () => {
         // Funktion fuer den Zahlungsoptionen Button
@@ -35,8 +54,19 @@ class Konfig extends React.Component {
         // Funktion fuer die Auswahl der Zahlungsart und damit einblenden der Optionen
         this.setState({ zahlungsart: event.target.value });
     };
+    handleMotorChange(event) {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ motorPreis: preis }, this.calculateTotal);
+    }
+    handleGetriebeChange(event) {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ getriebePreis: preis }, this.calculateTotal);
+    }
+
     // ########### Funktion AuswahlKarroseriefarbe verlinkung Bilder ###########
-    loadCarImage = () => {
+    loadCarImage = (event) => {
         var bodyColor = this.bodyColorRef.current.value;
         var imagePath;
         switch (bodyColor) {
@@ -68,13 +98,19 @@ class Konfig extends React.Component {
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
         }
-        this.setState({
-            selectedImage: imagePath,
-            lastFunctionCalled: "loadCarImage",
-        });
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState(
+            {
+                karosserieFarbePreis: preis,
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadCarImage",
+            },
+            this.calculateTotal
+        );
     };
     // ########### funktion Auswahl Motorhaubefarbe mit Bild verlinken ###########
-    loadHoodImage = () => {
+    loadHoodImage = (event) => {
         var hoodColor = this.hoodColorRef.current.value;
         var imagePath;
         switch (hoodColor) {
@@ -106,13 +142,19 @@ class Konfig extends React.Component {
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
         }
-        this.setState({
-            selectedImage: imagePath,
-            lastFunctionCalled: "loadHoodImage",
-        });
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState(
+            {
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadHoodImage",
+                motorhaubeFarbePreis: preis,
+            },
+            this.calculateTotal
+        );
     };
     // ########## funktion Auswahl Dachfarbe mit Bild verlinken #########
-    loadRoofColorImage = () => {
+    loadRoofColorImage = (event) => {
         var roofColor = this.roofColorRef.current.value;
         var imagePath;
         switch (roofColor) {
@@ -144,14 +186,19 @@ class Konfig extends React.Component {
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
         }
-        this.setState({
-            selectedImage: imagePath,
-            lastFunctionCalled: "loadRoofColorImage",
-        });
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState(
+            {
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadRoofColorImage",
+                dachFarbePreis: preis,
+            },
+            this.calculateTotal
+        );
     };
     // ########## funktion Auswahl Dachträger mit Bild verlinken ##########
-    loadroofrackImage = () => {
-        // var roofrack = document.getElementById("roofrack").value;
+    loadroofrackImage = (event) => {
         var roofrack = this.roofrackRef.current.value;
         var imagePath;
         switch (roofrack) {
@@ -167,11 +214,39 @@ class Konfig extends React.Component {
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
         }
-        this.setState({
-            selectedImage: imagePath,
-            lastFunctionCalled: "loadroofrackImage",
-        });
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState(
+            {
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadroofrackImage",
+                dachtraegerPreis: preis,
+            },
+            this.calculateTotal
+        );
     };
+    // ########## funktion Auswahl getönte Scheiben mit Bild verlinken ##########
+    handleWindowcolorChange = (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ getoenteScheibenPreis: preis }, this.calculateTotal);
+    };
+    handleInnenausstattung1Change = (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ innenausstattung1Preis: preis }, this.calculateTotal);
+    };
+    handleInnenausstattung2Change = (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ innenausstattung2Preis: preis }, this.calculateTotal);
+    };
+    handlePaketChange = (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ paketePreis: preis }, this.calculateTotal);
+    };
+
     handleCheckboxChange = (event) => {
         //Funktion für die Reifencheckboxen
         const { name, checked } = event.target;
@@ -180,6 +255,24 @@ class Konfig extends React.Component {
             [`${name}Checked`]: checked,
         });
     };
+    calculateTotal() {
+        const totalPreis =
+            Number(this.state.motorPreis) +
+            Number(this.state.getriebePreis) +
+            Number(this.state.karosserieFarbePreis) +
+            Number(this.state.motorhaubeFarbePreis) +
+            Number(this.state.dachFarbePreis) +
+            Number(this.state.dachtraegerPreis) +
+            Number(this.state.getoenteScheibenPreis) +
+            Number(this.state.innenausstattung1Preis) +
+            Number(this.state.innenausstattung2Preis) +
+            Number(this.state.serviceProduktePreis) +
+            Number(this.state.zusatzoptionenPreis) +
+            Number(this.state.reifenPreis) +
+            Number(this.state.paketePreis) +
+            Number(this.state.abholortPreis);
+        this.setState({ totalPreis });
+    }
     render() {
         // const { ganzjahresChecked, sommerChecked, winterChecked } = this.state;
         return (
@@ -303,13 +396,23 @@ class Konfig extends React.Component {
                             <div className="single-model-search">
                                 <h3>Motor</h3>
                                 <div className="model-select-icon">
-                                    <select className="form-control" id="motor">
-                                        <option value="2.0-EcoBlue-XL">
+                                    <select
+                                        className="form-control"
+                                        id="motor"
+                                        onChange={this.handleMotorChange}
+                                    >
+                                        <option
+                                            value="2.0-EcoBlue-XL"
+                                            data-preis="10000"
+                                        >
                                             2.0 EcoBlue (Diesel Euro6) 125kW
                                             Extrakab. 4x4 XL 170 PS, 4x4-Antrieb
                                             8,4 l/100km | CO² komb.: 221 g/km
                                         </option>
-                                        <option value="4.0-MagaTurbo-XL">
+                                        <option
+                                            value="4.0-MagaTurbo-XL"
+                                            data-preis="20000"
+                                        >
                                             4.0 S/C Spezial (Benzin) 257kW 4x4
                                             XL 350 PS, 4x4-Antrieb 16,5 l/100km
                                             | CO² komb.: xxl g/km
@@ -318,7 +421,7 @@ class Konfig extends React.Component {
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="motorPrice">
-                                    Motor Preis: 0 €
+                                    Motor Preis: {this.state.motorPreis} €
                                 </div>
                             </div>
 
@@ -331,18 +434,31 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-control"
                                         id="getriebe"
+                                        onChange={this.handleGetriebeChange}
                                     >
-                                        <option value="automatic">
+                                        <option
+                                            value="automatic"
+                                            data-preis="6000"
+                                        >
                                             Automatikschaltung 6 Gang
                                         </option>
-                                        <option value="manual">
-                                            manuelle Schaltung 6 Gang
+                                        <option
+                                            value="manual"
+                                            data-preis="4500"
+                                        >
+                                            manuelle Schaltung 5 Gang
                                         </option>
-                                        <option value="automatic-diff">
+                                        <option
+                                            value="automatic-diff"
+                                            data-preis="7000"
+                                        >
                                             Automatikschaltung 6 Gang mit
                                             Differentialgetriebe und Sperre
                                         </option>
-                                        <option value="manual-diff">
+                                        <option
+                                            value="manual-diff"
+                                            data-preis="5500"
+                                        >
                                             manuelle Schaltung 6 Gang mit
                                             Differentialgetriebe und Sperre
                                         </option>
@@ -353,7 +469,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="getriebePrice"
                                 >
-                                    Getriebe Preis: 0 €
+                                    Getriebe Preis: {this.state.getriebePreis} €
                                 </div>
                             </div>
 
@@ -368,19 +484,45 @@ class Konfig extends React.Component {
                                     ref={this.bodyColorRef}
                                     onChange={this.loadCarImage}
                                 >
-                                    <option value="body-red">Rot</option>
-                                    <option value="body-blue">Blau</option>
-                                    <option value="body-yellow">Gelb</option>
-                                    <option value="body-green">
-                                        olivegrün
+                                    <option value="body-red" data-preis="20000">
+                                        Rot
                                     </option>
-                                    <option value="body-black">Schwarz</option>
-                                    <option value="body-white">Weiß</option>
+                                    <option
+                                        value="body-blue"
+                                        data-preis="20000"
+                                    >
+                                        Blau
+                                    </option>
+                                    <option
+                                        value="body-yellow"
+                                        data-preis="20000"
+                                    >
+                                        Gelb
+                                    </option>
+                                    <option
+                                        value="body-green"
+                                        data-preis="20000"
+                                    >
+                                        Olivegrün
+                                    </option>
+                                    <option
+                                        value="body-black"
+                                        data-preis="20000"
+                                    >
+                                        Schwarz
+                                    </option>
+                                    <option
+                                        value="body-white"
+                                        data-preis="20000"
+                                    >
+                                        Weiß
+                                    </option>
                                 </select>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div className="price-display" id="bodyColorPrice">
-                                Außenfarbe Preis: 0 €
+                                Außenfarbe Preis:
+                                {this.state.karosserieFarbePreis} €
                             </div>
 
                             <hr />
@@ -395,16 +537,40 @@ class Konfig extends React.Component {
                                         ref={this.hoodColorRef}
                                         onChange={this.loadHoodImage}
                                     >
-                                        <option value="white-hood">Weiß</option>
-                                        <option value="blue-hood">Blau</option>
-                                        <option value="green-hood">
+                                        <option
+                                            value="white-hood"
+                                            data-preis="800"
+                                        >
+                                            Weiß
+                                        </option>
+                                        <option
+                                            value="blue-hood"
+                                            data-preis="800"
+                                        >
+                                            Blau
+                                        </option>
+                                        <option
+                                            value="green-hood"
+                                            data-preis="800"
+                                        >
                                             olivegrün
                                         </option>
-                                        <option value="red-hood">Rot</option>
-                                        <option value="yellow-hood">
+                                        <option
+                                            value="red-hood"
+                                            data-preis="800"
+                                        >
+                                            Rot
+                                        </option>
+                                        <option
+                                            value="yellow-hood"
+                                            data-preis="800"
+                                        >
                                             Gelb
                                         </option>
-                                        <option value="black-hood">
+                                        <option
+                                            value="black-hood"
+                                            data-preis="800"
+                                        >
                                             Schwarz
                                         </option>
                                     </select>
@@ -414,7 +580,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="hoodColorPrice"
                                 >
-                                    Motorhaube Farbe Preis: 0 €
+                                    Motorhaube Farbe Preis:
+                                    {this.state.motorhaubeFarbePreis} €
                                 </div>
                             </div>
 
@@ -430,18 +597,40 @@ class Konfig extends React.Component {
                                         ref={this.roofColorRef}
                                         onChange={this.loadRoofColorImage}
                                     >
-                                        <option value="standard-roof">
+                                        <option
+                                            value="standard-roof"
+                                            data-preis="0"
+                                        >
                                             standard Weiß
                                         </option>
-                                        <option value="blue-roof">Blau</option>
-                                        <option value="green-roof">
+                                        <option
+                                            value="blue-roof"
+                                            data-preis="800"
+                                        >
+                                            Blau
+                                        </option>
+                                        <option
+                                            value="green-roof"
+                                            data-preis="800"
+                                        >
                                             olivegrün
                                         </option>
-                                        <option value="red-roof">Rot</option>
-                                        <option value="yellow-roof">
+                                        <option
+                                            value="red-roof"
+                                            data-preis="800"
+                                        >
+                                            Rot
+                                        </option>
+                                        <option
+                                            value="yellow-roof"
+                                            data-preis="800"
+                                        >
                                             Gelb
                                         </option>
-                                        <option value="black-roof">
+                                        <option
+                                            value="black-roof"
+                                            data-preis="800"
+                                        >
                                             Schwarz
                                         </option>
                                     </select>
@@ -451,7 +640,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="roofColorPrice"
                                 >
-                                    Dachfarbe Preis: 0 €
+                                    Dachfarbe Preis: {this.state.dachFarbePreis}
+                                    €
                                 </div>
                             </div>
 
@@ -467,10 +657,16 @@ class Konfig extends React.Component {
                                         ref={this.roofrackRef}
                                         onChange={this.loadroofrackImage}
                                     >
-                                        <option value="roof-rack0">
+                                        <option
+                                            value="roof-rack0"
+                                            data-preis="0"
+                                        >
                                             kein Dachträger
                                         </option>
-                                        <option value="roof-rack1">
+                                        <option
+                                            value="roof-rack1"
+                                            data-preis="1000"
+                                        >
                                             standard Schwarz
                                         </option>
                                     </select>
@@ -480,7 +676,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="roofrackPrice"
                                 >
-                                    Dachträger Preis: 0 €
+                                    Dachträger Preis:
+                                    {this.state.dachtraegerPreis} €
                                 </div>
                             </div>
 
@@ -493,16 +690,27 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-select"
                                         id="windowcolor"
-                                        // onChange={loadwindowcolorImage}
+                                        onChange={this.handleWindowcolorChange}
                                     >
-                                        <option value="window0">keine</option>
-                                        <option value="window20">
+                                        <option value="window0" data-preis="0">
+                                            keine
+                                        </option>
+                                        <option
+                                            value="window20"
+                                            data-preis="400"
+                                        >
                                             20 % getönte Scheiben
                                         </option>
-                                        <option value="window40">
+                                        <option
+                                            value="window40"
+                                            data-preis="600"
+                                        >
                                             40 % getönte Scheiben
                                         </option>
-                                        <option value="window80">
+                                        <option
+                                            value="window80"
+                                            data-preis="1100"
+                                        >
                                             80 % getönte Scheiben
                                         </option>
                                     </select>
@@ -512,7 +720,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="windowcolorPrice"
                                 >
-                                    Getönte Scheiben Preis: 0 €
+                                    Getönte Scheiben Preis:
+                                    {this.state.getoenteScheibenPreis} €
                                 </div>
                             </div>
 
@@ -525,12 +734,21 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-control"
                                         id="innenausstattung1"
+                                        onChange={
+                                            this.handleInnenausstattung1Change
+                                        }
                                     >
-                                        <option value="stoff-ebony">
+                                        <option
+                                            value="stoff-ebony"
+                                            data-preis="500"
+                                        >
                                             Stoff Ebony Sitzbezüge: Stoff Farbe
                                             Schwarz
                                         </option>
-                                        <option value="leather">
+                                        <option
+                                            value="leather"
+                                            data-preis="2000"
+                                        >
                                             Leder Sitzbezüge: Leder Farbe
                                             Schwarz
                                         </option>
@@ -541,7 +759,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="innenausstattung1Price"
                                 >
-                                    Innenausstattung 1 Preis: 0 €
+                                    Innenausstattung1 Preis:
+                                    {this.state.innenausstattung1Preis} €
                                 </div>
                             </div>
 
@@ -554,11 +773,20 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-control"
                                         id="innenausstattung2"
+                                        onChange={
+                                            this.handleInnenausstattung2Change
+                                        }
                                     >
-                                        <option value="rubber-floor-mat">
+                                        <option
+                                            value="rubber-floor-mat"
+                                            data-preis="0"
+                                        >
                                             Gummifussmatte
                                         </option>
-                                        <option value="fabric-floor-mat">
+                                        <option
+                                            value="fabric-floor-mat"
+                                            data-preis="100"
+                                        >
                                             Stofffussmatte
                                         </option>
                                     </select>
@@ -568,7 +796,8 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="innenausstattung2Price"
                                 >
-                                    Innenausstattung 2 Preis: 0 €
+                                    Innenausstattung 2 Preis:
+                                    {this.state.innenausstattung2Preis} €
                                 </div>
                             </div>
 
@@ -743,22 +972,41 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-control"
                                         id="pakete"
+                                        onChange={this.handlePaketChange}
                                     >
-                                        <option value="flotten-paket-1">
+                                        <option
+                                            value="kein-paket"
+                                            data-preis="0"
+                                        >
+                                            Kein Paket ausgewählt
+                                        </option>
+                                        <option
+                                            value="flotten-paket-1"
+                                            data-preis="1000"
+                                        >
                                             Flotten-Paket 1 mit: Bodenbelag
                                             Plastik/Gummi, Verstärktes Fahrwerk
                                         </option>
-                                        <option value="komfort-paket-2">
+                                        <option
+                                            value="komfort-paket-2"
+                                            data-preis="4000"
+                                        >
                                             Komfort-Paket 2 mit:
                                             Spannungskonverter 400 Watt,
                                             Schaltersatz - 6 Schalter
                                         </option>
-                                        <option value="outdoor-paket-2">
+                                        <option
+                                            value="outdoor-paket-2"
+                                            data-preis="5000"
+                                        >
                                             Outdoor-Paket 3 mit:
                                             Unterbodenschutzvorrichtung an
                                             Kraftstofftank und Motor
                                         </option>
-                                        <option value="winter-paket-1">
+                                        <option
+                                            value="winter-paket-1"
+                                            data-preis="8000"
+                                        >
                                             Winter-Paket 1 mit: Lenkrad beheizt,
                                             Fahrersitz und Beifahrersitz
                                             Vordersitze mit Sitzheizung,
@@ -769,7 +1017,7 @@ class Konfig extends React.Component {
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="paketePrice">
-                                    Pakete Preis: 0 €
+                                    Pakete Preis: {this.state.paketePreis} €
                                 </div>
                             </div>
 
@@ -825,7 +1073,10 @@ class Konfig extends React.Component {
                             <div className={styles.fixedbar} id="fixed-bar">
                                 <div className={styles.pricepanel}>
                                     <div id="totalPrice">
-                                        <h2>Gesamtpreis: 0 €</h2>
+                                        <h2>
+                                            Gesamtpreis: {this.state.totalPreis}
+                                            €
+                                        </h2>
                                     </div>
                                     {/* <!-- Hinzufügen der monatlichen Gesamtrate --> */}
                                     <div id="monthly-rate-display">
