@@ -822,6 +822,10 @@ class Konfig extends React.Component {
                                     alt="Auto Bild"
                                     id="selectedImage"
                                     src={this.state.selectedImage}
+                                    onLoad={(e) => {
+                                        e.target.style.height = "auto";
+                                        e.target.style.width = "100%";
+                                    }}
                                 />
                             </div>
                             {/* <!-- ########### Bild ENDE ########## --> */}
