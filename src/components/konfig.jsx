@@ -16,6 +16,9 @@ class Konfig extends React.Component {
             lastFunctionCalled: null,
             zahlungsart: "leasing",
             toggleZahlungsart: false,
+            ganzjahresChecked: false,
+            sommerChecked: false,
+            winterChecked: false,
         };
     }
     // stellt sicher, dass beim Laden der Komponenten ein Bild geladen wird.
@@ -169,8 +172,16 @@ class Konfig extends React.Component {
             lastFunctionCalled: "loadroofrackImage",
         });
     };
+    handleCheckboxChange = (event) => {
+        //Funktion für die Reifencheckboxen
+        const { name, checked } = event.target;
 
+        this.setState({
+            [`${name}Checked`]: checked,
+        });
+    };
     render() {
+        // const { ganzjahresChecked, sommerChecked, winterChecked } = this.state;
         return (
             <main>
                 <div>
@@ -676,10 +687,15 @@ class Konfig extends React.Component {
                                     <label>
                                         <input
                                             type="checkbox"
-                                            name="all-season-tire"
-                                            // checked={ganzjahresChecked}
-                                            // onChange={handleCheckboxChange}
-                                            // disabled={sommerChecked || winterChecked}
+                                            name="ganzjahres"
+                                            checked={
+                                                this.state.ganzjahresChecked
+                                            }
+                                            onChange={this.handleCheckboxChange}
+                                            disabled={
+                                                this.state.sommerChecked ||
+                                                this.state.winterChecked
+                                            }
                                         />
                                         Ganzjahresreifenset
                                     </label>
@@ -688,9 +704,11 @@ class Konfig extends React.Component {
                                         <input
                                             type="checkbox"
                                             name="sommer"
-                                            // checked={sommerChecked}
-                                            // onChange={handleCheckboxChange}
-                                            // disabled={ganzjahresChecked}
+                                            checked={this.state.sommerChecked}
+                                            onChange={this.handleCheckboxChange}
+                                            disabled={
+                                                this.state.ganzjahresChecked
+                                            }
                                         />
                                         Sommerreifenset
                                     </label>
@@ -699,9 +717,11 @@ class Konfig extends React.Component {
                                         <input
                                             type="checkbox"
                                             name="winter"
-                                            // checked={winterChecked}
-                                            // onChange={handleCheckboxChange}
-                                            // disabled={ganzjahresChecked}
+                                            checked={this.state.winterChecked}
+                                            onChange={this.handleCheckboxChange}
+                                            disabled={
+                                                this.state.ganzjahresChecked
+                                            }
                                         />
                                         Winterreifenset
                                     </label>
