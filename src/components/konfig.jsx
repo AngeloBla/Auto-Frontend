@@ -246,7 +246,11 @@ class Konfig extends React.Component {
         const preis = selectedOption.getAttribute("data-preis");
         this.setState({ paketePreis: preis }, this.calculateTotal);
     };
-
+    handleAbholortChange = (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+        const preis = selectedOption.getAttribute("data-preis");
+        this.setState({ abholortPreis: preis }, this.calculateTotal);
+    }
     handleCheckboxChange = (event) => {
         //Funktion für die Reifencheckboxen
         const { name, checked } = event.target;
@@ -1027,35 +1031,51 @@ class Konfig extends React.Component {
                             <div className="single-model-search">
                                 <h3>Abhohlort auswählen</h3>
                                 <div className="model-select-icon">
-                                    <select className="form-control">
-                                        <option value="muenchen">
+                                    <select 
+                                        className="form-control"
+                                        id="abhohlort"
+                                        onChange={this.handleAbhohlortChange}
+                                    >
+                                        <option value="muenchen" data-preis="1050">
                                             München
                                         </option>
-                                        <option value="stuttgart">
+                                        <option value="stuttgart" data-preis="1100">
                                             Stuttgart
                                         </option>
-                                        <option value="berlin">Berlin</option>
-                                        <option value="potsdam">Potsdam</option>
-                                        <option value="bremen">Bremen</option>
-                                        <option value="hamburg">Hamburg</option>
-                                        <option value="wiesbaden">
+                                        <option value="berlin" data-preis="1500">
+                                            Berlin
+                                        </option>
+                                        <option value="potsdam" data-preis="1500">
+                                            Potsdam
+                                        </option>
+                                        <option value="bremen" data-preis="1500">
+                                            Bremen
+                                        </option>
+                                        <option value="hamburg" data-preis="1600">
+                                            Hamburg
+                                        </option>
+                                        <option value="wiesbaden" data-preis="1100">
                                             Wiesbaden
                                         </option>
-                                        <option value="schwerin">
+                                        <option value="schwerin" data-preis="1500">
                                             Schwerin
                                         </option>
-                                        <option value="hannover">
+                                        <option value="hannover" data-preis="1400">
                                             Hannover
                                         </option>
-                                        <option value="duesseldorf">
+                                        <option value="duesseldorf" data-preis="1400">
                                             Düsseldorf
                                         </option>
-                                        <option value="mainz">Mainz</option>
-                                        <option value="saarbruecken">
+                                        <option value="mainz" data-preis="1100">
+                                            Mainz
+                                        </option>
+                                        <option value="saarbruecken" data-preis="1100">
                                             Saarbrücken
                                         </option>
-                                        <option value="dresden">Dresden</option>
-                                        <option value="dresden">
+                                        <option value="dresden" data-preis="1100">
+                                            Dresden
+                                        </option>
+                                        <option value="freihaus" data-preis="1600">
                                             Lieferung bis zur Haustür
                                         </option>
                                     </select>
@@ -1065,7 +1085,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="abholortPrice"
                                 >
-                                    Abholort Preis: 0 €
+                                    Überführungskosten inkl MwSt": {this.state.abholortPreis} €
                                 </div>
                             </div>
 
