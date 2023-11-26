@@ -1,7 +1,5 @@
 .body {
-    background: url('https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/carousel/aussenfarbegruen.png') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     margin: 0;
     filter: brightness(100%);
 }
@@ -12,7 +10,8 @@ hr {
     background-color: #767676;
 }
 
-input, select {
+input,
+select {
     width: 50%;
     margin: 5% 5% 5% 5%; /* Anpassung hier: 2% rechts */
     padding: 10px;
@@ -24,9 +23,9 @@ input, select {
 }
 
 /* Toggle Function */
-.collapsiblecontent {
+/* .collapsiblecontent {
     display: none;
-}
+} */
 
 .togglebutton {
     background-color: #3498db;
@@ -46,29 +45,32 @@ input, select {
     background-color: #2980b9;
 }
 
-
 /* Container */
+.parentContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* This will make the parent container take up the full height of the viewport */
+    overflow: auto; /* This will hide the content that overflows */
+}
 .container {
-    position: relative;
+    flex: 1;
+    min-width: 30%;
+    flex-direction: column;
+    overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.8);
-    width: 39%;
     box-sizing: border-box;
     overflow-wrap: break-word;
     font-size: calc(0.5vw + 10px);
-    margin-right: 5%;
     text-align: center; /* Text zentriert */
     padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
 }
 .container2 {
-    position: sticky; /* oder 'fixed', je nach Bedarf */
-    background-color: #00ff00;
-    border: solid 1px #00ff00;
-    top: 0; /* oder einen anderen Wert, um die Position zu justieren */
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    /* background-color: #00ff00; */
+    /* border: solid 1px #00ff00; */
     background-color: rgba(255, 255, 255, 0.8);
-    width: 60%;
-    margin-left: 40%;
-    text-align: center;
-    padding-right: 10px;
 }
 .container3 {
     position: sticky;
@@ -77,20 +79,20 @@ input, select {
     width: 10%;
     border: 5px solid #ff0000;
     animation: changeBorderColor 5s infinite;
-  }
-  
-  @keyframes changeBorderColor {
+}
+
+@keyframes changeBorderColor {
     0% {
-      border-color: #ff0000;
+        border-color: #ff0000;
     }
     50% {
-      border-color: #00ff00;
+        border-color: #00ff00;
     }
     100% {
-      border-color: #0000ff;
+        border-color: #0000ff;
     }
-  }
-  
+}
+
 .reifen {
     border: crimson, solid 4px;
     overflow-wrap: normal;
@@ -102,8 +104,9 @@ input, select {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    input, select {
+/* @media (max-width: 768px) {
+    input,
+    select {
         width: 90%;
         margin: 5%;
     }
@@ -116,7 +119,8 @@ input, select {
 }
 
 @media (max-width: 480px) {
-    input, select {
+    input,
+    select {
         width: 100%;
         margin: 5% 0;
     }
@@ -130,25 +134,22 @@ input, select {
         height: auto;
         font-size: 12px;
     }
-}
-
-
+} */
 
 /* Fixed Image Panel */
 .fixed-image-panel {
+    flex: 1;
     width: 100%;
-    height: auto;
+    height: 100vh;
 }
-
-
 .fixed-image-panel img {
+    /* position: sticky; */
     width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    height: 100%;
+    object-fit: cover;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .fixed-image-panel {
         top: 5%;
         right: 5%;
@@ -163,7 +164,7 @@ input, select {
         left: 0;
         width: 100vw;
     }
-}
+} */
 
 /* Fixed Bar */
 .fixedbar {
@@ -178,6 +179,7 @@ input, select {
     border-radius: 5px;
     padding: 0.5%;
     font-size: min(max(12px, 1vw), 16px);
+    margin: auto;
 }
 
 /* Price Panel */
@@ -219,8 +221,8 @@ input, select {
 /* Zentriert den Text und die Checkboxen innerhalb der Labels */
 label {
     display: flex;
-    align-items:center;
-    justify-content:center   ; /* Zentriert horizontal */
+    align-items: center;
+    justify-content: center; /* Zentriert horizontal */
     margin: auto; /* Sorgt für automatische Randabstände*/
 }
 
