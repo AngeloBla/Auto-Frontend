@@ -173,7 +173,9 @@ class Konfig extends React.Component {
                                 <h2>
                                     Stelle dir dein Traum LandRover zusammen:
                                 </h2>
-                                <p>Bitte triff eine Auswahl</p>
+                                <p>Bitte triff eine Auswahl
+                                    Teständerung
+                                </p>
                             </div>
                             {/* <!-- ########## Auswahl Zahlungart ########## --> */}
                             <div className="single-model-search">
