@@ -274,7 +274,7 @@ class Konfig extends React.Component {
             Number(this.state.zusatzoptionenPreis) +
             Number(this.state.reifenPreis) +
             Number(this.state.paketePreis) +
-            Number(this.state.abholortPreis);
+            Number(this.state.abholortPreis)+
         this.setState({ totalPreis });
     }
     render() {
@@ -1085,7 +1085,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="abholortPrice"
                                 >
-                                    Überführungskosten inkl MwSt": {this.state.abholortPreis} €
+                                    Überführungskosten inkl MwSt: {this.state.abholortPreis} €
                                 </div>
                             </div>
 
