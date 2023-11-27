@@ -318,8 +318,6 @@ class Konfig extends React.Component {
                     <Navbar />
                     <div className={styles.parentContainer}>
                         <div className={styles.container}>
-                            {/* <p align="center">!-!-! Work in Progress !-!-!</p> */}
-
                             <div className={styles.zahlungsmethode}>
                                 <div className="left-panel">
                                     <h2>
@@ -1126,6 +1124,8 @@ class Konfig extends React.Component {
                                     Überführungskosten inkl MwSt: {this.state.abholortPreis} €
                                 </div>
                             </div>
+                        {/* </div> */}
+
 
                             {/* <!-- ########## Gesamtpreis Box ########## --> */}
                             <div className={styles.fixedbar} id="fixed-bar">
@@ -1161,6 +1161,7 @@ class Konfig extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </main>
         );
     }
