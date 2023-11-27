@@ -8,6 +8,7 @@ import Galarie from './galarie';
 
 
 
+
 class App extends Component {
     state = {  } 
     render() { 

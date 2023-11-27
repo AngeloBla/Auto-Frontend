@@ -12,6 +12,7 @@ class Konfig extends React.Component {
         this.hoodColorRef = React.createRef();
         this.roofColorRef = React.createRef();
         this.state = {
+            zusatzoptionenPreise: {},
             selectedImage:
                 "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg",
             lastFunctionCalled: null,
@@ -40,6 +41,20 @@ class Konfig extends React.Component {
         this.handleGetriebeChange = this.handleGetriebeChange.bind(this);
         this.calculateTotal = this.calculateTotal.bind(this);
     }
+
+
+    handleZusatzoptionenChange = (event) => {
+        const option = event.target.value;
+        const isChecked = event.target.checked;
+        const preis = isChecked ? Number(event.target.getAttribute("data-preis")) : 0;
+        
+        this.setState(prevState => ({
+            zusatzoptionenPreise: {
+                ...prevState.zusatzoptionenPreise,
+                [option]: preis
+            }
+        }), this.calculateTotal);
+    };
     // stellt sicher, dass beim Laden der Komponenten ein Bild geladen wird.
     componentDidMount() {
         // this.loadCarImage();
@@ -275,6 +290,7 @@ class Konfig extends React.Component {
             Number(this.state.reifenPreis) +
             Number(this.state.paketePreis) +
             Number(this.state.abholortPreis);
+            Object.values(this.state.zusatzoptionenPreise).reduce((a, b) => a + b, 0);
         this.setState({ totalPreis });
     }
     render() {
@@ -410,14 +426,16 @@ class Konfig extends React.Component {
                                             data-preis="10000"
                                         >
                                             2.0 EcoBlue (Diesel Euro6) 125kW
-                                            Extrakab. 4x4 XL 170 PS
+                                            Extrakab. 4x4 XL 170 PS, 4x4-Antrieb
+                                            8,4 l/100km | CO² komb.: 221 g/km
                                         </option>
                                         <option
                                             value="4.0-MagaTurbo-XL"
                                             data-preis="20000"
                                         >
                                             4.0 S/C Spezial (Benzin) 257kW 4x4
-                                            XL 350 PS
+                                            XL 350 PS, 4x4-Antrieb 16,5 l/100km
+                                            | CO² komb.: xxl g/km
                                         </option>
                                     </select>
                                 </div>
@@ -816,6 +834,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
+                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Wartungsservice
                                         </label>
@@ -826,8 +845,9 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="ueberfuehrung"
                                                 value="ueberfuehrung"
+                                                onChange={this.handleZusatzoptionenChange}
                                             />
-                                            Überführungsdienst
+                                                Überführungsdienst
                                         </label>
                                         <br />
                                         <label>
@@ -836,6 +856,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
+                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             KFZ-Versicherung
                                         </label>
@@ -846,6 +867,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
+                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Zulassungsservice
                                         </label>
@@ -856,6 +878,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
+                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Mobilitätsgarantie
                                         </label>
@@ -876,12 +899,14 @@ class Konfig extends React.Component {
                             <div className="single-model-search">
                                 <h3>Zusatzoptionen</h3>
                                 <div className="model-select-icon">
-                                    {/* <div  className={styles.zusatz} onChange={loadzusatzImage}> */}
+                                    <div  className={styles.zusatz} onChange={loadzusatzImage}>
                                     <label>
                                         <input
                                             type="checkbox"
                                             id="hitch"
                                             value="hitch"
+                                            data-preis="250"
+                                            onChange={this.handleZusatzoptionenChange}
                                         />
                                         Anhängevorrichtung, 13 polig
                                     </label>
@@ -891,6 +916,8 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="underbody-protection"
                                             value="underbody-protection"
+                                            data-preis="300"
+                                            onChange={this.handleZusatzoptionenChange}
                                         />
                                         Unterbodenschutz auf Wachsbasis
                                     </label>
@@ -900,8 +927,9 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="mudguard"
                                             value="mudguard"
-                                        />
-                                        Spritzschutz
+                                            data-preis="500"
+                                            onChange={this.handleZusatzoptionenChange}
+                                        />Spritzschutz
                                     </label>
                                 </div>
                             </div>
@@ -1027,7 +1055,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Abhohlort ########### --> */}
                             <div className="single-model-search">
-                                <h3>Abhohlort auswählen</h3>
+                                <h3>Abholort auswählen</h3>
                                 <div className="model-select-icon">
                                     <select 
                                         className="form-control"
