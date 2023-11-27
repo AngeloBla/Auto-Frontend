@@ -4,7 +4,6 @@ import Carousel from "./carousel";
 import Album from "./Album";
 import Footer from "./footer";
 import Galarie from "./galarie";
-import Galarie from "./galarie";
 
 class App extends Component {
     state = {};
