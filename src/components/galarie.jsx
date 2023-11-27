@@ -17,7 +17,7 @@ class Galarie extends Component {
           </div>
           <div className="col-md-5">
             <img
-              src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg"
+              src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg"
               alt="Bildbeschreibung"
               className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
               width="500"
@@ -37,7 +37,7 @@ class Galarie extends Component {
           </div>
           <div className="col-md-5 order-md-1">
             <img
-              src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg"
+              src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg"
               alt="Bildbeschreibung"
               className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
               width="500"
@@ -57,7 +57,7 @@ class Galarie extends Component {
           </div>
           <div className="col-md-5">
             <img
-              src="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+              src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
               alt="Bildbeschreibung"
               className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
               width="500"

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 import "./style.css";
 import styles from "./style.module.css"; // import ReactDOM from "react-dom";
+import Footer from "./footer";
 
 class Konfig extends React.Component {
     state = {};

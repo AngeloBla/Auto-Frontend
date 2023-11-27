@@ -5,6 +5,7 @@ class Footer extends Component {
     state = {  } 
     render() { 
         return <footer className="py-5">
+      <div style={{margin: "auto", width: "90%"}}>
         <div className="row">
           <div className="col-6 col-md-2 mb-3">
             <h5>Section</h5>
@@ -44,14 +45,14 @@ class Footer extends Component {
               <h5>Subscribe to our newsletter</h5>
               <p>Monthly digest of what's new and exciting from us.</p>
               <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" className="visually-hidden">Email address</label>
+                <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
                 <input id="newsletter1" type="text" className="form-control" placeholder="Email address"/>
                 <button className="btn btn-primary" type="button">Subscribe</button>
               </div>
             </form>
           </div>
         </div>
-    
+        </div>
       </footer>;
     }
 }

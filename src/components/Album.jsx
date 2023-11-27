@@ -56,8 +56,6 @@ class Album extends Component {
       <section className="py-5 text-center container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
-            <h1 className="fw-light">Album example</h1>
-            <p className="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
           </div>
         </div>
       </section>
@@ -69,7 +67,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text1}</p>
@@ -86,7 +84,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dach.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dach.jpg" width="100%" height="100%" />
               </svg>                
               <div className="card-body">
                   <p className="card-text">{Text2}</p>
@@ -103,7 +101,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text3}</p>
@@ -121,7 +119,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text4}</p>
@@ -138,7 +136,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text5}</p>
@@ -155,7 +153,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text6}</p>
@@ -173,7 +171,7 @@ class Album extends Component {
               <div className="card shadow-sm">
               <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
-                  <image href="https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spritzschutz.jpg" width="100%" height="100%" />
+                  <image href="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spritzschutz.jpg" width="100%" height="100%" />
               </svg>                
                 <div className="card-body">
                   <p className="card-text">{Text7}</p>
@@ -192,7 +190,7 @@ class Album extends Component {
     
     </main>
     
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossOrigin="anonymous"></script>
     
         
     

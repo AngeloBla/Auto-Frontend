@@ -10,4 +10,4 @@ export const Text5 = 'Unsere LEGO Land Rover Reifen – für die Minifigur, die 
 
 export const Text6 = 'Die LEGO Land Rover Seitenspiegel – weil auch Mini-Fahrzeuge das Bedürfnis nach einem schnellen Blick in den Rückspiegel haben. Zeig der LEGO-Welt, dass du nicht nur nach vorne fährst, sondern auch im Rückspiegel noch cooler aussiehst. Ein bisschen Egoismus im Straßenverkehr hat noch keinem geschadet!';
 
-export const Text7 = 'Die Reifenschweller für den LEGO Land Rover – weil selbst die kleinsten LEGO-Details das gewisse Etwas ausmachen. Zeig, dass du nicht nur Baumeister, sondern auch Stilmeister bist. Diese Kappen sagen: "Ich kümmere mich um jedes Detail – sogar um meine LEGO-Reifen!"';
+export const Text7 = 'Weil wer braucht schon einen sauberen LEGO Land Rover? Unser Spritzschutz verpasst deinem Geländewagen den authentischen "Ich war gerade Offroad"-Vibe – und das ohne das Auto deines Nachbarn zu verschonen. Schließlich zeigt wahre LEGO-Patriotismus sich erst, wenn man bereit ist, ein bisschen Klötzchen-Staub zu verteilen.';
