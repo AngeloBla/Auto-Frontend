@@ -929,7 +929,6 @@ class Konfig extends React.Component {
                                         />
                                         Ganzjahresreifenset
                                     </label>
-                                    <br />
                                     <label>
                                         <input
                                             type="checkbox"
