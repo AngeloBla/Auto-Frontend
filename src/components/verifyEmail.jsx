@@ -24,18 +24,27 @@ const VerifyEmail = () => {
 
         cognitoUser.confirmRegistration(verificationCode, true, (err, result) => {
             if (err) {
-            console.error(err);
+                console.error(err);
             } else {
-            console.log(result);
-            navigate('/login');
+                console.log(result);
+                navigate('/login');
             }
         });
     }
-
+    
     return (
-        <main className="form-signin w-100 m-auto">
+        <main className="form-signin w-100 m-auto text-center">
             <form onSubmit={onSubmit}>
-                <div className="form-floating">
+                <div className="form-floating mx-auto" style={{ width: '30%' }}>
+                    <div className="mb-4">
+                        <img
+                            src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logov2.png"
+                            alt=""
+                            width="150"
+                            height="120"
+                            className="mx-auto"
+                        />
+                    </div>
                     <input
                         type="text"
                         className="form-control"
@@ -43,9 +52,10 @@ const VerifyEmail = () => {
                         placeholder="Verification Code"
                         onChange={(event) => setVerificationCode(event.target.value)}
                     />
-                    <label htmlFor="verificationCode">Verification Code</label>
+                    <div style={{ width: '20%', margin: 'auto' }}>
+                        <button className="btn btn-primary w-100 py-2" type="submit">Verify Email</button>
+                    </div>
                 </div>
-                <button className="btn btn-primary w-100 py-2" type="submit">Verify Email</button>
             </form>
         </main>
     );
