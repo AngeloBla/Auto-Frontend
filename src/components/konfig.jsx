@@ -1,7 +1,8 @@
 import React from "react";
 import Navabr from "./navbar";
 import "./style.css";
-import styles from "./style.module.css"; // import ReactDOM from "react-dom";
+import styles from "./style.module.css";
+import Footer from "./footer";
 
 class Konfig extends React.Component {
     state = {};
@@ -278,7 +279,7 @@ class Konfig extends React.Component {
         return (
             <main>
                 <div>
-                    <Navabr />
+                <Navabr />
                     <div className={styles.parentContainer}>
                         <div className={styles.container}>
                             {/* <p align="center">!-!-! Work in Progress !-!-!</p> */}
@@ -928,7 +929,6 @@ class Konfig extends React.Component {
                                         />
                                         Ganzjahresreifenset
                                     </label>
-                                    <br />
                                     <label>
                                         <input
                                             type="checkbox"
@@ -1069,8 +1069,20 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
 
-                            {/* <!-- ########## Gesamtpreis Box ########## --> */}
-                            <div className={styles.fixedbar} id="fixed-bar">
+                        </div>
+                        <div className={styles.container2}>
+                            {/* <!-- ########### Bild aus auswahl ########## --> */}
+                            <div className="fixed-image-panel">
+                                <img
+                                    alt="Auto Bild"
+                                    id="selectedImage"
+                                    src={this.state.selectedImage}
+                                />
+                                
+                            </div>
+                            {/* <!-- ########### Bild ENDE ########## --> */}
+                                                        {/* <!-- ########## Gesamtpreis Box ########## --> */}
+                                                        <div className={styles.fixedbar} id="fixed-bar">
                                 <div className={styles.pricepanel}>
                                     <div id="totalPrice">
                                         <h2>
@@ -1085,24 +1097,11 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
                             {/* <!-- ########## Gesmatpreis Box ENDE ########## --> */}
-                        </div>
-                        <div className={styles.container2}>
-                            {/* <!-- ########### Bild aus auswahl ########## --> */}
-                            <div className="fixed-image-panel">
-                                <img
-                                    alt="Auto Bild"
-                                    id="selectedImage"
-                                    src={this.state.selectedImage}
-                                    onLoad={(e) => {
-                                        e.target.style.height = "auto";
-                                        e.target.style.width = "100%";
-                                    }}
-                                />
-                            </div>
-                            {/* <!-- ########### Bild ENDE ########## --> */}
+
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </main>
         );
     }
