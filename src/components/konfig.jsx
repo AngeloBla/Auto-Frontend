@@ -23,13 +23,13 @@ class Konfig extends React.Component {
             dachFarbePreis: 0,
             dachtraegerPreis: 0,
             getoenteScheibenPreis: 0,
-            innenausstattung1Preis: 0,
+            innenausstattung1Preis: 500,
             innenausstattung2Preis: 0,
             serviceProduktePreis: 0,
             zusatzoptionenPreis: 0,
             reifenPreis: 0,
             paketePreis: 0,
-            abholortPreis: 0,
+            abholortPreis: 1050,
             totalPreis: 0,
             toggleZahlungsart: false,
             ganzjahresChecked: false,
@@ -114,6 +114,10 @@ class Konfig extends React.Component {
         var hoodColor = this.hoodColorRef.current.value;
         var imagePath;
         switch (hoodColor) {
+            case "standard-hood":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg";
+                break;
             case "white-hood":
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_wei%C3%9F.jpg";
@@ -539,6 +543,12 @@ class Konfig extends React.Component {
                                         ref={this.hoodColorRef}
                                         onChange={this.loadHoodImage}
                                     >
+                                        <option
+                                            value="standard-hood"
+                                            data-preis="0"
+                                        >
+                                            Standard
+                                        </option>
                                         <option
                                             value="white-hood"
                                             data-preis="800"
