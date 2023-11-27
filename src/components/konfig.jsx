@@ -53,6 +53,11 @@ class Konfig extends React.Component {
             : this.setState({ toggleZahlungsart: false });
     };
     handleZahlungsartChange = (event) => {
+        const zahlungsart = event.target.value;
+        if (zahlungsart === 'leasing' && !this.state.laufzeit) {
+            // Warnung anzeigen oder die Eingabe des Feldes "Laufzeit" erzwingen
+            alert('Bei Zahlungsart Leasing ist die Laufzeit ein Pflichtfeld, mind 12 Monate, max 60 Monate.');
+        }
         // Funktion fuer die Auswahl der Zahlungsart und damit einblenden der Optionen
         this.setState({ zahlungsart: event.target.value });
     };
