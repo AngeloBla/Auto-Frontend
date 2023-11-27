@@ -250,7 +250,7 @@ class Konfig extends React.Component {
         const selectedOption = event.target.options[event.target.selectedIndex];
         const preis = selectedOption.getAttribute("data-preis");
         this.setState({ abholortPreis: preis }, this.calculateTotal);
-    }
+    };
     handleCheckboxChange = (event) => {
         //Funktion für die Reifencheckboxen
         const { name, checked } = event.target;
@@ -274,7 +274,7 @@ class Konfig extends React.Component {
             Number(this.state.zusatzoptionenPreis) +
             Number(this.state.reifenPreis) +
             Number(this.state.paketePreis) +
-            Number(this.state.abholortPreis)+
+            Number(this.state.abholortPreis);
         this.setState({ totalPreis });
     }
     render() {
@@ -1034,7 +1034,7 @@ class Konfig extends React.Component {
                                     <select 
                                         className="form-control"
                                         id="abhohlort"
-                                        onChange={this.handleAbhohlortChange}
+                                        onChange={this.handleAbholortChange}
                                     >
                                         <option value="muenchen" data-preis="1050">
                                             München
