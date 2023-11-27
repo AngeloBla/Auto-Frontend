@@ -1,5 +1,5 @@
 import React from "react";
-import Navabr from "./navbar";
+import Navbar from "./navbar";
 import "./style.css";
 import styles from "./style.module.css"; // import ReactDOM from "react-dom";
 
@@ -11,6 +11,7 @@ class Konfig extends React.Component {
         this.roofrackRef = React.createRef();
         this.hoodColorRef = React.createRef();
         this.roofColorRef = React.createRef();
+        this.windowcolorRef = React.createRef();
         this.state = {
             selectedImage:
                 "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg",
@@ -108,7 +109,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########### funktion Auswahl Motorhaubefarbe mit Bild verlinken ###########
     loadHoodImage = (event) => {
         var hoodColor = this.hoodColorRef.current.value;
@@ -156,7 +157,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########## funktion Auswahl Dachfarbe mit Bild verlinken #########
     loadRoofColorImage = (event) => {
         var roofColor = this.roofColorRef.current.value;
@@ -200,7 +201,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########## funktion Auswahl Dachträger mit Bild verlinken ##########
     loadroofrackImage = (event) => {
         var roofrack = this.roofrackRef.current.value;
@@ -228,13 +229,40 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
-    // ########## funktion Auswahl getönte Scheiben mit Bild verlinken ##########
-    handleWindowcolorChange = (event) => {
+    }
+    // ########## funktion getönte Scheiben mit Bild verlinken ##########
+    loadwindowcolorImage = (event) => {
+        var windowcolor = event.target.value;
+        var imagePath;
+        switch (windowcolor) {
+            case "window0":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe.jpg";
+                break;
+            case "window20":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_20.jpg";
+                break;
+            case "window40":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_40.jpg";
+                break;
+            case "window80":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_80.jpg";
+                break;
+            }
         const selectedOption = event.target.options[event.target.selectedIndex];
         const preis = selectedOption.getAttribute("data-preis");
-        this.setState({ getoenteScheibenPreis: preis }, this.calculateTotal);
-    };
+        this.setState(
+            {
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadwindowcolorImage",
+                getoenteScheibenPreis: preis,
+            },
+            this.calculateTotal
+        );
+    }
     handleInnenausstattung1Change = (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex];
         const preis = selectedOption.getAttribute("data-preis");
@@ -286,7 +314,7 @@ class Konfig extends React.Component {
         return (
             <main>
                 <div>
-                    <Navabr />
+                    <Navbar />
                     <div className={styles.parentContainer}>
                         <div className={styles.container}>
                             {/* <p align="center">!-!-! Work in Progress !-!-!</p> */}
@@ -702,7 +730,8 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-select"
                                         id="windowcolor"
-                                        onChange={this.handleWindowcolorChange}
+                                        ref={this.windowRef}
+                                        onChange={this.loadwindowcolorImage}
                                     >
                                         <option value="window0" data-preis="0">
                                             keine

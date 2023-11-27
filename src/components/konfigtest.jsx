@@ -1,5 +1,5 @@
 import React from "react";
-import Navabr from "./navbar";
+import Navbar from "./navbar";
 import "./style.css";
 import styles from "./style.module.css"; // import ReactDOM from "react-dom";
 
@@ -11,6 +11,7 @@ class Konfig extends React.Component {
         this.roofrackRef = React.createRef();
         this.hoodColorRef = React.createRef();
         this.roofColorRef = React.createRef();
+        this.windowcolorRef = React.createRef();
         this.state = {
             selectedImage:
                 "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg",
@@ -23,13 +24,13 @@ class Konfig extends React.Component {
             dachFarbePreis: 0,
             dachtraegerPreis: 0,
             getoenteScheibenPreis: 0,
-            innenausstattung1Preis: 0,
+            innenausstattung1Preis: 500,
             innenausstattung2Preis: 0,
             serviceProduktePreis: 0,
             zusatzoptionenPreis: 0,
             reifenPreis: 0,
             paketePreis: 0,
-            abholortPreis: 0,
+            abholortPreis: 1050,
             totalPreis: 0,
             toggleZahlungsart: false,
             ganzjahresChecked: false,
@@ -40,20 +41,6 @@ class Konfig extends React.Component {
         this.handleGetriebeChange = this.handleGetriebeChange.bind(this);
         this.calculateTotal = this.calculateTotal.bind(this);
     }
-
-
-    handleZusatzoptionenChange = (event) => {
-        const option = event.target.value;
-        const isChecked = event.target.checked;
-        const preis = isChecked ? Number(event.target.getAttribute("data-preis")) : 0;
-        
-        this.setState(prevState => ({
-            zusatzoptionenPreise: {
-                ...prevState.zusatzoptionenPreise,
-                [option]: preis
-            }
-        }), this.calculateTotal);
-    };
     // stellt sicher, dass beim Laden der Komponenten ein Bild geladen wird.
     componentDidMount() {
         // this.loadCarImage();
@@ -122,7 +109,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########### funktion Auswahl Motorhaubefarbe mit Bild verlinken ###########
     loadHoodImage = (event) => {
         var hoodColor = this.hoodColorRef.current.value;
@@ -170,7 +157,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########## funktion Auswahl Dachfarbe mit Bild verlinken #########
     loadRoofColorImage = (event) => {
         var roofColor = this.roofColorRef.current.value;
@@ -214,7 +201,7 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
+    }
     // ########## funktion Auswahl Dachträger mit Bild verlinken ##########
     loadroofrackImage = (event) => {
         var roofrack = this.roofrackRef.current.value;
@@ -242,13 +229,40 @@ class Konfig extends React.Component {
             },
             this.calculateTotal
         );
-    };
-    // ########## funktion Auswahl getönte Scheiben mit Bild verlinken ##########
-    handleWindowcolorChange = (event) => {
+    }
+    // ########## funktion getönte Scheiben mit Bild verlinken ##########
+    loadwindowcolorImage = (event) => {
+        var windowcolor = event.target.value;
+        var imagePath;
+        switch (windowcolor) {
+            case "window0":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/karosserie.jpg";
+                break;
+            case "window20":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_20.jpg";
+                break;
+            case "window40":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_40.jpg";
+                break;
+            case "window80":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheiben_rot.jpg";
+                break;
+            }
         const selectedOption = event.target.options[event.target.selectedIndex];
         const preis = selectedOption.getAttribute("data-preis");
-        this.setState({ getoenteScheibenPreis: preis }, this.calculateTotal);
-    };
+        this.setState(
+            {
+                selectedImage: imagePath,
+                lastFunctionCalled: "loadwindowcolorImage",
+                getoenteScheibenPreis: preis,
+            },
+            this.calculateTotal
+        );
+    }
     handleInnenausstattung1Change = (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex];
         const preis = selectedOption.getAttribute("data-preis");
@@ -293,7 +307,6 @@ class Konfig extends React.Component {
             Number(this.state.reifenPreis) +
             Number(this.state.paketePreis) +
             Number(this.state.abholortPreis);
-            Object.values(this.state.zusatzoptionenPreise).reduce((a, b) => a + b, 0);
         this.setState({ totalPreis });
     }
     render() {
@@ -301,7 +314,7 @@ class Konfig extends React.Component {
         return (
             <main>
                 <div>
-                    <Navabr />
+                    <Navbar />
                     <div className={styles.parentContainer}>
                         <div className={styles.container}>
                             {/* <p align="center">!-!-! Work in Progress !-!-!</p> */}
@@ -429,16 +442,14 @@ class Konfig extends React.Component {
                                             data-preis="10000"
                                         >
                                             2.0 EcoBlue (Diesel Euro6) 125kW
-                                            Extrakab. 4x4 XL 170 PS, 4x4-Antrieb
-                                            8,4 l/100km | CO² komb.: 221 g/km
+                                            Extrakab. 4x4 XL 170 PS
                                         </option>
                                         <option
                                             value="4.0-MagaTurbo-XL"
                                             data-preis="20000"
                                         >
                                             4.0 S/C Spezial (Benzin) 257kW 4x4
-                                            XL 350 PS, 4x4-Antrieb 16,5 l/100km
-                                            | CO² komb.: xxl g/km
+                                            XL 350 PS
                                         </option>
                                     </select>
                                 </div>
@@ -592,7 +603,7 @@ class Konfig extends React.Component {
                                         </option>
                                         <option
                                             value="yellow-hood"
-                                            data-preis="0"
+                                            data-preis="800"
                                         >
                                             Gelb
                                         </option>
@@ -719,7 +730,8 @@ class Konfig extends React.Component {
                                     <select
                                         className="form-select"
                                         id="windowcolor"
-                                        onChange={this.handleWindowcolorChange}
+                                        ref={this.windowRef}
+                                        onChange={this.loadwindowcolorImage}
                                     >
                                         <option value="window0" data-preis="0">
                                             keine
@@ -797,7 +809,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Auswahl Innenausstattung2 ########## --> */}
                             <div className="single-model-search">
-                                <h3>Innenausstattung  Fußmatten</h3>
+                                <h3>Innenausstattung</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -843,7 +855,6 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
-                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Wartungsservice
                                         </label>
@@ -854,9 +865,8 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="ueberfuehrung"
                                                 value="ueberfuehrung"
-                                                onChange={this.handleZusatzoptionenChange}
                                             />
-                                                Überführungsdienst
+                                            Überführungsdienst
                                         </label>
                                         <br />
                                         <label>
@@ -865,7 +875,6 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
-                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             KFZ-Versicherung
                                         </label>
@@ -876,7 +885,6 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
-                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Zulassungsservice
                                         </label>
@@ -887,7 +895,6 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
-                                                onChange={this.handleZusatzoptionenChange}
                                             />
                                             Mobilitätsgarantie
                                         </label>
@@ -908,14 +915,12 @@ class Konfig extends React.Component {
                             <div className="single-model-search">
                                 <h3>Zusatzoptionen</h3>
                                 <div className="model-select-icon">
-                                    <div  className={styles.zusatz} onChange={loadzusatzImage}>
+                                    {/* <div  className={styles.zusatz} onChange={loadzusatzImage}> */}
                                     <label>
                                         <input
                                             type="checkbox"
                                             id="hitch"
                                             value="hitch"
-                                            data-preis="250"
-                                            onChange={this.handleZusatzoptionenChange}
                                         />
                                         Anhängevorrichtung, 13 polig
                                     </label>
@@ -925,8 +930,6 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="underbody-protection"
                                             value="underbody-protection"
-                                            data-preis="300"
-                                            onChange={this.handleZusatzoptionenChange}
                                         />
                                         Unterbodenschutz auf Wachsbasis
                                     </label>
@@ -936,9 +939,8 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="mudguard"
                                             value="mudguard"
-                                            data-preis="500"
-                                            onChange={this.handleZusatzoptionenChange}
-                                        />Spritzschutz
+                                        />
+                                        Spritzschutz
                                     </label>
                                 </div>
                             </div>
@@ -1064,7 +1066,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Abhohlort ########### --> */}
                             <div className="single-model-search">
-                                <h3>Abholort auswählen</h3>
+                                <h3>Abhohlort auswählen</h3>
                                 <div className="model-select-icon">
                                     <select 
                                         className="form-control"
