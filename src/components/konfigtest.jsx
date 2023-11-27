@@ -12,7 +12,6 @@ class Konfig extends React.Component {
         this.hoodColorRef = React.createRef();
         this.roofColorRef = React.createRef();
         this.state = {
-            zusatzoptionenPreise: {},
             selectedImage:
                 "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg",
             lastFunctionCalled: null,
@@ -129,6 +128,10 @@ class Konfig extends React.Component {
         var hoodColor = this.hoodColorRef.current.value;
         var imagePath;
         switch (hoodColor) {
+            case "standard-hood":
+                imagePath =
+                    "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/motorhaube.jpg";
+                break;
             case "white-hood":
                 imagePath =
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_wei%C3%9F.jpg";
@@ -558,6 +561,12 @@ class Konfig extends React.Component {
                                         onChange={this.loadHoodImage}
                                     >
                                         <option
+                                            value="standard-hood"
+                                            data-preis="0"
+                                        >
+                                            Standard
+                                        </option>
+                                        <option
                                             value="white-hood"
                                             data-preis="800"
                                         >
@@ -583,7 +592,7 @@ class Konfig extends React.Component {
                                         </option>
                                         <option
                                             value="yellow-hood"
-                                            data-preis="800"
+                                            data-preis="0"
                                         >
                                             Gelb
                                         </option>
@@ -788,7 +797,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Auswahl Innenausstattung2 ########## --> */}
                             <div className="single-model-search">
-                                <h3>Innenausstattung</h3>
+                                <h3>Innenausstattung  Fußmatten</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
