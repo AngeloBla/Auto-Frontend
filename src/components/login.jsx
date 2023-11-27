@@ -1,11 +1,50 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AccountContext } from "./Account/Account";
 
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mitarbeiter, setMitarbeiter] = useState(false);
+  const [kunde, setKunde] = useState(false);
 
-class Login extends Component {
-    state = {  } 
-    render() { 
-        return <div>
-        <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
+  const navigate = useNavigate();
+
+  const { authenticate } = useContext(AccountContext);
+
+  const onSubmit = (event) => {
+      event.preventDefault();
+
+      authenticate(email, password)
+          .then(data => {
+              console.log("Logged in!", data);
+              const accessToken = data.accessToken;
+                if (accessToken && accessToken.payload['cognito:groups'] == "Lager") {
+                  setMitarbeiter("Lager");
+                  console.log("Mitarbeiter: " + accessToken.payload['cognito:groups']);
+                  navigate('/');
+                } else if (accessToken && accessToken.payload['cognito:groups'] == "Konstruktion") {
+                  setMitarbeiter("Konstruktion");
+                  navigate('/');
+                } else if (accessToken && accessToken.payload['cognito:groups'] == "Service") {
+                  setMitarbeiter("Service");
+                  navigate('/');
+                } else if (accessToken && accessToken.payload['cognito:groups'] == "Kunde") {
+                  setKunde(true);
+                  navigate('/');
+                } else if (accessToken) {
+                  navigate('/');
+                }
+          })
+          .catch(err => {
+              console.error("Failed to login", err);
+              window.alert("Wrong Email or password");
+          });
+  };
+
+  return (
+    <div>
+    <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
           <symbol id="check2" viewBox="0 0 16 16">
             <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
           </symbol>
@@ -50,37 +89,25 @@ class Login extends Component {
             </li>
           </ul>
         </div>
-    
-        
+       
     <main className="form-signin w-100 m-auto">
-      <form>
+      <form onSubmit={onSubmit}>
         <img className="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 className="h3 mb-3 fw-normal">Please log in</h1>
     
         <div className="form-floating">
-          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
+          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" onChange={(event) => setEmail(event.target.value)}/>
           <label htmlFor="floatingInput">Email address</label>
         </div>
         <div className="form-floating">
-          <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
+          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
           <label htmlFor="floatingPassword">Password</label>
         </div>
-    
-        <div className="form-check text-start my-3">
-          <input className="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault"/>
-          <label className="form-check-label" htmlFor="flexCheckDefault">
-            Remember me
-          </label>
-        </div>
-        <button className="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+        <button className="btn btn-primary w-100 py-2" type="submit">Log in</button>
       </form>
     </main>
+    
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossOrigin="anonymous"></script>
     
-        
-    
     </div>
-    }
-}
- 
-export default Login;
+  )};
