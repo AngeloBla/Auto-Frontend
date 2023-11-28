@@ -896,6 +896,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
+                                                data-preis="165"
                                             />
                                             Wartungsservice  &nbsp;<span className="small-text">  (3 Jahre) 165,00 €</span>
                                         </label>
@@ -906,6 +907,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
+                                                data-preis="120"
                                             />
                                             KFZ-Versicherung &nbsp;<span className="small-text"> (2 Jahre) 120,00 €</span>
                                         </label>
@@ -916,6 +918,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
+                                                data-preis="25"
                                             />
                                             Zulassungsservice &nbsp; <span className="small-text"> 25,00 €</span>
                                         </label>
@@ -926,6 +929,7 @@ class Konfig extends React.Component {
                                                 className="from-control"
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
+                                                data-preis="160"
                                             />
                                             Mobilitätsgarantie &nbsp;<span className="small-text"> (2 Jahre) 160,00 €</span>
                                         </label>
@@ -952,6 +956,7 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="hitch"
                                             value="hitch"
+                                            data-preis="450"
                                         />
                                         Anhängevorrichtung, 13 polig &nbsp;<span className="small-text"> 450,00 €</span>
                                     </label>
@@ -961,6 +966,7 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="underbody-protection"
                                             value="underbody-protection"
+                                            data-preis="470"
                                         />
                                         Unterbodenschutz auf Wachsbasis &nbsp;<span className="small-text"> 470,00 €</span>
                                     </label>
@@ -970,6 +976,7 @@ class Konfig extends React.Component {
                                             type="checkbox"
                                             id="mudguard"
                                             value="mudguard"
+                                            data-preis="370"
                                         />
                                         Spritzschutz &nbsp;<span className="small-text"> 370,00 €</span>
                                     </label>
@@ -989,6 +996,7 @@ class Konfig extends React.Component {
                                         <input
                                             type="checkbox"
                                             name="ganzjahres"
+                                            data-preis="1100"
                                             checked={
                                                 this.state.ganzjahresChecked
                                             }
@@ -1005,6 +1013,7 @@ class Konfig extends React.Component {
                                         <input
                                             type="checkbox"
                                             name="sommer"
+                                            data-preis="650"
                                             checked={this.state.sommerChecked}
                                             onChange={this.handleCheckboxChange}
                                             disabled={
@@ -1018,6 +1027,7 @@ class Konfig extends React.Component {
                                         <input
                                             type="checkbox"
                                             name="winter"
+                                            data-preis="700"
                                             checked={this.state.winterChecked}
                                             onChange={this.handleCheckboxChange}
                                             disabled={
