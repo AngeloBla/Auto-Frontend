@@ -34,3 +34,6 @@ input {
 #servicePrice {
     display: none !important;
 }
+.small-text {
+    font-size: 12px; /* oder eine spezifische Größe wie z.B. 12px */
+}

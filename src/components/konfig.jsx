@@ -5,7 +5,39 @@ import styles from "./style.module.css"; // import ReactDOM from "react-dom";
 import Footer from "./footer";
 
 class Konfig extends React.Component {
-    
+        state = {
+            ...this.state,
+            showSelectedOptions: false, // State to control the visibility of the container
+        };
+
+        // Toggle function for showing/hiding the selected options
+        toggleSelectedOptions = () => {
+            this.setState({ showSelectedOptions: !this.state.showSelectedOptions });
+        };
+
+        // Function to render the selected options
+        renderSelectedOptions = () => {
+            if (!this.state.showSelectedOptions) {
+                return null;
+            }
+            return (
+                <div>
+                    {/* Loop through selected options and render them with images */}
+                    {/* Replace this with your actual logic for rendering selected options */}
+                </div>
+            );
+        };
+
+        render() {
+            return (
+                <div>
+                    {/* Existing component render logic */}
+                    <button onClick={this.toggleSelectedOptions}>Zeige ausgewählte Optionen</button>
+                    {this.renderSelectedOptions()}
+                    {/* Rest of the render logic */}
+                </div>
+            );
+        }
     state = {};
     constructor(props) {
         super(props);
@@ -861,7 +893,7 @@ class Konfig extends React.Component {
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
                                             />
-                                            Wartungsservice 3 Jahre,  165.00 €
+                                            Wartungsservice  &nbsp;<span className="small-text">  (3 Jahre) 165,00 €</span>
                                         </label>
                                         <br />
                                         <label>
@@ -871,7 +903,7 @@ class Konfig extends React.Component {
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
                                             />
-                                            KFZ-Versicherung, 120,00 €
+                                            KFZ-Versicherung &nbsp;<span className="small-text"> (2 Jahre) 120,00 €</span>
                                         </label>
                                         <br />
                                         <label>
@@ -881,7 +913,7 @@ class Konfig extends React.Component {
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
                                             />
-                                            Zulassungsservice, 25,00 €
+                                            Zulassungsservice &nbsp; <span className="small-text"> 25,00 €</span>
                                         </label>
                                         <br />
                                         <label>
@@ -891,7 +923,7 @@ class Konfig extends React.Component {
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
                                             />
-                                            Mobilitätsgarantie, 160,00 €
+                                            Mobilitätsgarantie &nbsp;<span className="small-text"> (2 Jahre) 160,00 €</span>
                                         </label>
                                     </div>
                                 </div>
@@ -917,7 +949,7 @@ class Konfig extends React.Component {
                                             id="hitch"
                                             value="hitch"
                                         />
-                                        Anhängevorrichtung, 13 polig, 450,00 €
+                                        Anhängevorrichtung, 13 polig &nbsp;<span className="small-text"> 450,00 €</span>
                                     </label>
                                     <br />
                                     <label>
@@ -926,7 +958,7 @@ class Konfig extends React.Component {
                                             id="underbody-protection"
                                             value="underbody-protection"
                                         />
-                                        Unterbodenschutz auf Wachsbasis, 470,00 €
+                                        Unterbodenschutz auf Wachsbasis &nbsp;<span className="small-text"> 470,00 €</span>
                                     </label>
                                     <br />
                                     <label>
@@ -935,7 +967,7 @@ class Konfig extends React.Component {
                                             id="mudguard"
                                             value="mudguard"
                                         />
-                                        Spritzschutz, 370,00 €
+                                        Spritzschutz &nbsp;<span className="small-text"> 370,00 €</span>
                                     </label>
                                 </div>
                             </div>
@@ -962,7 +994,7 @@ class Konfig extends React.Component {
                                                 this.state.winterChecked
                                             }
                                         />
-                                        Ganzjahresreifenset, 1100,00 €
+                                        Ganzjahresreifenset&nbsp;<span className="small-text"> 1100,00 €</span>
                                     </label>
                                     <br />
                                     <label>
@@ -975,7 +1007,7 @@ class Konfig extends React.Component {
                                                 this.state.ganzjahresChecked
                                             }
                                         />
-                                        Sommerreifenset, 650,00 €
+                                        Sommerreifenset&nbsp;<span className="small-text"> 650,00 €</span>
                                     </label>
                                     <br />
                                     <label>
@@ -988,7 +1020,7 @@ class Konfig extends React.Component {
                                                 this.state.ganzjahresChecked
                                             }
                                         />
-                                        Winterreifenset, 700,00 €
+                                        Winterreifenset&nbsp;<span className="small-text"> 700,00 €</span>
                                     </label>
                                     {/*<img id="selectedImage" src={imagePath} alt="Reifen" onError={() => setImagePath('https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png')} /> */}
                                 </div>
