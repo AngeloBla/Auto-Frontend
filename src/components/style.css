@@ -22,3 +22,15 @@ input {
     padding: 10px;
     box-sizing: border-box;
 }
+#monthly-rate-display {
+    display: none !important;
+}
+#reifenPrice {
+    display: none !important;
+}
+#zusatzPrice {
+    display: none !important;
+}
+#servicePrice {
+    display: none !important;
+}

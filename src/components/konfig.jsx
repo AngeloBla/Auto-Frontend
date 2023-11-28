@@ -5,6 +5,7 @@ import styles from "./style.module.css"; // import ReactDOM from "react-dom";
 import Footer from "./footer";
 
 class Konfig extends React.Component {
+    
     state = {};
     constructor(props) {
         super(props);
@@ -860,17 +861,7 @@ class Konfig extends React.Component {
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
                                             />
-                                            Wartungsservice
-                                        </label>
-                                        <br />
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                className="from-control"
-                                                id="ueberfuehrung"
-                                                value="ueberfuehrung"
-                                            />
-                                            Überführungsdienst
+                                            Wartungsservice 3 Jahre,  165.00 €
                                         </label>
                                         <br />
                                         <label>
@@ -880,7 +871,7 @@ class Konfig extends React.Component {
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
                                             />
-                                            KFZ-Versicherung
+                                            KFZ-Versicherung, 120,00 €
                                         </label>
                                         <br />
                                         <label>
@@ -890,7 +881,7 @@ class Konfig extends React.Component {
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
                                             />
-                                            Zulassungsservice
+                                            Zulassungsservice, 25,00 €
                                         </label>
                                         <br />
                                         <label>
@@ -900,7 +891,7 @@ class Konfig extends React.Component {
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
                                             />
-                                            Mobilitätsgarantie
+                                            Mobilitätsgarantie, 160,00 €
                                         </label>
                                     </div>
                                 </div>
@@ -926,7 +917,7 @@ class Konfig extends React.Component {
                                             id="hitch"
                                             value="hitch"
                                         />
-                                        Anhängevorrichtung, 13 polig
+                                        Anhängevorrichtung, 13 polig, 450,00 €
                                     </label>
                                     <br />
                                     <label>
@@ -935,7 +926,7 @@ class Konfig extends React.Component {
                                             id="underbody-protection"
                                             value="underbody-protection"
                                         />
-                                        Unterbodenschutz auf Wachsbasis
+                                        Unterbodenschutz auf Wachsbasis, 470,00 €
                                     </label>
                                     <br />
                                     <label>
@@ -944,7 +935,7 @@ class Konfig extends React.Component {
                                             id="mudguard"
                                             value="mudguard"
                                         />
-                                        Spritzschutz
+                                        Spritzschutz, 370,00 €
                                     </label>
                                 </div>
                             </div>
@@ -971,7 +962,7 @@ class Konfig extends React.Component {
                                                 this.state.winterChecked
                                             }
                                         />
-                                        Ganzjahresreifenset
+                                        Ganzjahresreifenset, 1100,00 €
                                     </label>
                                     <br />
                                     <label>
@@ -984,7 +975,7 @@ class Konfig extends React.Component {
                                                 this.state.ganzjahresChecked
                                             }
                                         />
-                                        Sommerreifenset
+                                        Sommerreifenset, 650,00 €
                                     </label>
                                     <br />
                                     <label>
@@ -997,14 +988,14 @@ class Konfig extends React.Component {
                                                 this.state.ganzjahresChecked
                                             }
                                         />
-                                        Winterreifenset
+                                        Winterreifenset, 700,00 €
                                     </label>
                                     {/*<img id="selectedImage" src={imagePath} alt="Reifen" onError={() => setImagePath('https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png')} /> */}
                                 </div>
 
                                 {/* <!-- Anzeigefenster für den Preis --> */}
-                                <div className="price-display" id="paketePrice">
-                                    Pakete Preis: 0 €
+                                <div className="price-display" id="reifenPrice">
+                                    Reifen Preis: 0 €
                                 </div>
                             </div>
 
@@ -1156,10 +1147,10 @@ class Konfig extends React.Component {
                                     alt="Auto Bild"
                                     id="selectedImage"
                                     src={this.state.selectedImage}
-                                    onLoad={(e) => {
-                                        e.target.style.height = "auto";
-                                        e.target.style.width = "100%";
-                                    }}
+                                    // onLoad={(e) => {
+                                    //     e.target.style.height = "auto";
+                                    //     e.target.style.width = "100%";
+                                    // }}
                                 />
                             </div>
                             {/* <!-- ########### Bild ENDE ########## --> */}
