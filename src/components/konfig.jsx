@@ -283,7 +283,6 @@ class Konfig extends React.Component {
                     <div className={styles.parentContainer}>
                         <div className={styles.container}>
                             {/* <p align="center">!-!-! Work in Progress !-!-!</p> */}
-
                             <div className={styles.zahlungsmethode}>
                                 <div className="left-panel">
                                     <h2>
@@ -1068,7 +1067,6 @@ class Konfig extends React.Component {
                                     Abholort Preis: 0 €
                                 </div>
                             </div>
-
                         </div>
                         <div className={styles.container2}>
                             {/* <!-- ########### Bild aus auswahl ########## --> */}
