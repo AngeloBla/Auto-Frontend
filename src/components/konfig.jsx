@@ -330,6 +330,10 @@ class Konfig extends React.Component {
             [`${name}Checked`]: checked,
         });
     };
+    handleButtonClick = () => {
+        // Logik, die ausgeführt wird, wenn der Button geklickt wird
+        console.log("Button wurde geklickt!");
+    };
     calculateTotal() {
         const totalPreis =
             Number(this.state.motorPreis) +
@@ -1158,6 +1162,9 @@ class Konfig extends React.Component {
                             {/* <!-- ########## Gesamtpreis Box ########## --> */}
                             <div className={styles.fixedbar} id="fixed-bar">
                                 <div className={styles.pricepanel}>
+                                    <div>
+                                        <button className="meinButton" onClick={this.handleButtonClick}>Zum Angebot</button>
+                                    </div>
                                     <div id="totalPrice">
                                         <h2>
                                             Gesamtpreis: {this.state.totalPreis}
