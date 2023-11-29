@@ -1068,9 +1068,9 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.container2}>
+                        <div className={styles.container2} >
                             {/* <!-- ########### Bild aus auswahl ########## --> */}
-                            <div className="fixed-image-panel">
+                            <div className="fixed-image-panel" style={{ maxHeight: '80%', overflow: 'hidden' }}>
                                 <img
                                     alt="Auto Bild"
                                     id="selectedImage"

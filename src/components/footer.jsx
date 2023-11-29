@@ -5,7 +5,7 @@ class Footer extends Component {
     state = {  } 
     render() { 
         return <footer className="py-5">
-      <div style={{margin: "auto", width: "90%"}}>
+      <div style={{margin: "auto", width: "100%", background: "grey", padding: "80px" }}>
         <div className="row">
           <div className="col-6 col-md-2 mb-3">
             <h5>Section</h5>
