@@ -22,15 +22,26 @@ const Status = () => {
         window.location.reload();
     };
 
-    return <div className="navbar-text">
-        {status ? (
-            <>
-                <Link className="nav-link active" aria-current="page" to="/" onClick={handleLogout}>Logout</Link>
-                <Link className="nav-link active" aria-current="page" to="/changepassword" >Change password</Link>
-            </>
-        ) : (
-            <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
-        )}
-    </div>;
+    return (
+        <div className="navbar-text">
+            <ul className="navbar-nav">
+                {status ? (
+                    <>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/" onClick={handleLogout}>Logout</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/changepassword" >Change password</Link>
+                        </li>
+                    </>
+                ) : (
+                    <li className="nav-item">
+                        <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
+                    </li>
+                )}
+            </ul>
+        </div>
+    );
 };
+
 export default Status;
