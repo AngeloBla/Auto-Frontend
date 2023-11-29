@@ -50,8 +50,13 @@ const Dashboard = () => {
             <div className="position-sticky">
               <ul className="nav flex-column">
                 <li className="nav-item">
-                  <a className="nav-link active" href="/dashboard">
-                    Dashboard
+                  <a className="nav-link active" href="/">
+                    Startseite
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/dashboard">
+                  Dashboard
                   </a>
                 </li>
                 <li className="nav-item">
