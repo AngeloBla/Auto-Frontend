@@ -126,7 +126,7 @@ option {
     /* clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 100%); */
 }
 
-.container3 {
+/* .container3 {
     position: sticky;
     top: 0;
     left: 0;
@@ -145,13 +145,13 @@ option {
     100% {
         border-color: #0000ff;
     }
-}
+} */
 
 .reifen {
     border: crimson, solid 4px;
     overflow-wrap: normal;
-    /* text-align: left; */
-    padding-bottom: 10px; /* Abstand zwischen Text und Trennlinie */
+    text-align: left;
+    padding-bottom: 10px; /*Abstand zwischen Text und Trennlinie*/
 }
 .zusatz {
     border: black, solid 4px;
