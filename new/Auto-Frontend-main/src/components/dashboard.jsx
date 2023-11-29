@@ -30,7 +30,9 @@ const Dashboard = () => {
         beginAtZero: true,
       },
     },
-  };
+    maintainAspectRatio: false,
+    responsive: true,
+};
 
   return (
     <div>
@@ -69,14 +71,18 @@ const Dashboard = () => {
 
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 className="h2">Mitarbeiter Dashboard</h1>
+            
+
             </div>
 
            
             {/* Barchart */}
-            <div className="mt-5">
-              <h2>Number of Sales</h2>
-              <Bar data={chartData} options={chartOptions} />
+            <div className="mt-5" style={{ height: '500px', width: '500px' }}>
+            <h2 style={{ textAlign: 'center' }}>Anzahl der Verkäufe</h2>
+            <Bar data={chartData} options={chartOptions} />
+
+
+
             </div>
           </main>
         </div>
