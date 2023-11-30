@@ -13,8 +13,8 @@ const Lager = () => {
     // AWS-Konfiguration
     AWS.config.update({
       region: 'eu-central-1',
-      accessKeyId: 'AKIA5NDZPB6SSRNAJKKB',
-      secretAccessKey: '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',
+      accessKeyId: '',
+      secretAccessKey: '',
     });
 
     // DynamoDB-Client initialisieren
