@@ -11,21 +11,34 @@ hr {
 }
 
 input {
-    width: 50%;
-    margin: 1% 1% 1% 1%; /* Anpassung hier: 2% rechts */
+    width: 70%;  /*Abstand zur linken Seite*/
+    margin: 1% 1% 1% 2%; /* Anpassung hier: 2% rechts für Blocksatz */
     padding: 10px;
     box-sizing: border-box;
+    text-align: left; /* Links ausrichten */
 }
+
 
 /* Gemeinsame Stile für select und option */
 select {
     width: 10%;
-    margin: 1% 10%; /* Anpassung des Abstands zu den Seiten */
+    margin: 1% 10%;
     padding: 10px;
     box-sizing: border-box;
-    max-width: 80%; /* Setze die maximale Breite auf 100% des Elterncontainers */
-
+    max-width: 80%;
+    background-color: #e0e0e0; /* Hintergrundfarbe für alle Dropdowns */
+    border: 1px solid #ccc; /* optional: füge einen Rand hinzu */
 }
+
+/* Unterschiedliche Farben für verschiedene Dropdowns */
+select:nth-child(odd) {
+    background-color: #f0f0f0; /* Hintergrundfarbe für ungerade Dropdowns */
+}
+
+select:nth-child(even) {
+    background-color: #d0d0d0; /* Hintergrundfarbe für gerade Dropdowns */
+}
+
 
 option {
     text-align: center; /* Text in der Mitte ausrichten */
@@ -279,15 +292,13 @@ option {
 /* Zentriert den Text und die Checkboxen innerhalb der Labels */
 label {
     display: flex;
-    align-items: center;
-    justify-content: center; /* Zentriert horizontal */
-    margin: auto; /* Sorgt für automatische Randabstände*/
+    align-items: flex-start;
+    margin: auto; /* Sorgt für automatische Randabstände */
 }
 
-/* Stellt sicher, dass die Checkboxen nicht zu breit sind */
+/* Optional: Damit die Checkboxen auf derselben vertikalen Linie sind */
 input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px; /* Abstand zwischen Checkbox und Text */
+    margin-right: 1px; /* Setzt den oberen Rand auf 0, um die vertikale Ausrichtung zu verbessern */
 }
 
 

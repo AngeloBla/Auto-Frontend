@@ -291,7 +291,7 @@ class Konfig extends React.Component {
                                     <p>Bitte triff eine Auswahl</p>
                                 </div>
                                 {/* <!-- ########## Auswahl Zahlungart ########## --> */}
-                                <div className="single-model-search">
+                                <div className="single-model-search" >
                                     <div
                                         className={styles.togglebutton}
                                         onClick={this.toggleZahlungsart}
