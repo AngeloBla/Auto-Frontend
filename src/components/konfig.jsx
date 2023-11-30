@@ -96,12 +96,12 @@ class Konfig extends React.Component {
     };
     handleMotorChange(event) {
         const selectedOption = event.target.options[event.target.selectedIndex];
-        const preis = selectedOption.getAttribute("data-preis");
+        const preis = parseInt(selectedOption.getAttribute("data-preis"), 10);
         this.setState({ motorPreis: preis }, this.calculateTotal);
     }
     handleGetriebeChange(event) {
         const selectedOption = event.target.options[event.target.selectedIndex];
-        const preis = selectedOption.getAttribute("data-preis");
+        const preis = parseInt(selectedOption.getAttribute("data-preis"), 10);
         this.setState({ getriebePreis: preis }, this.calculateTotal);
     }
 
@@ -139,16 +139,14 @@ class Konfig extends React.Component {
                     "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png";
         }
         const selectedOption = event.target.options[event.target.selectedIndex];
-        const preis = selectedOption.getAttribute("data-preis");
-        this.setState(
-            {
-                karosserieFarbePreis: preis,
-                selectedImage: imagePath,
-                lastFunctionCalled: "loadCarImage",
-            },
-            this.calculateTotal
-        );
-    }
+        const preis = parseInt(selectedOption.getAttribute("data-preis"), 10);
+
+        this.setState({
+            karosserieFarbePreis: preis,
+            selectedImage: imagePath,
+            lastFunctionCalled: "loadCarImage",
+            }, this.calculateTotal);
+        }
     // ########### funktion Auswahl Motorhaubefarbe mit Bild verlinken ###########
     loadHoodImage = (event) => {
         var hoodColor = this.hoodColorRef.current.value;
@@ -329,15 +327,16 @@ class Konfig extends React.Component {
     
         this.setState(prevState => {
             const selectedOptions = { ...prevState.selectedOptions };
-            let { ganzjahresPreis, sommerPreis, winterPreis, serviceProduktePreis, zusatzoptionenPreis, reifenPreis } = prevState;
+            let reifenPreis = prevState.reifenPreis;
+            let preis = parseInt(dataset.preis, 10);
     
             // Update für Reifenoptionen
             if (optionName === 'ganzjahres' || optionName === 'sommer' || optionName === 'winter') {
                 if (checked) {
-                    selectedOptions[id] = parseInt(dataset.preis);
-                    reifenPreis += parseInt(dataset.preis);
+                    selectedOptions[id] = preis;
+                    reifenPreis += preis;
                 } else {
-                    reifenPreis -= selectedOptions[id];
+                    reifenPreis -= selectedOptions[id] || 0;
                     delete selectedOptions[id];
                 }
     
@@ -357,18 +356,18 @@ class Konfig extends React.Component {
             // Update für Service- und Zusatzoptionen
             else {
                 if (checked) {
-                    selectedOptions[id] = parseInt(dataset.preis);
+                    selectedOptions[id] = preis;
     
                     if (optionName === 'service') {
-                        serviceProduktePreis += parseInt(dataset.preis);
+                        prevState.serviceProduktePreis += preis;
                     } else {
-                        zusatzoptionenPreis += parseInt(dataset.preis);
+                        prevState.zusatzoptionenPreis += preis;
                     }
                 } else {
                     if (optionName === 'service') {
-                        serviceProduktePreis -= selectedOptions[id];
+                        prevState.serviceProduktePreis -= selectedOptions[id] || 0;
                     } else {
-                        zusatzoptionenPreis -= selectedOptions[id];
+                        prevState.zusatzoptionenPreis -= selectedOptions[id] || 0;
                     }
                     delete selectedOptions[id];
                 }
@@ -377,16 +376,14 @@ class Konfig extends React.Component {
             return {
                 ...prevState,
                 selectedOptions,
-                ganzjahresPreis,
-                sommerPreis,
-                winterPreis,
                 reifenPreis,
-                serviceProduktePreis,
-                zusatzoptionenPreis,
+                serviceProduktePreis: prevState.serviceProduktePreis,
+                zusatzoptionenPreis: prevState.zusatzoptionenPreis,
                 [`${optionName}Checked`]: checked // Zustand der Checkbox aktualisieren
             };
         }, this.calculateTotal);
     };
+    
     
     
     
@@ -399,24 +396,26 @@ class Konfig extends React.Component {
 
 
     calculateTotal() {
-        const totalPreis =
-            Number(this.state.motorPreis) +
-            Number(this.state.getriebePreis) +
-            Number(this.state.karosserieFarbePreis) +
-            Number(this.state.motorhaubeFarbePreis) +
-            Number(this.state.dachFarbePreis) +
-            Number(this.state.dachtraegerPreis) +
-            Number(this.state.getoenteScheibenPreis) +
-            Number(this.state.innenausstattung1Preis) +
-            Number(this.state.innenausstattung2Preis) +
-            Number(this.state.serviceProduktePreis) +
-            Number(this.state.zusatzoptionenPreis) +
-            Number(this.state.paketePreis) +
-            Number(this.state.abholortPreis) +
-            Number(this.state.reifenPreis); // Fügen Sie reifenPreis hinzu
+        const totalPreis = [
+            this.state.motorPreis,
+            this.state.getriebePreis,
+            this.state.karosserieFarbePreis,
+            this.state.motorhaubeFarbePreis,
+            this.state.dachFarbePreis,
+            this.state.dachtraegerPreis,
+            this.state.getoenteScheibenPreis,
+            this.state.innenausstattung1Preis,
+            this.state.innenausstattung2Preis,
+            this.state.serviceProduktePreis,
+            this.state.zusatzoptionenPreis,
+            this.state.paketePreis,
+            this.state.abholortPreis,
+            this.state.reifenPreis
+        ].reduce((sum, value) => sum + (isNaN(value) ? 0 : Number(value)), 0);
     
         this.setState({ totalPreis });
     }
+    
     
 
 
@@ -432,7 +431,7 @@ class Konfig extends React.Component {
                             <div className={styles.zahlungsmethode}>
                                 <div className="left-panel">
                                     <h2>
-                                        Stelle dir deinen TraumAstley zusammen:
+                                        Stelle dir deinen Traum Astley zusammen:
                                     </h2>
                                     <p>Bitte triff eine Auswahl</p>
                                 </div>
@@ -910,7 +909,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="innenausstattung1Price"
                                 >
-                                    Innenausstattung1 Preis:
+                                    Innenausstattung1 Preis: 
                                     {this.state.innenausstattung1Preis} €
                                 </div>
                             </div>
@@ -956,7 +955,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ######## Auswahl Service Produkte ######### --> */}
                             <div className="single-model-search">
-                                <h3>ServiceProdukte</h3>
+                                <h3>Service Produkte</h3>
                                 <div className="model-select-icon">
                                     <div id="service">
                                         <label>
@@ -1190,7 +1189,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Abhohlort ########### --> */}
                             <div className="single-model-search">
-                                <h3>Abhohlort auswählen</h3>
+                                <h3>Abholort auswählen</h3>
                                 <div className="model-select-icon">
                                     <select 
                                         className="form-control"

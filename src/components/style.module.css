@@ -65,19 +65,19 @@ option {
 .parentContainer {
     display: flex;
     flex-direction: row;
-    height: 100vh; /* This will make the parent container take up the full height of the viewport */
+    height: 80vh; /* This will make the parent container take up the full height of the viewport */
     overflow-y: auto; /* This will hide the content that overflows */
     overflow: hidden;
 }
 
-.container2Wrapper {
+/*.container2Wrapper {
     flex: 1;
     overflow-y: auto; /* Füge eine vertikale Scrollbar für .container2Wrapper hinzu */
-}
+/*}*/
 
 .container {
     flex: 1;
-    min-width: 30%;
+    min-width: 40%;
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
