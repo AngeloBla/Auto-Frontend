@@ -399,7 +399,6 @@ class Konfig extends React.Component {
 
 
     calculateTotal() {
-        const checkboxTotal = Object.values(this.state.selectedOptions).reduce((sum, price) => sum + price, 0);
         const totalPreis =
             Number(this.state.motorPreis) +
             Number(this.state.getriebePreis) +
@@ -414,10 +413,11 @@ class Konfig extends React.Component {
             Number(this.state.zusatzoptionenPreis) +
             Number(this.state.paketePreis) +
             Number(this.state.abholortPreis) +
-            checkboxTotal;
-
+            Number(this.state.reifenPreis); // Fügen Sie reifenPreis hinzu
+    
         this.setState({ totalPreis });
     }
+    
 
 
 
