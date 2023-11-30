@@ -1,0 +1,249 @@
+.body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    filter: brightness(100%);
+    overflow: hidden;
+}
+
+hr {
+    max-width: 1000px;
+    height: 1px;
+    background-color: #767676;
+}
+
+input,
+select {
+    width: 50%;
+    margin: 5% 5% 5% 5%; /* Anpassung hier: 2% rechts */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Gemeinsame Stile für select und option */
+select {
+    width: 50%;
+    margin: 5% 5%; /* Anpassung des Abstands zu den Seiten */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+option {
+    text-align: center; /* Text in der Mitte ausrichten */
+}
+
+.zahlungsart {
+    width: 50%; 
+    margin: 5% 100%;
+}
+
+/* Toggle Function */
+/* .collapsiblecontent {
+    display: none;
+} */
+
+.togglebutton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.togglebutton:hover {
+    background-color: #2980b9;
+}
+
+/* Container */
+.parentContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* This will make the parent container take up the full height of the viewport */
+    overflow: auto; /* This will hide the content that overflows */
+}
+.container {
+    flex: 1;
+    min-width: 30%;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-size: calc(0.5vw + 10px);
+    text-align: center; /* Text zentriert */
+    padding-right: 10px; /* Abstand zwischen Text und Trennlinie */
+    height: 100%;
+}
+.container2 {
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    /* background-color: #00ff00; */
+    /* border: solid 1px #00ff00; */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.container3 {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 10%;
+    border: 5px solid #ff0000;
+    animation: changeBorderColor 5s infinite;
+}
+
+@keyframes changeBorderColor {
+    0% {
+        border-color: #ff0000;
+    }
+    50% {
+        border-color: #00ff00;
+    }
+    100% {
+        border-color: #0000ff;
+    }
+}
+
+.reifen {
+    border: crimson, solid 4px;
+    overflow-wrap: normal;
+    /* text-align: left; */
+    padding-bottom: 10px; /* Abstand zwischen Text und Trennlinie */
+}
+.zusatz {
+    border: black, solid 4px;
+}
+
+/* Responsive Design */
+/* @media (max-width: 768px) {
+    input,
+    select {
+        width: 90%;
+        margin: 5%;
+    }
+
+    .container {
+        width: 90%;
+        top: 5%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    input,
+    select {
+        width: 100%;
+        margin: 5% 0;
+    }
+
+    .container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        font-size: 12px;
+    }
+} */
+
+/* Fixed Image Panel */
+.fixed-image-panel {
+    flex: 1;
+    width: 100%;
+    height: 100vh;
+}
+.fixed-image-panel img {
+    /* position: sticky; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* @media (max-width: 768px) {
+    .fixed-image-panel {
+        top: 5%;
+        right: 5%;
+        width: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-image-panel {
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100vw;
+    }
+} */
+
+/* Fixed Bar */
+.fixedbar {
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 88%;
+    height: auto;
+    margin: 1.5%;
+    color: whitesmoke;
+    background-color: #7f7f7f;
+    border-radius: 5px;
+    padding: 0.5%;
+    font-size: min(max(12px, 1vw), 16px);
+    margin: auto;
+}
+
+/* Price Panel */
+.pricepanel {
+    padding-top: 0;
+    text-align: right;
+    padding-right: 5%;
+}
+
+@media (max-width: 768px) {
+    .fixed-bar {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-bar {
+        padding: 10px;
+    }
+}
+
+/* Payment Method Container */
+.zahlungsmethode {
+    box-sizing: border-box;
+    padding-bottom: 10px; /* Abstand zwischen Text und Trennlinie */
+}
+
+/* @media (max-width: 768px) {
+    .zahlungsmethode {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .zahlungsmethode {
+        font-size: 80%;
+    } */
+
+/* Zentriert den Text und die Checkboxen innerhalb der Labels */
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Zentriert horizontal */
+    margin: auto; /* Sorgt für automatische Randabstände*/
+}
+
+/* Stellt sicher, dass die Checkboxen nicht zu breit sind */
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px; /* Abstand zwischen Checkbox und Text */
+}
