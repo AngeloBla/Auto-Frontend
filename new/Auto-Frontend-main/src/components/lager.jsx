@@ -4,8 +4,10 @@ import AWS from 'aws-sdk';
 
 const Lager = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filterValue, setFilterValue] = useState('');
 
   useEffect(() => {
     // AWS-Konfiguration
@@ -29,13 +31,31 @@ const Lager = () => {
         console.error('Fehler beim Abrufen der Daten aus DynamoDB', error);
         setError('Fehler beim Abrufen der Daten aus DynamoDB');
       } else {
+        // Setze sowohl Daten als auch gefilterte Daten
         setData(result.Items);
+        setFilteredData(result.Items);
       }
 
       // Setze den Ladezustand auf false, da die Daten abgerufen wurden
       setLoading(false);
     });
   }, []); // Leerer Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal beim Laden der Komponente ausgeführt wird
+
+  // Handle für Änderungen im Filterinput
+  const handleFilterChange = (event) => {
+    const value = event.target.value;
+    setFilterValue(value);
+
+    // Filtere die Daten basierend auf dem Eingabewert
+    const filtered = data.filter((item) =>
+      Object.values(item).some(
+        (field) =>
+          typeof field === 'string' && field.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+
+    setFilteredData(filtered);
+  };
 
   return (
     <div>
@@ -72,6 +92,14 @@ const Lager = () => {
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 className="h2">Lager</h1>
+              {/* Füge das Filter-Input-Feld hinzu */}
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Filtern..."
+                value={filterValue}
+                onChange={handleFilterChange}
+              />
             </div>
 
             {/* Überprüfe den Ladezustand und zeige ggf. einen Ladeindikator an */}
@@ -81,32 +109,36 @@ const Lager = () => {
               <p>{error}</p>
             ) : (
               <div className="table-responsive">
-                <table className="table table-striped table-sm">
+                <table className="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>ID_Lager</th>
+                      <th>ID</th>
                       <th>Anzahl</th>
-                      <th>Gruppe</th>
-                      <th>Artikel</th>
-                      <th>Farbe</th>
-                      <th>Beschreibung</th>
-                      <th>Preis</th>
-                      <th>S3_bild_url</th>
+                      <th>Details</th>
+                      <th>Bild</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((item, index) => (
+                    {filteredData.map((item, index) => (
                       <tr key={index}>
                         <td>{item.ID_Lager}</td>
                         <td>{item.Anzahl}</td>
-                        <td>{item.Gruppe}</td>
-                        <td>{item.Artikel}</td>
-                        <td>{item.Farbe}</td>
-                        <td>{item.Beschreibung}</td>
-                        <td>{item.Preis}</td>
-                        <td><a href={item.S3_bild_url} target="_blank">{item.S3_bild_url}</a></td>
-
-
+                        <td>
+                          <strong>Gruppe:</strong> {item.Gruppe}<br />
+                          <strong>Artikel:</strong> {item.Artikel}<br />
+                          <strong>Farbe:</strong> {item.Farbe}<br />
+                          <strong>Beschreibung:</strong> {item.Beschreibung}<br />
+                          <strong>Preis:</strong> {item.Preis}
+                        </td>
+                        <td>
+                          <a href={item.S3_bild_url} target="_blank">
+                            <img
+                              src={item.S3_bild_url}
+                              alt={item.Artikel}
+                              style={{ maxWidth: '100px' }}
+                            />
+                          </a>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
