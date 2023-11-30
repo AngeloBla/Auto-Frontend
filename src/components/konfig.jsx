@@ -329,30 +329,50 @@ class Konfig extends React.Component {
     
         this.setState(prevState => {
             const selectedOptions = { ...prevState.selectedOptions };
-            let ganzjahresPreis = prevState.ganzjahresChecked ? prevState.ganzjahresPreis : 0;
-            let sommerPreis = prevState.sommerChecked ? prevState.sommerPreis : 0;
-            let winterPreis = prevState.winterChecked ? prevState.winterPreis : 0;
-            let serviceProduktePreis = prevState.serviceProduktePreis;
+            let { ganzjahresPreis, sommerPreis, winterPreis, serviceProduktePreis, zusatzoptionenPreis, reifenPreis } = prevState;
     
-            if (checked) {
-                selectedOptions[id] = parseInt(dataset.preis);
+            // Update für Reifenoptionen
+            if (optionName === 'ganzjahres' || optionName === 'sommer' || optionName === 'winter') {
+                if (checked) {
+                    selectedOptions[id] = parseInt(dataset.preis);
+                    reifenPreis += parseInt(dataset.preis);
+                } else {
+                    reifenPreis -= selectedOptions[id];
+                    delete selectedOptions[id];
+                }
     
-                if (optionName === 'ganzjahres') ganzjahresPreis = price;
-                if (optionName === 'sommer') sommerPreis = price;
-                if (optionName === 'winter') winterPreis = price;
-    
-                if (!optionName) serviceProduktePreis += parseInt(dataset.preis);
-            } else {
-                delete selectedOptions[id];
-    
-                if (optionName === 'ganzjahres') ganzjahresPreis = 0;
-                if (optionName === 'sommer') sommerPreis = 0;
-                if (optionName === 'winter') winterPreis = 0;
-    
-                if (!optionName) serviceProduktePreis -= parseInt(dataset.preis);
+                // Exklusivität der Reifenoptionen
+                if (id === 'ganzjahres' && checked) {
+                    ['sommer', 'winter'].forEach(reifen => {
+                        if (selectedOptions[reifen]) {
+                            reifenPreis -= selectedOptions[reifen];
+                            delete selectedOptions[reifen];
+                        }
+                    });
+                } else if ((id === 'sommer' || id === 'winter') && checked && selectedOptions['ganzjahres']) {
+                    reifenPreis -= selectedOptions['ganzjahres'];
+                    delete selectedOptions['ganzjahres'];
+                }
             }
+            // Update für Service- und Zusatzoptionen
+            else {
+                if (checked) {
+                    selectedOptions[id] = parseInt(dataset.preis);
     
-            const reifenPreis = ganzjahresPreis + sommerPreis + winterPreis;
+                    if (optionName === 'service') {
+                        serviceProduktePreis += parseInt(dataset.preis);
+                    } else {
+                        zusatzoptionenPreis += parseInt(dataset.preis);
+                    }
+                } else {
+                    if (optionName === 'service') {
+                        serviceProduktePreis -= selectedOptions[id];
+                    } else {
+                        zusatzoptionenPreis -= selectedOptions[id];
+                    }
+                    delete selectedOptions[id];
+                }
+            }
     
             return {
                 ...prevState,
@@ -362,10 +382,15 @@ class Konfig extends React.Component {
                 winterPreis,
                 reifenPreis,
                 serviceProduktePreis,
-                [`${optionName}Checked`]: checked
+                zusatzoptionenPreis,
+                [`${optionName}Checked`]: checked // Zustand der Checkbox aktualisieren
             };
         }, this.calculateTotal);
     };
+    
+    
+    
+
     
     
     
@@ -942,7 +967,7 @@ class Konfig extends React.Component {
                                                 value="wartung_verschleiss"
                                                 data-preis="165"
                                                 checked={this.state.selectedOptions["wartung_verschleiss"]}
-                                                onChange={(e) => this.handleCheckboxChange(e, 'wartung_verschleiss', 165)}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'service', 165)}
 />
                                             Wartungsservice  &nbsp;<span className="small-text">  (3 Jahre) 165,00 €</span>
                                         </label>
@@ -955,7 +980,7 @@ class Konfig extends React.Component {
                                                 value="kfz_versicherung"
                                                 data-preis="120"
                                                 checked={this.state.selectedOptions["kfz_versicherung"]}
-                                                onChange={(e) => this.handleCheckboxChange(e, 'kfz_versicherung', 120)}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'service', 120)}
                                             />
                                             KFZ-Versicherung &nbsp;<span className="small-text"> (2 Jahre) 120,00 €</span>
                                         </label>
@@ -968,7 +993,7 @@ class Konfig extends React.Component {
                                                 value="zulassungsservice"
                                                 data-preis="25"
                                                 checked={this.state.selectedOptions["zulassungsservice"]}
-                                                onChange={(e) => this.handleCheckboxChange(e, 'zulassungsservice', 25)}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'service', 25)}
                                             />
                                             Zulassungsservice &nbsp; <span className="small-text"> 25,00 €</span>
                                         </label>
@@ -981,7 +1006,7 @@ class Konfig extends React.Component {
                                                 value="mobilitaetsgarantie"
                                                 data-preis="160"
                                                 checked={this.state.selectedOptions["mobilitaetsgarantie"]}
-                                                onChange={(e) => this.handleCheckboxChange(e, 'mobilitaetsgarantie', 160)}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'service', 160)}
                                             />
                                             Mobilitätsgarantie &nbsp;<span className="small-text"> (2 Jahre) 160,00 €</span>
                                         </label>
@@ -1009,7 +1034,8 @@ class Konfig extends React.Component {
                                             id="hitch"
                                             value="hitch"
                                             data-preis="450"
-                                            onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                            checked={this.state.selectedOptions["hitch"]}
+                                            onChange={(e) => this.handleCheckboxChange(e, 'zusatz', 450)}
                                         />
                                         Anhängevorrichtung, 13 polig &nbsp;<span className="small-text"> 450,00 €</span>
                                     </label>
@@ -1020,7 +1046,8 @@ class Konfig extends React.Component {
                                             id="underbody-protection"
                                             value="underbody-protection"
                                             data-preis="470"
-                                            onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                            checked={this.state.selectedOptions["underbody-protection"]}
+                                            onChange={(e) => this.handleCheckboxChange(e, 'zusatz', 470)}
                                         />
                                         Unterbodenschutz auf Wachsbasis &nbsp;<span className="small-text"> 470,00 €</span>
                                     </label>
@@ -1031,7 +1058,8 @@ class Konfig extends React.Component {
                                             id="mudguard"
                                             value="mudguard"
                                             data-preis="370"
-                                            onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                            checked={this.state.selectedOptions["mudguard"]}
+                                            onChange={(e) => this.handleCheckboxChange(e, 'zusatz', 370)}
                                         />
                                         Spritzschutz &nbsp;<span className="small-text"> 370,00 €</span>
                                     </label>
@@ -1039,7 +1067,7 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div className="price-display" id="zusatzPrice">
-                                Zusatzoption Preis: 0 €
+                                Zusatzoption Preis: {this.state.zusatzoptionenPreis} €
                             </div>
                             <hr />
 
