@@ -283,8 +283,8 @@ option {
 /* Zentriert den Text und die Checkboxen innerhalb der Labels */
 label {
     display: flex;
-    align-items: center;
-    justify-content: center; /* Zentriert horizontal */
+    align-items:baseline;
+    justify-content:left;/* Zentriert horizontal */
     margin: auto; /* Sorgt für automatische Randabstände*/
 }
 
