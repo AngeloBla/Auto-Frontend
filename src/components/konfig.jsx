@@ -332,17 +332,24 @@ class Konfig extends React.Component {
             let ganzjahresPreis = prevState.ganzjahresChecked ? prevState.ganzjahresPreis : 0;
             let sommerPreis = prevState.sommerChecked ? prevState.sommerPreis : 0;
             let winterPreis = prevState.winterChecked ? prevState.winterPreis : 0;
+            let serviceProduktePreis = prevState.serviceProduktePreis;
     
             if (checked) {
-                selectedOptions[id] = optionName ? price : parseInt(dataset.preis);
+                selectedOptions[id] = parseInt(dataset.preis);
+    
                 if (optionName === 'ganzjahres') ganzjahresPreis = price;
                 if (optionName === 'sommer') sommerPreis = price;
                 if (optionName === 'winter') winterPreis = price;
+    
+                if (!optionName) serviceProduktePreis += parseInt(dataset.preis);
             } else {
                 delete selectedOptions[id];
+    
                 if (optionName === 'ganzjahres') ganzjahresPreis = 0;
                 if (optionName === 'sommer') sommerPreis = 0;
                 if (optionName === 'winter') winterPreis = 0;
+    
+                if (!optionName) serviceProduktePreis -= parseInt(dataset.preis);
             }
     
             const reifenPreis = ganzjahresPreis + sommerPreis + winterPreis;
@@ -354,10 +361,12 @@ class Konfig extends React.Component {
                 sommerPreis,
                 winterPreis,
                 reifenPreis,
+                serviceProduktePreis,
                 [`${optionName}Checked`]: checked
             };
         }, this.calculateTotal);
     };
+    
     
     
 
@@ -932,8 +941,9 @@ class Konfig extends React.Component {
                                                 id="wartung_verschleiss"
                                                 value="wartung_verschleiss"
                                                 data-preis="165"
-                                                onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
-                                            />
+                                                checked={this.state.selectedOptions["wartung_verschleiss"]}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'wartung_verschleiss', 165)}
+/>
                                             Wartungsservice  &nbsp;<span className="small-text">  (3 Jahre) 165,00 €</span>
                                         </label>
                                         <br />
@@ -944,7 +954,8 @@ class Konfig extends React.Component {
                                                 id="kfz_versicherung"
                                                 value="kfz_versicherung"
                                                 data-preis="120"
-                                                onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                                checked={this.state.selectedOptions["kfz_versicherung"]}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'kfz_versicherung', 120)}
                                             />
                                             KFZ-Versicherung &nbsp;<span className="small-text"> (2 Jahre) 120,00 €</span>
                                         </label>
@@ -956,7 +967,8 @@ class Konfig extends React.Component {
                                                 id="zulassungsservice"
                                                 value="zulassungsservice"
                                                 data-preis="25"
-                                                onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                                checked={this.state.selectedOptions["zulassungsservice"]}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'zulassungsservice', 25)}
                                             />
                                             Zulassungsservice &nbsp; <span className="small-text"> 25,00 €</span>
                                         </label>
@@ -968,7 +980,8 @@ class Konfig extends React.Component {
                                                 id="mobilitaetsgarantie"
                                                 value="mobilitaetsgarantie"
                                                 data-preis="160"
-                                                onChange={(e) => this.handleCheckboxChange(e.target.id, parseInt(e.target.dataset.preis), e.target.checked)}
+                                                checked={this.state.selectedOptions["mobilitaetsgarantie"]}
+                                                onChange={(e) => this.handleCheckboxChange(e, 'mobilitaetsgarantie', 160)}
                                             />
                                             Mobilitätsgarantie &nbsp;<span className="small-text"> (2 Jahre) 160,00 €</span>
                                         </label>
@@ -979,7 +992,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="servicePrice"
                                 >
-                                    Serviceprodukte Preis: 0 €
+                                    Serviceprodukte Preis: {this.state.serviceProduktePreis} €
                                 </div>
                             </div>
 
@@ -1211,6 +1224,22 @@ class Konfig extends React.Component {
                         {/* </div> */}
 
 
+                            
+                        </div>
+                        <div className={styles.container2}>
+                            {/* <!-- ########### Bild aus auswahl ########## --> */}
+                            <div className="fixed-image-panel">
+                                <img
+                                    alt="Auto Bild"
+                                    id="selectedImage"
+                                    src={this.state.selectedImage}
+                                    // onLoad={(e) => {
+                                    //     e.target.style.height = "auto";
+                                    //     e.target.style.width = "100%";
+                                    // }}
+                                />
+                            </div>
+                            {/* <!-- ########### Bild ENDE ########## --> */}
                             {/* <!-- ########## Gesamtpreis Box ########## --> */}
                             <div className={styles.fixedbar} id="fixed-bar">
                                 <div className={styles.pricepanel}>
@@ -1230,21 +1259,6 @@ class Konfig extends React.Component {
                                 </div>
                             </div>
                             {/* <!-- ########## Gesamtpreis Box ENDE ########## --> */}
-                        </div>
-                        <div className={styles.container2}>
-                            {/* <!-- ########### Bild aus auswahl ########## --> */}
-                            <div className="fixed-image-panel">
-                                <img
-                                    alt="Auto Bild"
-                                    id="selectedImage"
-                                    src={this.state.selectedImage}
-                                    // onLoad={(e) => {
-                                    //     e.target.style.height = "auto";
-                                    //     e.target.style.width = "100%";
-                                    // }}
-                                />
-                            </div>
-                            {/* <!-- ########### Bild ENDE ########## --> */}
                         </div>
                     </div>
                 </div>
