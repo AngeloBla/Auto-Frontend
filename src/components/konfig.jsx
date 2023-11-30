@@ -6,6 +6,13 @@ import Footer from "./footer";
 
 class Konfig extends React.Component {
 
+    formatPrice(value) {
+        return new Intl.NumberFormat('de-DE', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(value);
+    }
+
         // Toggle function for showing/hiding the selected options
         toggleSelectedOptions = () => {
             this.setState({ showSelectedOptions: !this.state.showSelectedOptions });
@@ -564,7 +571,7 @@ class Konfig extends React.Component {
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="motorPrice">
-                                    Motor Preis: {this.state.motorPreis} €
+                                    Motor Preis: {this.formatPrice(this.state.motorPreis)} €
                                 </div>
                             </div>
 
@@ -612,7 +619,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="getriebePrice"
                                 >
-                                    Getriebe Preis: {this.state.getriebePreis} €
+                                    Getriebe Preis: {this.formatPrice(this.state.getriebePreis)} €
                                 </div>
                             </div>
 
@@ -664,8 +671,7 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div className="price-display" id="bodyColorPrice">
-                                Außenfarbe Preis:
-                                {this.state.karosserieFarbePreis} €
+                                Außenfarbe Preis: {this.formatPrice(this.state.karosserieFarbePreis)} €
                             </div>
 
                             <hr />
@@ -729,8 +735,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="hoodColorPrice"
                                 >
-                                    Motorhaube Farbe Preis:
-                                    {this.state.motorhaubeFarbePreis} €
+                                    Motorhaube Farbe Preis: {this.formatPrice(this.state.motorhaubeFarbePreis)} €
                                 </div>
                             </div>
 
@@ -789,7 +794,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="roofColorPrice"
                                 >
-                                    Dachfarbe Preis: {this.state.dachFarbePreis}
+                                    Dachfarbe Preis: {this.formatPrice(this.state.dachFarbePreis)}
                                     €
                                 </div>
                             </div>
@@ -825,8 +830,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="roofrackPrice"
                                 >
-                                    Dachträger Preis:
-                                    {this.state.dachtraegerPreis} €
+                                    Dachträger Preis: {this.formatPrice(this.state.dachtraegerPreis)} €
                                 </div>
                             </div>
 
@@ -870,8 +874,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="windowcolorPrice"
                                 >
-                                    Getönte Scheiben Preis:
-                                    {this.state.getoenteScheibenPreis} €
+                                    Getönte Scheiben Preis: {this.formatPrice(this.state.getoenteScheibenPreis)} €
                                 </div>
                             </div>
 
@@ -909,8 +912,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="innenausstattung1Price"
                                 >
-                                    Innenausstattung1 Preis: 
-                                    {this.state.innenausstattung1Preis} €
+                                    Innenausstattung 1 Preis:  {this.formatPrice(this.state.innenausstattung1Preis)} €
                                 </div>
                             </div>
 
@@ -946,8 +948,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="innenausstattung2Price"
                                 >
-                                    Innenausstattung 2 Preis:
-                                    {this.state.innenausstattung2Preis} €
+                                    Innenausstattung 2 Preis: {this.formatPrice(this.state.innenausstattung2Preis)} €
                                 </div>
                             </div>
 
@@ -1016,7 +1017,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="servicePrice"
                                 >
-                                    Serviceprodukte Preis: {this.state.serviceProduktePreis} €
+                                    Serviceprodukte Preis: {this.formatPrice(this.state.serviceProduktePreis)} €
                                 </div>
                             </div>
 
@@ -1066,7 +1067,7 @@ class Konfig extends React.Component {
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div className="price-display" id="zusatzPrice">
-                                Zusatzoption Preis: {this.state.zusatzoptionenPreis} €
+                                Zusatzoption Preis: {this.formatPrice(this.state.zusatzoptionenPreis)} €
                             </div>
                             <hr />
 
@@ -1123,7 +1124,7 @@ class Konfig extends React.Component {
 
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="reifenPrice">
-                                    Reifen Preis: {this.state.reifenPreis} €
+                                    Reifen Preis: {this.formatPrice(this.state.reifenPreis)} €
                                 </div>
                             </div>
 
@@ -1181,7 +1182,7 @@ class Konfig extends React.Component {
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="paketePrice">
-                                    Pakete Preis: {this.state.paketePreis} €
+                                    Pakete Preis: {this.formatPrice(this.state.paketePreis)} €
                                 </div>
                             </div>
 
@@ -1245,7 +1246,7 @@ class Konfig extends React.Component {
                                     className="price-display"
                                     id="abholortPrice"
                                 >
-                                    Überführungskosten inkl MwSt: {this.state.abholortPreis} €
+                                    Überführungskosten inkl MwSt: {this.formatPrice(this.state.abholortPreis)} €
                                 </div>
                             </div>
                         {/* </div> */}
@@ -1275,7 +1276,7 @@ class Konfig extends React.Component {
                                     </div>
                                     <div id="totalPrice">
                                         <h2>
-                                            Gesamtpreis: {this.state.totalPreis}
+                                            Gesamtpreis: {this.formatPrice(this.state.totalPreis)}
                                             €
                                         </h2>
                                     </div>
