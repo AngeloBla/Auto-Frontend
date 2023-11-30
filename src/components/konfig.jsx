@@ -805,7 +805,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ######## Auswahl Service Produkte ######### --> */}
                             <div className="single-model-search">
-                                <h3>ServiceProdukte</h3>
+                                <h3>Service Produkte</h3>
                                 <div className="model-select-icon">
                                     <div id="service">
                                         <label>
