@@ -17,6 +17,8 @@ select {
     box-sizing: border-box;
     border: 1px solid #ccc; /* optional: füge einen Rand hinzu */
     background-color: #cac9c9 !important; /* Hintergrundfarbe für alle Dropdowns */
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 

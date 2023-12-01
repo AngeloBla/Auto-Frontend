@@ -394,7 +394,7 @@ class Konfig extends React.Component {
                             {/* <!-- ################################################## --> */}
                             {/* <!-- ########## Auswahl Motor ########## --> */}
                             <div className="single-model-search">
-                                <h3>Motor</h3>
+                                <h3 className="titel">Motor</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -429,7 +429,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########## Auswahl Getriebe ########## --> */}
                             <div className="single-model-search">
-                                <h3>Getriebe</h3>
+                                <h3 className="titel">Getriebe</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -477,7 +477,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ####### Auswahl Karosseriefarbe ######### --> */}
                             <div className="single-model-search">
-                                <h3>Wähle die Karosseriefarbe</h3>
+                                <h3 className="titel">Wähle die Karosseriefarbe</h3>
                                 <select
                                     className="form-select"
                                     id="bodyColor"
@@ -529,7 +529,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ####### Auswahl Motorhaubenfarbe ######## --> */}
                             <div className="single-model-search">
-                                <h3>Motorhaube Farbe</h3>
+                                <h3 className="titel">Motorhaube Farbe</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-select"
@@ -589,7 +589,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ####### Auswahl Dachfarbe ######### --> */}
                             <div className="single-model-search">
-                                <h3>Dachfarbe</h3>
+                                <h3 className="titel">Dachfarbe</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-select"
@@ -649,7 +649,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ####### Auswahl Dachträger ######### --> */}
                             <div className="single-model-search">
-                                <h3>Dachträger</h3>
+                                <h3 className="titel">Dachträger</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-select"
@@ -685,7 +685,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ######## Auswahl getönte Scheiben ######### --> */}
                             <div className="single-model-search">
-                                <h3>Getönte Scheiben</h3>
+                                <h3 className="titel">Getönte Scheiben</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-select"
@@ -729,7 +729,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########## Auswahl Innenausstattung1 ########## --> */}
                             <div className="single-model-search">
-                                <h3>Innenausstattung wählen</h3>
+                                <h3 className="titel">Innenausstattung wählen</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -768,7 +768,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Auswahl Innenausstattung2 ########## --> */}
                             <div className="single-model-search">
-                                <h3>Innenausstattung</h3>
+                                <h3 className="titel">Innenausstattung</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -802,12 +802,12 @@ class Konfig extends React.Component {
                             </div>
 
                             <hr />
-
                             {/* <!-- ######## Auswahl Service Produkte ######### --> */}
                             <div className="single-model-search">
-                                <h3>Service Produkte</h3>
+                                <h3 className="titel">Service Produkte</h3>
                                 <div className="model-select-icon">
                                     <div id="service">
+                                    <div class="checkbox-container">
                                         <label>
                                             <input
                                                 type="checkbox"
@@ -858,6 +858,7 @@ class Konfig extends React.Component {
                                             Mobilitätsgarantie
                                         </label>
                                     </div>
+                                    </div>
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div
@@ -872,16 +873,16 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Zusatzoptionen ########### --> */}
                             <div className="single-model-search">
-                                <h3>Zusatzoptionen</h3>
+                                <h3 className="titel">Zusatzoptionen</h3>
                                 <div className="model-select-icon">
-                                    {/* <div  className={styles.zusatz} onChange={loadzusatzImage}> */}
+                                <div class="checkbox-container-zusatz">
                                     <label>
                                         <input
                                             type="checkbox"
                                             id="hitch"
                                             value="hitch"
                                         />
-                                        Anhängevorrichtung, 13 polig
+                                        Anhängevorrichtung
                                     </label>
                                     <br />
                                     <label>
@@ -890,7 +891,7 @@ class Konfig extends React.Component {
                                             id="underbody-protection"
                                             value="underbody-protection"
                                         />
-                                        Unterbodenschutz auf Wachsbasis
+                                        Unterbodenschutz
                                     </label>
                                     <br />
                                     <label>
@@ -902,6 +903,7 @@ class Konfig extends React.Component {
                                         Spritzschutz
                                     </label>
                                 </div>
+                                </div>
                             </div>
                             {/* <!-- Anzeigefenster für den Preis --> */}
                             <div className="price-display" id="zusatzPrice">
@@ -911,8 +913,9 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Auswahl Reifen ########### --> */}
                             <div className="single-model-search">
-                                <h3>Reifen</h3>
+                                <h3 className="titel">Reifen</h3>
                                 <div className={styles.reifen}>
+                                <div class="checkbox-container-zusatz">
                                     <label>
                                         <input
                                             type="checkbox"
@@ -928,6 +931,7 @@ class Konfig extends React.Component {
                                         />
                                         Ganzjahresreifenset
                                     </label>
+                                    <br />
                                     <label>
                                         <input
                                             type="checkbox"
@@ -953,9 +957,8 @@ class Konfig extends React.Component {
                                         />
                                         Winterreifenset
                                     </label>
-                                    {/*<img id="selectedImage" src={imagePath} alt="Reifen" onError={() => setImagePath('https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/error/error.png')} /> */}
                                 </div>
-
+                                </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="paketePrice">
                                     Pakete Preis: 0 €
@@ -963,10 +966,9 @@ class Konfig extends React.Component {
                             </div>
 
                             <hr />
-
                             {/* <!-- ########### Pakete ########### --> */}
                             <div className="single-model-search">
-                                <h3>Pakete</h3>
+                                <h3 className="titel">Pakete</h3>
                                 <div className="model-select-icon">
                                     <select
                                         className="form-control"
@@ -1024,7 +1026,7 @@ class Konfig extends React.Component {
 
                             {/* <!-- ########### Abhohlort ########### --> */}
                             <div className="single-model-search">
-                                <h3>Abhohlort auswählen</h3>
+                                <h3 className="titel">Abhohlort auswählen</h3>
                                 <div className="model-select-icon">
                                     <select className="form-control">
                                         <option value="muenchen">
