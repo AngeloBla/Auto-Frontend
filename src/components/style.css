@@ -44,10 +44,10 @@ input[type="checkbox"]:checked {
 }
 
 .checkbox-container-zusatz {
-    padding-left: 3%; 
+    padding-left: 10%; 
     margin-bottom: 10px;
     margin-top: 20px;
-
+    max-width: 100%;
 }
 
 .checkbox-container {
@@ -83,4 +83,27 @@ input[type="checkbox"]:checked {
 
 .titel {
     text-decoration: underline;
+}
+
+.model-select-icon {
+    width: 60%;
+}
+
+#service {
+    padding-left: 7%;
+}
+
+.meinButton {
+    background-color: #3498db; /* Grüne Hintergrundfarbe */
+    color: white; /* Weiße Schrift */
+    padding: 15px 32px; /* Polsterung oben/unten und links/rechts */
+    text-align: center; /* Text zentrieren */
+    text-decoration: none; /* Keine Textdekoration */
+    display: inline-block; /* Inline-Block Display */
+    font-size: 16px; /* Schriftgröße */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Cursor-Stil */
+    border: none; /* Kein Rand */
+    border-radius: 8px; /* Abgerundete Ecken */
+    display: none;
 }

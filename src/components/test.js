@@ -656,7 +656,6 @@ class Konfig extends React.Component {
                                 {/* <!-- ####### Auswahl Karosseriefarbe ######### --> */}
                                 <div className="single-model-search">
                                     <h3 className="titel">Wähle die Karosseriefarbe</h3>
-                                    <div className="model-select-icon">
                                     <select
                                         className="form-select"
                                         id="bodyColor"
@@ -697,7 +696,6 @@ class Konfig extends React.Component {
                                             Weiß
                                         </option>
                                     </select>
-                                    </div>
                                 </div>
                                 {/* <!-- Anzeigefenster für den Preis --> */}
                                 <div className="price-display" id="bodyColorPrice">
@@ -1106,7 +1104,7 @@ class Konfig extends React.Component {
                                 {/* <!-- ########### Auswahl Reifen ########### --> */}
                                 <div className="single-model-search">
                                     <h3 className="titel">Reifen</h3>
-                                    <div className="model-select-icon">
+                                    <div className={styles.reifen}>
                                     <div class="checkbox-container-zusatz">
                                         <label>
                                             <input
@@ -1122,7 +1120,7 @@ class Konfig extends React.Component {
                                                     this.state.winterChecked
                                                 }
                                             />
-                                            Ganzjahresreifenset&nbsp;<span className="small-text"> 1100,00€</span>
+                                            Ganzjahresreifenset&nbsp;<span className="small-text"> 1100,00 €</span>
                                         </label>
                                         <br />
                                         <label>
@@ -1181,29 +1179,34 @@ class Konfig extends React.Component {
                                                 value="flotten-paket-1"
                                                 data-preis="1000"
                                             >
-                                                Flotten-Paket 1: Bodenbelag
+                                                Flotten-Paket 1 mit: Bodenbelag
                                                 Plastik/Gummi, Verstärktes Fahrwerk
                                             </option>
                                             <option
                                                 value="komfort-paket-2"
                                                 data-preis="4000"
                                             >
-                                                Komfort-Paket 2:
+                                                Komfort-Paket 2 mit:
                                                 Spannungskonverter 400 Watt,
+                                                Schaltersatz - 6 Schalter
                                             </option>
                                             <option
                                                 value="outdoor-paket-2"
                                                 data-preis="5000"
                                             >
-                                                Outdoor-Paket 3:
-                                                Unterbodenschutzvorrichtung
+                                                Outdoor-Paket 3 mit:
+                                                Unterbodenschutzvorrichtung an
+                                                Kraftstofftank und Motor
                                             </option>
                                             <option
                                                 value="winter-paket-1"
                                                 data-preis="8000"
                                             >
-                                                Winter-Paket 1: Lenkradheizung,
-                                                Sitzheizung, Scheibenheizung
+                                                Winter-Paket 1 mit: Lenkrad beheizt,
+                                                Fahrersitz und Beifahrersitz
+                                                Vordersitze mit Sitzheizung,
+                                                Beheizbare Windschutzscheibe,
+                                                Klimaanlage, manuell
                                             </option>
                                         </select>
                                     </div>

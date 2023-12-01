@@ -43,7 +43,7 @@ const Signup = () => {
               height="100"
             />
           </div>
-          <h1 className="h3 mb-3 fw-normal">Bitte Registieren Sie sich</h1>
+          <h1 className="h3 mb-3 fw-normal">Bitte Registrieren Sie sich</h1>
           <div style={{ width: '30%', margin:'auto' }} >
           <p>E-Mail Adresse</p>
           <div className="form-floating mb-3 d-flex justify-content-center">
@@ -72,7 +72,7 @@ const Signup = () => {
           </div>
           <div style={{ width: '30%', margin:'auto' }} >
           <button className="btn btn-primary btn-sm w-100 py-2" type="submit">
-            Registieren
+            Registrieren
           </button>
           </div>
           </div>

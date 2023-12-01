@@ -31,16 +31,6 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item me-3 d-flex align-items-center">
                             {/* Verwende Link für interne Links */}
-                            <Link
-                                className="nav-link active"
-                                aria-current="page"
-                                to="/"
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li className="nav-item me-3 d-flex align-items-center">
-                            {/* Verwende Link für interne Links */}
                             <Link className="nav-link" to="/konfig">
                                 Konfigurator
                             </Link>
