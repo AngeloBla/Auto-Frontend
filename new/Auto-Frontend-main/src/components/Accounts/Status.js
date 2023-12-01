@@ -28,10 +28,10 @@ const Status = () => {
                 {status ? (
                     <>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/" onClick={handleLogout}>Logout</Link>
+                            <Link className="nav-link active" aria-current="page" to="/" onClick={handleLogout}>Abmelden</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/changepassword" >Change password</Link>
+                            <Link className="nav-link active" aria-current="page" to="/changepassword" >Passwort ändern</Link>
                         </li>
                     </>
                 ) : (
