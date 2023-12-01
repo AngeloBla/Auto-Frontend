@@ -406,16 +406,14 @@ class Konfig extends React.Component {
                                             data-preis="10000"
                                         >
                                             2.0 EcoBlue (Diesel Euro6) 125kW
-                                            Extrakab. 4x4 XL 170 PS, 4x4-Antrieb
-                                            8,4 l/100km | CO² komb.: 221 g/km
+                                            Extrakab. 4x4 XL 170 PS
                                         </option>
                                         <option
                                             value="4.0-MagaTurbo-XL"
                                             data-preis="20000"
                                         >
                                             4.0 S/C Spezial (Benzin) 257kW 4x4
-                                            XL 350 PS, 4x4-Antrieb 16,5 l/100km
-                                            | CO² komb.: xxl g/km
+                                            XL 350 PS
                                         </option>
                                     </select>
                                 </div>

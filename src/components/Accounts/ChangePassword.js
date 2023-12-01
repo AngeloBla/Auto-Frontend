@@ -79,22 +79,51 @@ const ChangePassword = () => {
         </div>
     
        
-    <main className="form-signin w-100 m-auto">
-      <form onSubmit={onSubmit}>
-        <img className="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"/>
-        <h1 className="h3 mb-3 fw-normal">New password</h1>
-    
-        <div className="form-floating">
-          <input type="password" className="form-control" id="floatingOldPassword" placeholder="oldPassword" onChange={(event) => setPassword(event.target.value)}/>
-          <label htmlFor="floatingPassword">Current password</label>
-        </div>
-        <div className="form-floating">
-          <input type="password" className="form-control" id="floatingNewPassword" placeholder="NewPassword" onChange={(event) => setNewPassword(event.target.value)}/>
-          <label htmlFor="floatingPassword">New password</label>
-        </div>
-        <button className="btn btn-primary w-100 py-2" type="submit">Change password</button>
-      </form>
-    </main>
+        <main className="form-signin d-flex align-items-center justify-content-center">
+  <form onSubmit={onSubmit} style={{ width: '30%' }}>
+    <div className="text-center mb-4">
+      <img
+        src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logov2.png"
+        alt=""
+        width="150"
+        height="120"
+      />
+      <h1 className="h3 mb-3 fw-normal">Neues Passwort vergeben</h1>
+    </div>
+
+    <div className="form-floating mb-3">
+      <input
+        type="password"
+        className="form-control"
+        id="floatingOldPassword"
+        placeholder="oldPassword"
+        onChange={(event) => setPassword(event.target.value)}
+        style={{ width: '100%' }}
+      />
+      <label htmlFor="floatingOldPassword">Aktuelles Passwort</label>
+    </div>
+
+    <div className="form-floating mb-3">
+      <input
+        type="password"
+        className="form-control"
+        id="floatingNewPassword"
+        placeholder="NewPassword"
+        onChange={(event) => setNewPassword(event.target.value)}
+        style={{ width: '100%' }}
+      />
+      <label htmlFor="floatingNewPassword">Neues Passwort</label>
+    </div>
+
+    <div className="text-center mb-3">
+      <button className="btn btn-primary w-100 py-2" type="submit">
+        Passwort ändern
+      </button>
+    </div>
+  </form>
+</main>
+
+
     
     
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossOrigin="anonymous"></script>
