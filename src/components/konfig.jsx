@@ -347,22 +347,21 @@ class Konfig extends React.Component {
             if (optionName === 'ganzjahres' || optionName === 'sommer' || optionName === 'winter') {
                 if (checked) {
                     selectedOptions[id] = preis;
-                    reifenPreis += preis;
+                    reifenPreis += parseInt(preis, 10);
                 } else {
-                    reifenPreis -= selectedOptions[id] || 0;
+                    reifenPreis -= parseInt(selectedOptions[id] || 0, 10);
                     delete selectedOptions[id];
                 }
-    
-                // Exklusivität der Reifenoptionen
+        
                 if (id === 'ganzjahres' && checked) {
                     ['sommer', 'winter'].forEach(reifen => {
                         if (selectedOptions[reifen]) {
-                            reifenPreis -= selectedOptions[reifen];
+                            reifenPreis -= parseInt(selectedOptions[reifen] || 0, 10);
                             delete selectedOptions[reifen];
                         }
                     });
                 } else if ((id === 'sommer' || id === 'winter') && checked && selectedOptions['ganzjahres']) {
-                    reifenPreis -= selectedOptions['ganzjahres'];
+                    reifenPreis -= parseInt(selectedOptions['ganzjahres'] || 0, 10);
                     delete selectedOptions['ganzjahres'];
                 }
             }
@@ -583,6 +582,7 @@ class Konfig extends React.Component {
                                         <option
                                             value="2.0-EcoBlue-XL"
                                             data-preis="10000"
+                                            ID_Produkt="6"
                                         >
                                             2.0 EcoBlue (Diesel Euro6) 125kW
                                             Extrakab. 4x4 XL 170 PS
