@@ -9,30 +9,31 @@ const Dashboard = () => {
     datasets: [
       {
         label: 'Einnahmen pro Monat',
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        borderColor: 'rgba(75,192,192,1)',
+        backgroundColor: 'rgba(54, 162, 235, 0.6)', // Kräftigeres Blau
+        borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(75,192,192,0.4)',
-        hoverBorderColor: 'rgba(75,192,192,1)',
+        hoverBackgroundColor: 'rgba(54, 162, 235, 0.8)',
+        hoverBorderColor: 'rgba(54, 162, 235, 1)',
         data: [6302535, 6545275, 6995275, 6302535, 6999775, 7499775, 7999775, 7995775, 8999775, 9499775, 9999775, 10499775],
       },
     ],
   };
-
+  
   const ausgabenData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [
       {
         label: 'Ausgaben pro Monat',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(255, 69, 0, 0.6)', // Kräftigeres Rotorange
+        borderColor: 'rgba(255, 69, 0, 1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [4002535, 4545275, 4095275, 4302535, 4599775, 5199775, 5999775, 5195775, 6199775, 7199775, 7599775, 8199775],
+        hoverBackgroundColor: 'rgba(255, 69, 0, 0.8)',
+        hoverBorderColor: 'rgba(255, 69, 0, 1)',
+        data: [5002535, 5545275, 5095275, 4302535, 5599775, 4199775, 5919715, 4195775, 5199775, 4115775, 5599775, 4199775],
       },
     ],
   };
+  
 
   const chartOptions = {
     scales: {
@@ -42,12 +43,13 @@ const Dashboard = () => {
       },
       y: {
         beginAtZero: true,
+        max: 12000000, // Hier wird der maximale Wert auf 12 Millionen festgelegt
       },
     },
     maintainAspectRatio: false,
     responsive: true,
   };
-
+  
   return (
     <div>
       <Navbar />
