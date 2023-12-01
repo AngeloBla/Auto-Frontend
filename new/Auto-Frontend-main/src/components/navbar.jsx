@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid justify-content-between">
-                {/* Verwende Link anstelle von 'a' für interne Links */}
+                {/* Verwende Link anstelle von 'a' für interne Links - */}
                 <Link className="navbar-brand" to="/" style={{ display: 'flex', alignItems: 'center' }}>
                     <img src={logo} alt="Logo" id="logo" style={{ marginBottom: '10px', marginLeft: '18px', width: '50px' }} />
                     <div style={{ fontSize: '14px', marginLeft: '10px' }}>Astley Motors</div>
