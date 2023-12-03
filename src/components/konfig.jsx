@@ -6,8 +6,9 @@ import Footer from "./footer";
 import AWS from 'aws-sdk';
 
 AWS.config.update({
-    region: 'Ihre-Region',
-    // Weitere Konfiguration falls nötig
+    region: 'eu-central-1',
+    accessKeyId: '',
+    secretAccessKey: ''
   });
 
 class Konfig extends React.Component {
@@ -430,26 +431,29 @@ class Konfig extends React.Component {
     // handlebutton mit aws update dynamo
     // const docClient = new AWS.DynamoDB.DocumentClient();
 
-// handleButtonClick = () => {
-//   const item = {
-//     TableName: 'Ihr-Tabellenname',
-//     Item: {
-//       // Hier fügen Sie alle Daten hinzu, die Sie speichern möchten
-//       id: 'Einzigartige-ID', // Eine einzigartige ID für den Eintrag
-//       motorPreis: this.state.motorPreis,
-//       getriebePreis: this.state.getriebePreis,
-//       // ... alle weiteren relevanten Zustände
-//     },
-//   };
-
-//   docClient.put(item, function(err, data) {
-//     if (err) {
-//       console.error('Fehler beim Speichern der Daten:', JSON.stringify(err, null, 2));
-//     } else {
-//       console.log('Daten erfolgreich gespeichert:', JSON.stringify(data, null, 2));
-//     }
-//   });
-// };
+    // handleButtonClick = () => {
+    //     const dynamodb = new AWS.DynamoDB.DocumentClient();
+    
+    //     const konfigurationsDaten = {
+    //         // Hier sammeln Sie die ausgewählten Daten
+    //         ID_Konfiguration: ...,
+    //         ID_Kunde: ...,
+    //         // usw.
+    //     };
+    
+    //     const params = {
+    //         TableName: 'Konfiguration',
+    //         Item: konfigurationsDaten
+    //     };
+    
+    //     dynamodb.put(params, function(err, data) {
+    //         if (err) {
+    //             console.error("Fehler beim Speichern in DynamoDB", err);
+    //         } else {
+    //             console.log("Daten erfolgreich gespeichert", data);
+    //         }
+    //     });
+    // };
 
 
 
