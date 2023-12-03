@@ -20,6 +20,45 @@ hr {
     background-color: #767676;
 }
 
+input {
+    width: 50%;
+    margin: 50% 5% 5% 5%; /* Anpassung hier: 2% rechts */
+    padding: 10px;
+    box-sizing: border-box;
+}
+#monthly-rate-display {
+    display: none !important;
+}
+
+.small-text {
+    font-size: 14px; /* oder eine spezifische Größe wie z.B. 12px */
+}
+.kleineresBild {
+    width: 100px; /* oder eine andere Größe, die Sie wünschen */
+    height: auto; /* behält das Seitenverhältnis bei */
+}
+.meinButton {
+    background-color: #3498db; /* Grüne Hintergrundfarbe */
+    color: white; /* Weiße Schrift */
+    padding: 15px 32px; /* Polsterung oben/unten und links/rechts */
+    text-align: center; /* Text zentrieren */
+    text-decoration: none; /* Keine Textdekoration */
+    display: inline-block; /* Inline-Block Display */
+    font-size: 16px; /* Schriftgröße */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Cursor-Stil */
+    border: none; /* Kein Rand */
+    border-radius: 8px; /* Abgerundete Ecken */
+}
+.price-display {
+    /* border: solid 2px green; */
+    border-radius: 5%;
+    margin: 4%;
+    max-width:100%;
+    background-color:rgba(248, 248, 255, 0.5);
+    font-style: italic;
+    font-weight:500;
+}
 
 /* Checkboxen */
 .single-model-search {
