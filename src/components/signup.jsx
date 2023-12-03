@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Userpool from "./Accounts/Userpool";
+import Navbar from './navbar'; 
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -22,6 +24,7 @@ const Signup = () => {
 
   return (
     <div className="text-center">
+      <Navbar/>
       <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
         {/* Your SVG symbols */}
       </svg>
@@ -32,15 +35,15 @@ const Signup = () => {
 
       <main className="form-signin w-100 m-auto">
         <form onSubmit={onSubmit}>
-          <div className="mb-4">
+          <div className="mb-4" style={{ marginTop: '50px' }}>
             <img
               src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logov2.png"
               alt=""
-              width="150"
-              height="120"
+              width="180"
+              height="100"
             />
           </div>
-          <h1 className="h3 mb-3 fw-normal">Bitte Registieren Sie sich</h1>
+          <h1 className="h3 mb-3 fw-normal">Bitte Registrieren Sie sich</h1>
           <div style={{ width: '30%', margin:'auto' }} >
           <p>E-Mail Adresse</p>
           <div className="form-floating mb-3 d-flex justify-content-center">
@@ -50,7 +53,7 @@ const Signup = () => {
               id="floatingInput"
               placeholder="name@example.com"
               onChange={(event) => setEmail(event.target.value)}
-              style={{ width: '250px' }} // Adjust the width as needed
+              style={{ width: '300px' }} // Adjust the width as needed
             />
             
           </div>
@@ -64,12 +67,12 @@ const Signup = () => {
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
               title="Muss mindestens einen Grossbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
               onChange={(event) => setPassword(event.target.value)}
-              style={{ width: '250px' }} // Adjust the width as needed
+              style={{ width: '300px' }} // Adjust the width as needed
             />
           </div>
           <div style={{ width: '30%', margin:'auto' }} >
           <button className="btn btn-primary btn-sm w-100 py-2" type="submit">
-            Registieren
+            Registrieren
           </button>
           </div>
           </div>

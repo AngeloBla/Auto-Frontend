@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AccountContext } from "./Accounts/Account";
+import Navbar from './navbar'; 
 
 const Login = () => {
   // State variables
@@ -48,6 +49,7 @@ const Login = () => {
   // Render JSX
   return (
     <div className="text-center">
+      <Navbar/>
       <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
         {/* Your SVG symbols */}
       </svg>
@@ -58,12 +60,12 @@ const Login = () => {
 
       <main className="form-signin w-100 m-auto">
         <form onSubmit={onSubmit}>
-          <div className="mb-4">
+          <div className="mb-4" style={{ marginTop: '50px' }}>
             <img
               src="https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logov2.png"
               alt=""
-              width="150"
-              height="120"
+              width="180"
+              height="100"
             />
           </div>
           <h1 className="h3 mb-3 fw-normal">Bitte melden Sie sich an</h1>
@@ -74,9 +76,9 @@ const Login = () => {
               type="email"
               className="form-control"
               id="floatingInput"
-              placeholder="name@example.com"
+              placeholder="E-Mail Adresse"
               onChange={(event) => setEmail(event.target.value)}
-              style={{ width: '250px' }} // Adjust the width as needed
+              style={{ width: '300px' }}
             />
             
           </div>
@@ -88,7 +90,7 @@ const Login = () => {
               id="floatingPassword"
               placeholder="Passwort"
               onChange={(event) => setPassword(event.target.value)}
-              style={{ width: '250px' }} // Adjust the width as needed
+              style={{ width: '300px' }}
             />
           </div>
           <div style={{ width: '30%', margin:'auto' }} >

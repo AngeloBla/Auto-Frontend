@@ -9,7 +9,214 @@ hr {
     height: 1px;
 }
 
+.body {
+    font-family: "Arial", sans-serif;
+    filter: brightness(100%);
+    overflow: hidden;
+}
 
+hr {
+    max-width: 1000px;
+    height: 1px;
+}
+
+
+select {
+    width: 500px !important; /* Setzt die Breite auf einen festen Wert */
+    margin: 1% 1%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* optional: füge einen Rand hinzu */
+    background-color: #cac9c9 !important; /* Hintergrundfarbe für alle Dropdowns */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+option {
+    text-align: center; /* Text in der Mitte ausrichten */
+}
+
+
+
+.zahlungsart {
+    width: 50%; 
+    margin: 5% 50%;
+}
+
+
+.togglebutton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.togglebutton:hover {
+    background-color: #2980b9;
+}
+
+/* Container */
+.parentContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* This will make the parent container take up the full height of the viewport */
+    overflow-y: auto; /* This will hide the content that overflows */
+    overflow: hidden;
+}
+
+.container2Wrapper {
+    flex: 1;
+    overflow-y: auto; /* Füge eine vertikale Scrollbar für .container2Wrapper hinzu */
+}
+
+.container {
+    flex: 1;
+    min-width: 30%;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-size: calc(0.5vw + 10px);
+    text-align: center;
+    padding-right: 10px;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.single-model-search .form-control {
+    max-width: 50%; /* Setze die maximale Breite auf 100% des Elterncontainers */
+    box-sizing: border-box;
+}
+
+
+/* Verstecke den Scrollbalken in Webkit-basierten Browsern (Chrome, Safari) */
+.container::-webkit-scrollbar {
+    width: 0 !important; /* Breite auf 0 setzen */
+    background: transparent; /* Hintergrund transparent machen */
+}
+
+
+/* Verstecke den Scrollbalken in Firefox */
+.container {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto; /*This will hide the content that overflows*/
+}
+
+.container3 {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 10%;
+    border: 5px solid #ff0000;
+    animation: changeBorderColor 5s infinite;
+}
+
+@keyframes changeBorderColor {
+    0% {
+        border-color: #ff0000;
+    }
+    50% {
+        border-color: #00ff00;
+    }
+    100% {
+        border-color: #0000ff;
+    }
+}
+
+.reifen {
+    overflow-wrap: normal;
+    text-align: left;
+    padding-bottom: 10px; /* Abstand zwischen Text und Trennlinie */
+    padding-right: 10%; 
+
+}
+
+
+.zusatz {
+    border: black, solid 4px;
+}
+
+
+/* Fixed Image Panel */
+.fixed-image-panel {
+    flex: 1;
+    width: 50%; 
+    height: auto;
+    display: flex; /* Aktiviere Flexbox */
+    align-items: flex-start; /* Bild oben ausrichten */
+}
+
+
+.fixed-image-panel img {
+    width: 25%;
+    height: auto;
+    object-fit: cover;
+
+}
+
+
+/* Fixed Bar */
+.fixedbar {
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 88%;
+    height: auto;
+    margin: 1.5%;
+    color: rgb(45, 44, 44);
+    background-color: #bcbcbc;    border-radius: 5px;
+    padding: 0.5%;
+    font-size: min(max(12px, 1vw), 16px);
+    margin: auto;
+}
+
+/* Price Panel */
+.pricepanel {
+    padding-right: 5%;
+    display: flex; /*Flexbox aktivieren */
+    justify-content: space-between; /*Elemente im Container trennen*/
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .fixed-bar {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-bar {
+        padding: 10px;
+    }
+}
+
+/* Payment Method Container */
+.zahlungsmethode {
+    box-sizing: border-box;
+    padding-bottom: 10px; /* Abstand zwischen Text und Trennlinie */
+}
+
+#selectedImage {
+    clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
+}
 select {
     width: 500px !important; /* Setzt die Breite auf einen festen Wert */
     margin: 1% 1%;
